@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=fMHxc4wQbZAHa07iUWxGeyHzJSXtSbSW"></script>
+	<title>地图展示</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+	var zoomsize = 17;
+	var map = new BMapGL.Map("allmap");
+	var p0 =  new BMapGL.Point(113.673024,34.788013) // 创建Map实例 
+	map.centerAndZoom(p0, zoomsize);  // 初始化地图,设置中心点坐标和地图级别
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	map.setMapStyleV2({     
+  styleId: '0dce6484aeea7279b4198bf8ad8f865d'
+});
+
+	var p1 = new BMapGL.Point(113.673024,34.788013);
+    var p2 = new BMapGL.Point(113.677264,34.792495);
+	var walking = new BMapGL.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+	walking.disableAutoViewport();
+    //walking.search(p1, p2);
+
+	// map.addEventListener("rightclick",function(e){});
+	
+	/*
+	map.addEventListener('click', handleClick);
+	function handleClick (e) {
+		// walking.clearResults();
+		alert('点击的经纬度：' + e.latlng.lng + ', ' + e.latlng.lat);
+	}
+	*/
+	// map.removeEventListener('click', handleClick);
+
+	var txtMenuItem = [
+        {
+            text:'复位',                             // 定义菜单项的显示文本
+            callback: function () {                 // 定义菜单项点击触发的回调函数
+                map.centerAndZoom(p0, zoomsize);
+				walking.clearResults();
+            }
+        },
+        {
+            text:'取消导航',
+            callback: function () {
+                walking.clearResults();
+            }
+        }
+    ];
+	var menu_ui = new BMapGL.ContextMenu();
+	for(var i = 0; i < txtMenuItem.length; i++)
+	{
+    menu_ui.addItem(new BMapGL.MenuItem(               // 定义菜单项实例
+        txtMenuItem[i].text,                        // 传入菜单项的显示文本
+        txtMenuItem[i].callback,                    // 传入菜单项的回调函数
+        {
+            width: 300,                             // 指定菜单项的宽度
+            id: 'menu' + i                          // 指定菜单项dom的id
+        }
+    ));
+	}
+	map.addContextMenu(menu_ui);
+
+	var marker = new BMapGL.Marker(p0);
+	var label = new BMapGL.Label("北区东门");
+	marker.setLabel(label);
+	map.addOverlay(marker);
+
+	var r1 = new BMapGL.Point(113.678558,34.783696);
+	var m1 = new BMapGL.Marker(r1);
+	var label = new BMapGL.Label("桃园食屋");
+	m1.setLabel(label);
+	m1.addEventListener("click", function()
+	{   
+    	walking.search(p1, r1);
+	});
+	map.addOverlay(m1);
+</script>
