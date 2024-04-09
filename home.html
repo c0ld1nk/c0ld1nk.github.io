@@ -70,18 +70,93 @@
 	}
 	map.addContextMenu(menu_ui);
 
+	// 定义初始地点图标
 	var marker = new BMapGL.Marker(p0);
 	var label = new BMapGL.Label("北区东门");
-	marker.setLabel(label);
+	marker.setLabel(label); // 添加地点名称
 	map.addOverlay(marker);
 
+	// 定义餐厅地点与图标
 	var r1 = new BMapGL.Point(113.678558,34.783696);
 	var m1 = new BMapGL.Marker(r1);
 	var label = new BMapGL.Label("桃园食屋");
-	m1.setLabel(label);
-	m1.addEventListener("click", function()
+	m1.setLabel(label); // 添加餐厅名称
+	m1.addEventListener("click", function() // 点击图标后自动寻路
 	{   
     	walking.search(p1, r1);
 	});
 	map.addOverlay(m1);
+
+	// 添加初始化的自定义控件
+	function Initmap()
+	{
+		this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+		this.defaultOffset = new BMapGL.Size(10, 40)
+	}
+	// 继承Control类
+	Initmap.prototype = new BMapGL.Control();
+	Initmap.prototype.initialize = function(map)
+	{
+		// 创建dom元素
+		var div = document.createElement('div');
+		// 添加文字
+		div.appendChild(document.createTextNode('取消导航'));
+		// 设置样式
+		div.style.cursor = "pointer";
+		div.style.padding = "8px 13px";
+		div.style.margin = "20px 0px";
+		div.style.boxShadow = "0 2px 6px 0 rgba(27, 142, 236, 0.5)";
+		div.style.borderRadius = "5px";
+		div.style.backgroundColor = "white";
+
+		// 绑定事件
+		div.onclick = function (e)
+		{
+			walking.clearResults();
+		}
+		// 添加dom元素道地图中
+		map.getContainer().appendChild(div);
+		// 返回元素
+		return div;
+	}
+	// 创建控件元素
+	var myInitmap = new Initmap();
+	map.addControl(myInitmap);
+
+	// 添加取消路径的自定义控件
+	function Cancelroute()
+	{
+		this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+		this.defaultOffset = new BMapGL.Size(10, -10)
+	}
+	// 继承Control类
+	Cancelroute.prototype = new BMapGL.Control();
+	Cancelroute.prototype.initialize = function(map)
+	{
+		// 创建dom元素
+		var div = document.createElement('div');
+		// 添加文字
+		div.appendChild(document.createTextNode('重置'));
+		// 设置样式
+		div.style.cursor = "pointer";
+		div.style.padding = "8px 13px";
+		div.style.margin = "20px 0px";
+		div.style.boxShadow = "0 2px 6px 0 rgba(27, 142, 236, 0.5)";
+		div.style.borderRadius = "5px";
+		div.style.backgroundColor = "white";
+
+		// 绑定事件
+		div.onclick = function (e)
+		{
+			map.centerAndZoom(p0, zoomsize);
+			walking.clearResults();
+		}
+		// 添加dom元素道地图中
+		map.getContainer().appendChild(div);
+		// 返回元素
+		return div;
+	}
+	// 创建控件元素
+	var mycancelroute = new Cancelroute();
+	map.addControl(mycancelroute);
 </script>
