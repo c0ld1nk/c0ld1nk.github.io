@@ -1,0 +1,32 @@
+baseURL = 'https://c0ld1nk.github.io'
+languageCode = 'zh-cn'
+title = '遥乡书屋'
+
+[module]
+    [[module.imports]]
+        path = "github.com/colinwilson/lotusdocs"
+        disable = false
+    [[module.imports]]
+        path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
+        disable = false
+[params.docs]
+    intLinkTooltip = true # Enable a tooltip for internal links that displays info about the destination? default false
+
+[menu]
+[[menu.primary]]
+    name  = "Docs"
+    url = "docs/"
+    identifier = "docs"
+    weight = 10
+
+[[menu.primary]]
+     name  = "Showcase"
+     url = "/showcase"
+     identifier = "showcase"
+     weight = 20
+
+# [[menu.primary]]
+#     name  = "Community"
+#     url = "https://github.com/colinwilson/lotusdocs/discussions"
+#     identifier = "community"
+#     weight = 30

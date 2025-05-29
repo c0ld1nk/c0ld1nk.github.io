@@ -1,0 +1,96 @@
+# Hero
+hero:
+  enable: true
+  weight: 10
+  template: hero
+
+  backgroundImage:
+    path: "images/templates/hero"
+    filename:
+      desktop: "gradient-desktop.webp"
+      mobile: "gradient-mobile.webp"
+
+  badge:
+    text: M1st0ry
+    color: primary # primary, secondary, success, danger, warning, info, light, dark
+    pill: false # boolean
+    soft: true # boolean
+
+  title: "遥乡书屋"
+  subtitle: "愿您找到想要的书"
+
+  image:
+    path: "pic" # path to image under configured assets directory. default 'images'
+    filename: "backgroud-pic1.jpg" # filename of your hero image (including file extension)
+    alt: "Lotus Docs Screenshot" # Optional but recommended
+    boxShadow: true # default 'false' (excludes .svg images)
+    rounded: true # round the image corners? default 'false' (excludes .svg images)
+
+  ctaButton:
+    icon: book
+    btnText: "进入"
+    url: "/docs/"
+  cta2Button:
+    icon: code
+    btnText: "View on GitHub"
+    url: "https://github.com/c0ld1nk/c0ld1nk.github.io"
+  info: "**Open Source** MIT Licensed."
+
+# Features
+featureGrid:
+    enable: true
+    weight: 20
+    template: feature grid
+    title: Quick Jump # 1
+    #subtitle: Lotus Docs is a highly configurable Hugo documentation theme. Yet, with the default configuration you can deploy and publish your documentation site in a matter of minutes. Check out some core features below. # 2
+    
+    items:
+    - title: CTF # 4
+      icon: flag # 3
+      description: 收录ctf比赛的wp与整理的知识点 # 5
+      ctaLink: # 6
+        text: learn more
+        url: /docs/
+
+    - title: HTB
+      icon: inbox
+      description: 收录HTB的wp
+      ctaLink:
+        text: learn more
+        url: /docs/
+    
+    - title: 春秋云镜
+      icon: cloud
+      description: 收录春秋云镜的wp
+      ctaLink:
+        text: learn more
+        url: /docs/
+    
+    - title: 工具箱
+      icon: Handyman
+      description: 收录工具链接与使用指南
+      ctaLink:
+        text: learn more
+        url: /docs/
+    
+    - title: 其余靶场
+      icon: Laptop
+      description: 收录一些打的较少的靶场wp
+      ctaLink:
+        text: learn more
+        url: /docs/
+    - title: THM
+      icon: Biotech
+      description: 收录THM的wp
+      ctaLink:
+        text: learn more
+        url: /docs/
+    - title: 其他
+      icon: add
+      description: 收录一些其他的杂七杂八
+      ctaLink:
+        text: learn more
+        url: /docs/
+
+imageCompare:
+    enable: false
