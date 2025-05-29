@@ -9,4 +9,4 @@ draft: false
 toc: true
 ---
 # CTF知识点
-如有错误请联系
+如有错误请联系https://github.com/c0ld1nk/
