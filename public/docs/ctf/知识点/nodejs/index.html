@@ -243,12 +243,21 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                 
                 
                     
-                        
-                        <li class="current">
-                            <a class="sidebar-root-link" href="https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/">
-                                
-                                NodeJs
-                            </a>
+                    
+                        <li class="sidebar-dropdown no-icon current active">
+                            <button class="btn">
+                                知识点
+                            </button>
+                            <div class="sidebar-submenu d-block">
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/">NodeJs</a></li>
+                                        
+                                    
+                                </ul>
+                            </div>
                         </li>
                     
                 
@@ -360,10 +369,18 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                     <meta itemprop="position" content='1' />
                 </li>
             
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/">
+                        <span itemprop="name">知识点</span>
+                    </a>
+                    <meta itemprop="position" content='2' />
+                </li>
+            
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <span itemprop="name">NodeJs</span>
-                <meta itemprop="position" content='2' />
+                <meta itemprop="position" content='3' />
             </li>
         
     </ul>
@@ -941,6 +958,13 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
     
     
     
+    
+    
+    
+    
+    
+    
+    
 
 
     
@@ -950,6 +974,15 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
     index.add(
             {
                 id:  0 ,
+                href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/",
+                title: "知识点",
+                description: "CTF知识点 link",
+                content: "CTF知识点 link"
+            }
+        );
+    index.add(
+            {
+                id:  1 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/nodejs\/",
                 title: "NodeJs",
                 description: "命令执行 link require('child_process').exec('ls'); //返回值是child_process，不能转字符串 require('child_process').execSync('ls').toString(); //返回值是字符串 require('child_process').spawnSync('ls').stdout.toString();// 返回object，toString转成字符串 //绕过简单的限制 require('child_process')['exe'+'cSync']('ls').toString() 不用child_process读取文件\n__filename //获取当前文件的绝对路径 __dirname //获取当前文件解析过后的文件夹的绝对路径 require('fs').readFileSync(__filename,'utf-8'); //读取当前文件 require('fs').readdirSync('.') //读取当前目录下所有文件 md5 link if(a \u0026\u0026 b \u0026\u0026 a.length===b.length \u0026\u0026 a!==b \u0026\u0026 md5(a+flag)===md5(b+flag)) 传入a[]=1\u0026b[]=2 得到的是[‘1’]和[‘2’] 而nodejs中数组和字符串的拼接如下：\nconsole.log(5+[6,6]); //56,6 console.log(\"5\"+6); //56 console.log(\"5\"+[6,6]); //56,6 console.log(\"5\"+[\"6\",\"6\"]); //56,6 则[‘a’]+flag== ‘a’+flag\n如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:'1'}\nlet a={ x:'1' } console.log(a+\"flag{123}\") //返回的是： [object Object]flag{123} 所以传入a[x]=1\u0026b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。\n原型链污染 link //定义一个类 function Foo() { this.bar = 1 } new Foo() //类内的方法 function Foo() { this.bar = 1 this.show = function() { console.log(this.bar) this.bar=this.bar+1 } } (new Foo()).show() //输出1 //但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上 //使用原型prototype创建类时，就会只创建一次show方法。 function Foo() { this.bar = 1 } Foo.prototype.show = function show() { console.log(this.bar) } let foo = new Foo() foo.show() //输出1 //原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。 //foo对象天生就有show方法 //通过proto属性可以访问类的原型，即： foo.__proto__==Foo.prototype 总结： prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法\n",
@@ -958,7 +991,7 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
         );
     index.add(
             {
-                id:  1 ,
+                id:  2 ,
                 href: "\/docs\/",
                 title: "Docs",
                 description: "",
