@@ -2,18 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on 遥乡书屋</title>
-    <link>https://c0ld1nk.github.io/docs/</link>
+    <link>http://localhost:1313/docs/</link>
     <description>Recent content in Docs on 遥乡书屋</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 29 May 2025 10:43:44 +0800</lastBuildDate>
-    <atom:link href="https://c0ld1nk.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ctf nodejs test</title>
-      <link>https://c0ld1nk.github.io/docs/example-page/</link>
-      <pubDate>Thu, 29 May 2025 10:43:44 +0800</pubDate>
-      <guid>https://c0ld1nk.github.io/docs/example-page/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

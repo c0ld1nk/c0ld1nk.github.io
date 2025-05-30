@@ -50,47 +50,47 @@ featureGrid:
       description: 收录ctf比赛的wp与整理的知识点 # 5
       ctaLink: # 6
         text: learn more
-        url: /docs/
+        url: /docs/CTF
 
     - title: HTB
       icon: inbox
       description: 收录HTB的wp
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/HTB
     
     - title: 春秋云镜
       icon: cloud
       description: 收录春秋云镜的wp
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/春秋云镜/
     
     - title: 工具箱
       icon: Handyman
       description: 收录工具链接与使用指南
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/工具箱/
     
     - title: 其余靶场
       icon: Laptop
       description: 收录一些打的较少的靶场wp
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/其余靶场/
     - title: THM
       icon: Biotech
       description: 收录THM的wp
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/THM/
     - title: 其他
       icon: add
       description: 收录一些其他的杂七杂八
       ctaLink:
         text: learn more
-        url: /docs/
+        url: /docs/其他/
 
 imageCompare:
     enable: false
