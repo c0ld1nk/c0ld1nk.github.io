@@ -11,6 +11,7 @@ title = '遥乡书屋'
         disable = false
 [params.docs]
     intLinkTooltip = true # Enable a tooltip for internal links that displays info about the destination? default false
+    prism = true
     prismTheme = "lotusdocs" # (optional) - Set theme for PrismJS. Options include: lotusdocs (default), solarized-light, twilight, lucario
 [menu]
 [[menu.primary]]

