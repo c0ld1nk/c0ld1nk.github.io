@@ -20,10 +20,25 @@
     <loc>http://localhost:1313/docs/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2025-05-30T09:48:26+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/docs/htb/sherlock/bumblebee/</loc>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/htb/sherlock/campfire-1/</loc>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/htb/sherlock/meerkat/</loc>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/htb/sherlock/noxious/</loc>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/htb/sherlock/unit42/</loc>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/docs/htb/sherlock/</loc>
     <lastmod>2025-05-30T10:59:27+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/wp/</loc>
+    <loc>http://localhost:1313/docs/htb/sherlock/brutus/</loc>
     <lastmod>2025-05-30T10:51:07+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/rce/</loc>
@@ -45,7 +60,7 @@
     <lastmod>2025-05-29T16:38:45+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-30T10:59:27+08:00</lastmod>
+    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

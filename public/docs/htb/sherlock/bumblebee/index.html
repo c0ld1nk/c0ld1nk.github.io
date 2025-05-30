@@ -14,9 +14,10 @@
 
 <html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
-    <title>工具箱 | 遥乡书屋</title>
+    <title>Bumblebee | 遥乡书屋</title>
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="asdasda">
     <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
     <meta name="author" content="Colin Wilson - Lotus Labs" />
     <meta name="email" content="support@aigis.uk" />
@@ -29,13 +30,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
-<meta property="og:title" content="工具箱" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/>
-<meta name="twitter:title" content="工具箱"/>
-<meta name="twitter:description" content=""/>
+<meta property="og:title" content="Bumblebee" />
+<meta property="og:description" content="asdasda" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/htb/sherlock/bumblebee/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_9b8b6ea7c522315b.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-05-30T15:10:35+08:00" />
+<meta property="article:modified_time" content="2025-05-30T15:10:35+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_9b8b6ea7c522315b.png"/>
+<meta name="twitter:title" content="Bumblebee"/>
+<meta name="twitter:description" content="asdasda"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -114,25 +117,25 @@
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon ">
+                        <li class="sidebar-dropdown no-icon current active">
                             <button class="btn">
                                 HTB
                             </button>
-                            <div class="sidebar-submenu ">
+                            <div class="sidebar-submenu d-block">
                                 <ul>
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     Sherlock
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/bumblebee/">Bumblebee</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/bumblebee/">Bumblebee</a></li>
                                                             
                                                         
                                                             
@@ -212,7 +215,7 @@
                 
                     
                         
-                        <li class="current">
+                        <li class="">
                             <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/">
                                 
                                 工具箱
@@ -328,10 +331,26 @@
                     <meta itemprop="position" content='1' />
                 </li>
             
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/">
+                        <span itemprop="name">HTB</span>
+                    </a>
+                    <meta itemprop="position" content='2' />
+                </li>
+            
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/sherlock/">
+                        <span itemprop="name">Sherlock</span>
+                    </a>
+                    <meta itemprop="position" content='3' />
+                </li>
+            
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">工具箱</span>
-                <meta itemprop="position" content='2' />
+                <span itemprop="name">Bumblebee</span>
+                <meta itemprop="position" content='4' />
             </li>
         
     </ul>
@@ -339,35 +358,282 @@
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">On this page</div>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+    <li><a href="#task10">Task10</a></li>
+  </ul>
+</nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
-<nav id="toc-mobile"></nav></div>
-                                        <div class="docs-content col-12  mt-0">
+<nav id="toc-mobile">
+  <ul class="dropdown-menu">
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+    <li><a href="#task10">Task10</a></li>
+  </ul>
+</nav></div>
+                                        <div class="docs-content col-12 col-xl-9 mt-0">
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    工具箱
+                                                    Bumblebee
                                                     
                                                 </h1>
                                             </div>
                                             
                                             <div id="content" class="main-content" >
                                                 
-    <div class="row flex-xl-wrap">
-        
+    
+    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
+        <p>解压密码为hacktheblue</p>
+<blockquote>
+<p>一名外部承包商通过访客 Wi-Fi 访问了 Forela 的内部论坛，并且似乎窃取了管理员用户的凭证！我们附上了一些论坛日志和完整的 sqlite3 格式数据库转储文件，以协助您的调查。</p></blockquote>
+<h2 id="task1">Task1 <a href="#task1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>该外部承包商的用户名是什么？
+apoole</p></blockquote>
+<p>提示结尾有个1，在数据库50多项有俩，试了一下第二个是</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428191411_1877458264534182995.png" alt="" width="717" height="183" loading="lazy">
+    
+  
+</p>
+<h2 id="task2">Task2 <a href="#task2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>承包商使用哪个 IP 地址创建了他们的账户？
+10.10.0.78</p></blockquote>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428192203_13679261152555040539.png" alt="" width="561" height="91" loading="lazy">
+    
+  
+</p>
+<h2 id="task3">Task3 <a href="#task3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>承包商发布的恶意帖子的 post_id 是什么？
+9</p></blockquote>
+<p>phpbb_posts数据库里找</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428192406_7376562964316596902.png" alt="" width="1669" height="97" loading="lazy">
+    
+  
+</p>
+<h2 id="task4">Task4 <a href="#task4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>凭证窃取程序发送数据的完整 URI 是什么
+http://10.10.0.78/update.php</p></blockquote>
+<p>上一题的posts内容复制本地html打开，login标签找到</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428193338_17098866384701933286.png" alt="" width="1177" height="117" loading="lazy">
+    
+  
+</p>
+<h2 id="task5">Task5 <a href="#task5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>承包商何时以管理员身份登录论坛？（UTC 时间
+26/04/2023 10:53:12</p></blockquote>
+<p>在phpbb_log找到管理员登录记录，在最后</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428194455_17616316509546040816.png" alt="" width="1290" height="195" loading="lazy">
+    
+  
+</p>
+<p>登录操作为post，过滤找到最底下的记录</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428194531_16471387040997367396.png" alt="" width="1453" height="418" loading="lazy">
+    
+  
+</p>
+<p>第一个应该就是登录记录26/Apr/2023:11:53:12 +0100，转换成UTC时间减一即可</p>
+<h2 id="task6">Task6 <a href="#task6" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>论坛中有 LDAP 连接的明文凭证，密码是什么？
+Passw0rd1</p></blockquote>
+<p>在phpbb_config里面找到</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428195337_10154977263021090743.png" alt="" width="1213" height="106" loading="lazy">
+    
+  
+</p>
+<h2 id="task7">Task7 <a href="#task7" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>管理员用户的 User Agent 是什么？
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36</p></blockquote>
+<p>找时间靠前的adm访问记录即可</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428195520_7870280749531433369.png" alt="" width="1852" height="135" loading="lazy">
+    
+  
+</p>
+<h2 id="task8">Task8 <a href="#task8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>承包商何时将自己加入管理员组？（UTC 时间
+26/04/2023 10:53:51</p></blockquote>
+<p>log数据库找到</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428195720_1896333102263418489.png" alt="" width="1675" height="91" loading="lazy">
+    
+  
+</p>
+<h2 id="task9">Task9 <a href="#task9" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>承包商在什么时间下载了数据库备份？（UTC 时间）
+26/04/2023 11:01:38</p></blockquote>
+<p>日志搜backup，能找到get一个gz</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250428200348_8036025247506270056.png" alt="" width="1252" height="199" loading="lazy">
+    
+  
+</p>
+<h2 id="task10">Task10 <a href="#task10" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>根据 access.log 记录，数据库备份的大小是多少字节？
+34707</p></blockquote>
+<p>和上一题一个位置</p>
+
     </div>
 
+    
+
+    
                                             </div>
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
+
+	<div class="row flex-xl-nowrap flex-row-reverse">
+	<div class="col-sm-6 pt-2 doc-prev">
+		<a class="ms-auto" href="/docs/htb/sherlock/campfire-1/">
+			<div class="card h-100 my-1 text-end">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">Campfire-1 <i class="material-icons align-middle">navigate_next</i></p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	</div>
 </div></div>
                                         </div>
                                     </div>

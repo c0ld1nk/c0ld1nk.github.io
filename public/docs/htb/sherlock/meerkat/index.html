@@ -14,7 +14,7 @@
 
 <html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
-    <title>工具箱 | 遥乡书屋</title>
+    <title>Meerkat | 遥乡书屋</title>
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
@@ -29,13 +29,317 @@
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
-<meta property="og:title" content="工具箱" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/>
-<meta name="twitter:title" content="工具箱"/>
-<meta name="twitter:description" content=""/>
+<meta property="og:title" content="Meerkat" />
+<meta property="og:description" content="解压密码为hacktheblue
+
+作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。
+Task1 link
+我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？
+Bonitasoft
+wireshark-统计-端点-TCP-按照流量包大小排序
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080
+  
+  
+找到访问记录；
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+搜索得知软件名称
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+Task2 link
+我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？
+Credential Stuffing
+按照info和time排序，找到爆破行为：
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+查看
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+不像是暴力，更像是撞库
+Task3 link
+被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？
+CVE-2022-25237
+能看见访问了这个路由
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+搜索得到编号，CVE-2022-25237" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/htb/sherlock/meerkat/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_ae28904cb08dd856.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-05-30T15:10:35+08:00" />
+<meta property="article:modified_time" content="2025-05-30T15:10:35+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_ae28904cb08dd856.png"/>
+<meta name="twitter:title" content="Meerkat"/>
+<meta name="twitter:description" content="解压密码为hacktheblue
+
+作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。
+Task1 link
+我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？
+Bonitasoft
+wireshark-统计-端点-TCP-按照流量包大小排序
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080
+  
+  
+找到访问记录；
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+搜索得知软件名称
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+Task2 link
+我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？
+Credential Stuffing
+按照info和time排序，找到爆破行为：
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+查看
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+不像是暴力，更像是撞库
+Task3 link
+被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？
+CVE-2022-25237
+能看见访问了这个路由
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+搜索得到编号，CVE-2022-25237"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -114,20 +418,20 @@
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon ">
+                        <li class="sidebar-dropdown no-icon current active">
                             <button class="btn">
                                 HTB
                             </button>
-                            <div class="sidebar-submenu ">
+                            <div class="sidebar-submenu d-block">
                                 <ul>
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     Sherlock
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
@@ -142,7 +446,7 @@
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/meerkat/">Meerkat</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/meerkat/">Meerkat</a></li>
                                                             
                                                         
                                                             
@@ -212,7 +516,7 @@
                 
                     
                         
-                        <li class="current">
+                        <li class="">
                             <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/">
                                 
                                 工具箱
@@ -328,10 +632,26 @@
                     <meta itemprop="position" content='1' />
                 </li>
             
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/">
+                        <span itemprop="name">HTB</span>
+                    </a>
+                    <meta itemprop="position" content='2' />
+                </li>
+            
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/sherlock/">
+                        <span itemprop="name">Sherlock</span>
+                    </a>
+                    <meta itemprop="position" content='3' />
+                </li>
+            
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">工具箱</span>
-                <meta itemprop="position" content='2' />
+                <span itemprop="name">Meerkat</span>
+                <meta itemprop="position" content='4' />
             </li>
         
     </ul>
@@ -339,35 +659,405 @@
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">On this page</div>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+    <li><a href="#task10">Task10</a></li>
+  </ul>
+</nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
-<nav id="toc-mobile"></nav></div>
-                                        <div class="docs-content col-12  mt-0">
+<nav id="toc-mobile">
+  <ul class="dropdown-menu">
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+    <li><a href="#task10">Task10</a></li>
+  </ul>
+</nav></div>
+                                        <div class="docs-content col-12 col-xl-9 mt-0">
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    工具箱
+                                                    Meerkat
                                                     
                                                 </h1>
                                             </div>
                                             
                                             <div id="content" class="main-content" >
                                                 
-    <div class="row flex-xl-wrap">
-        
+    
+    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
+        <p>解压密码为hacktheblue</p>
+<blockquote>
+<p>作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。</p></blockquote>
+<h2 id="task1">Task1 <a href="#task1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？
+Bonitasoft</p></blockquote>
+<p>wireshark-统计-端点-TCP-按照流量包大小排序</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151029_7625006792586719793.png" alt="" width="517" height="91" loading="lazy">
+    
+  
+</p>
+<p>能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f284b17" class="language-wireshark ">
+  <code>ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080</code>
+  </pre>
+  </div>
+<p>找到访问记录；</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151259_17075503477552643331.png" alt="" width="1152" height="45" loading="lazy">
+    
+  
+</p>
+<p>搜索得知软件名称</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151354_16244481325688678542.png" alt="" width="406" height="141" loading="lazy">
+    
+  
+</p>
+<h2 id="task2">Task2 <a href="#task2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？
+Credential Stuffing</p></blockquote>
+<p>按照info和time排序，找到爆破行为：</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151607_16443700592826737845.png" alt="" width="1120" height="332" loading="lazy">
+    
+  
+</p>
+<p>查看</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151634_16711558281047664549.png" alt="" width="560" height="468" loading="lazy">
+    
+  
+</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423151659_17300956884832104275.png" alt="" width="565" height="96" loading="lazy">
+    
+  
+</p>
+<p>不像是暴力，更像是撞库</p>
+<h2 id="task3">Task3 <a href="#task3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？
+CVE-2022-25237</p></blockquote>
+<p>能看见访问了这个路由</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423152321_11379623350642487269.png" alt="" width="945" height="147" loading="lazy">
+    
+  
+</p>
+<p>搜索得到编号，<a href="https://zhuanlan.zhihu.com/p/575580483" rel="external" target="_blank">CVE-2022-25237<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423152441_16003092445984018762.png" alt="" width="719" height="207" loading="lazy">
+    
+  
+</p>
+<h2 id="task4">Task4 <a href="#task4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>攻击者的漏洞利用在 API URL 路径后附加了哪个字符串以绕过授权过滤器？
+i18ntranslation</p></blockquote>
+<p>参见上一问即可</p>
+<h2 id="task5">Task5 <a href="#task5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>在凭证填充攻击中使用了多少组用户名和密码的组合？
+56</p></blockquote>
+<p>文件-导出分组解析结果为纯文本，用脚本提取即可</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="277383b" class="language-python ">
+  <code>import re
+
+def extract_usernames(filename):
+    pattern = r&#39;Form item: &#34;username&#34;\s*=\s*&#34;([^&#34;]&#43;)&#34;&#39;
+    usernames = []
+    
+    with open(filename, &#39;r&#39;, encoding=&#39;utf-8&#39;) as file:
+        for line in file:
+            match = re.search(pattern, line)
+            if match:
+                usernames.append(match.group(1))
+    
+    return usernames
+
+# 使用示例
+usernames = extract_usernames(&#39;1.txt&#39;)
+usernames = set(usernames)
+print(len(usernames))
+for i in usernames:
+	print(i)</code>
+  </pre>
+  </div>
+<p>得到结果57，但是不对，去掉默认账户<code>install:install</code>就对了</p>
+<h2 id="task6">Task6 <a href="#task6" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>哪一组用户名和密码组合成功了？
+<code>seb.broom@forela.co.uk:g0vernm3nt</code></p></blockquote>
+<p>过滤响应码200的包</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="5e87b16" class="language-wireshark ">
+  <code>ip.addr == 172.31.6.44 &amp;&amp; tcp.port == 8080 &amp;&amp; http.response.code == 200</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423162024_4254711220253318999.png" alt="" width="1286" height="426" loading="lazy">
+    
+  
+</p>
+<h2 id="task7">Task7 <a href="#task7" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>如果有的话，攻击者利用了哪个文本分享网站？
+pastes.io</p></blockquote>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423162751_1240265046434875466.png" alt="" width="1114" height="30" loading="lazy">
+    
+  
+</p>
+<h2 id="task8">Task8 <a href="#task8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>请提供攻击者用于在我们主机上维持持久访问的公钥文件名。
+hffgra4unv</p></blockquote>
+<p>题目翻译的有点问题，意思应该是用哪个文件写入的公钥
+打开上一题找到的url能看见</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423163628_16040984981509931200.png" alt="" width="628" height="87" loading="lazy">
+    
+  
+</p>
+<h2 id="task9">Task9 <a href="#task9" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>你能确认攻击者为维持持久访问所修改的文件吗？
+/home/ubuntu/.ssh/authorized_keys</p></blockquote>
+<p>见上一题</p>
+<h2 id="task10">Task10 <a href="#task10" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>您能确认这种持久化机制对应的 MITRE 技术 ID 吗？
+T1098.004</p></blockquote>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250423164013_7706512754592922192.png" alt="" width="478" height="367" loading="lazy">
+    
+  
+</p>
+
     </div>
 
+    
+
+    
                                             </div>
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
+
+	<div class="row flex-xl-nowrap ">
+	<div class="col-sm-6 pt-2 doc-next">
+		<a href="/docs/htb/sherlock/campfire-1/">
+			<div class="card h-100 my-1">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Campfire-1</p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	<div class="col-sm-6 pt-2 doc-prev">
+		<a class="ms-auto" href="/docs/htb/sherlock/noxious/">
+			<div class="card h-100 my-1 text-end">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">Noxious <i class="material-icons align-middle">navigate_next</i></p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	</div>
 </div></div>
                                         </div>
                                     </div>

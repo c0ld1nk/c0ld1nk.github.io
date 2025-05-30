@@ -14,7 +14,7 @@
 
 <html lang="zh-cn"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
-    <title>工具箱 | 遥乡书屋</title>
+    <title>Noxious | 遥乡书屋</title>
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
@@ -29,13 +29,221 @@
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
-<meta property="og:title" content="工具箱" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_c9b5b01a790d550c.png"/>
-<meta name="twitter:title" content="工具箱"/>
-<meta name="twitter:description" content=""/>
+<meta property="og:title" content="Noxious" />
+<meta property="og:description" content="解压密码为hacktheblue
+
+入侵检测系统（IDS）设备发出警报，提示内部 Active Directory 网络中可能存在恶意设备。该系统还监测到异常的 LLMNR 协议流量，怀疑发生了 LLMNR 投毒攻击。异常流量指向 IP 地址为 172.17.79.136 的 Forela-WKstn002 工作站。作为网络取证专家，您已获得事发时段的部分数据包捕获文件。鉴于事件发生在 Active Directory 虚拟局域网内，建议结合 AD 攻击向量开展网络威胁狩猎，重点关注 LLMNR 投毒攻击。
+Task1 link
+安全团队怀疑 Forela 内网中存在运行 Responder 工具的恶意设备实施 LLMNR 投毒攻击。请定位该恶意设备的 IP 地址。
+LLMNR协议在UDP 5355，所以过滤udp.port==5355
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+能看到172.17.79.135对工作站172.17.79.136的LLMNR查询进行了回应，冒充了dc
+答案就是172.17.79.135
+Task2 link
+被入侵机器的主机名是什么？
+过滤此ip，ip.addr==172.17.79.135，有一个dhcp请求分配动态ip，里面有主机名称
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是kali
+Task3 link
+现在我们需要确认攻击者是否获取了用户哈希值且该哈希可被破解！！被捕获哈希的用户名是什么？
+还是过滤上面的ip，有一条登录cookie数据包，说明攻击者成功破解密码并破解
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是john.deacon
+Task4 link
+在 NTLM 流量中可以看到受害者的凭证被多次中继到攻击者的机器上。这些哈希值首次是在何时被捕获的？
+ntml协议通常使用HTTP、SMB、SMTP，查看协议占比可知smb2占比最多
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+过滤smb2协议
+搜索dcc01，能找到工作站请求NTLM认证。从这里开始进行中间人劫持哈希。
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是2024-06-24 11:18:30（ 注意是 UTC-0）
+Task5 link
+受害者在访问文件共享时输入了哪个拼写错误导致其凭据泄露？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/docs/htb/sherlock/noxious/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu_be494e7ca343e844.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-05-30T15:10:35+08:00" />
+<meta property="article:modified_time" content="2025-05-30T15:10:35+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu_be494e7ca343e844.png"/>
+<meta name="twitter:title" content="Noxious"/>
+<meta name="twitter:description" content="解压密码为hacktheblue
+
+入侵检测系统（IDS）设备发出警报，提示内部 Active Directory 网络中可能存在恶意设备。该系统还监测到异常的 LLMNR 协议流量，怀疑发生了 LLMNR 投毒攻击。异常流量指向 IP 地址为 172.17.79.136 的 Forela-WKstn002 工作站。作为网络取证专家，您已获得事发时段的部分数据包捕获文件。鉴于事件发生在 Active Directory 虚拟局域网内，建议结合 AD 攻击向量开展网络威胁狩猎，重点关注 LLMNR 投毒攻击。
+Task1 link
+安全团队怀疑 Forela 内网中存在运行 Responder 工具的恶意设备实施 LLMNR 投毒攻击。请定位该恶意设备的 IP 地址。
+LLMNR协议在UDP 5355，所以过滤udp.port==5355
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+能看到172.17.79.135对工作站172.17.79.136的LLMNR查询进行了回应，冒充了dc
+答案就是172.17.79.135
+Task2 link
+被入侵机器的主机名是什么？
+过滤此ip，ip.addr==172.17.79.135，有一个dhcp请求分配动态ip，里面有主机名称
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是kali
+Task3 link
+现在我们需要确认攻击者是否获取了用户哈希值且该哈希可被破解！！被捕获哈希的用户名是什么？
+还是过滤上面的ip，有一条登录cookie数据包，说明攻击者成功破解密码并破解
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是john.deacon
+Task4 link
+在 NTLM 流量中可以看到受害者的凭证被多次中继到攻击者的机器上。这些哈希值首次是在何时被捕获的？
+ntml协议通常使用HTTP、SMB、SMTP，查看协议占比可知smb2占比最多
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+过滤smb2协议
+搜索dcc01，能找到工作站请求NTLM认证。从这里开始进行中间人劫持哈希。
+
+
+
+
+
+
+  
+
+
+
+  
+    
+      
+    
+  
+
+答案是2024-06-24 11:18:30（ 注意是 UTC-0）
+Task5 link
+受害者在访问文件共享时输入了哪个拼写错误导致其凭据泄露？"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -114,20 +322,20 @@
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon ">
+                        <li class="sidebar-dropdown no-icon current active">
                             <button class="btn">
                                 HTB
                             </button>
-                            <div class="sidebar-submenu ">
+                            <div class="sidebar-submenu d-block">
                                 <ul>
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     Sherlock
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
@@ -147,7 +355,7 @@
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/noxious/">Noxious</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="http://localhost:1313/docs/htb/sherlock/noxious/">Noxious</a></li>
                                                             
                                                         
                                                             
@@ -212,7 +420,7 @@
                 
                     
                         
-                        <li class="current">
+                        <li class="">
                             <a class="sidebar-root-link" href="http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/">
                                 
                                 工具箱
@@ -328,10 +536,26 @@
                     <meta itemprop="position" content='1' />
                 </li>
             
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/">
+                        <span itemprop="name">HTB</span>
+                    </a>
+                    <meta itemprop="position" content='2' />
+                </li>
+            
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/htb/sherlock/">
+                        <span itemprop="name">Sherlock</span>
+                    </a>
+                    <meta itemprop="position" content='3' />
+                </li>
+            
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">工具箱</span>
-                <meta itemprop="position" content='2' />
+                <span itemprop="name">Noxious</span>
+                <meta itemprop="position" content='4' />
             </li>
         
     </ul>
@@ -339,35 +563,336 @@
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">On this page</div>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+  </ul>
+</nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
-<nav id="toc-mobile"></nav></div>
-                                        <div class="docs-content col-12  mt-0">
+<nav id="toc-mobile">
+  <ul class="dropdown-menu">
+    <li><a href="#task1">Task1</a></li>
+    <li><a href="#task2">Task2</a></li>
+    <li><a href="#task3">Task3</a></li>
+    <li><a href="#task4">Task4</a></li>
+    <li><a href="#task5">Task5</a></li>
+    <li><a href="#task6">Task6</a></li>
+    <li><a href="#task7">Task7</a></li>
+    <li><a href="#task8">Task8</a></li>
+    <li><a href="#task9">Task9</a></li>
+  </ul>
+</nav></div>
+                                        <div class="docs-content col-12 col-xl-9 mt-0">
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    工具箱
+                                                    Noxious
                                                     
                                                 </h1>
                                             </div>
                                             
                                             <div id="content" class="main-content" >
                                                 
-    <div class="row flex-xl-wrap">
-        
+    
+    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
+        <p>解压密码为hacktheblue</p>
+<blockquote>
+<p>入侵检测系统（IDS）设备发出警报，提示内部 Active Directory 网络中可能存在恶意设备。该系统还监测到异常的 LLMNR 协议流量，怀疑发生了 LLMNR 投毒攻击。异常流量指向 IP 地址为 172.17.79.136 的 Forela-WKstn002 工作站。作为网络取证专家，您已获得事发时段的部分数据包捕获文件。鉴于事件发生在 Active Directory 虚拟局域网内，建议结合 AD 攻击向量开展网络威胁狩猎，重点关注 LLMNR 投毒攻击。</p></blockquote>
+<h2 id="task1">Task1 <a href="#task1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>安全团队怀疑 Forela 内网中存在运行 Responder 工具的恶意设备实施 LLMNR 投毒攻击。请定位该恶意设备的 IP 地址。</p></blockquote>
+<p>LLMNR协议在UDP 5355，所以过滤<code>udp.port==5355</code></p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528102606_13689010289031336426.png" alt="" width="1281" height="387" loading="lazy">
+    
+  
+</p>
+<p>能看到<code>172.17.79.135</code>对工作站<code>172.17.79.136</code>的LLMNR查询进行了回应，冒充了dc
+答案就是172.17.79.135</p>
+<h2 id="task2">Task2 <a href="#task2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>被入侵机器的主机名是什么？</p></blockquote>
+<p>过滤此ip，<code>ip.addr==172.17.79.135</code>，有一个dhcp请求分配动态ip，里面有主机名称</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528104229_1670323005039784775.png" alt="" width="1222" height="762" loading="lazy">
+    
+  
+</p>
+<p>答案是kali</p>
+<h2 id="task3">Task3 <a href="#task3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>现在我们需要确认攻击者是否获取了用户哈希值且该哈希可被破解！！被捕获哈希的用户名是什么？</p></blockquote>
+<p>还是过滤上面的ip，有一条登录cookie数据包，说明攻击者成功破解密码并破解</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528104639_453021421754541288.png" alt="" width="1275" height="100" loading="lazy">
+    
+  
+</p>
+<p>答案是john.deacon</p>
+<h2 id="task4">Task4 <a href="#task4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>在 NTLM 流量中可以看到受害者的凭证被多次中继到攻击者的机器上。这些哈希值首次是在何时被捕获的？</p></blockquote>
+<p>ntml协议通常使用HTTP、SMB、SMTP，查看协议占比可知smb2占比最多</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528110259_14996967385004800203.png" alt="" width="694" height="268" loading="lazy">
+    
+  
+</p>
+<p>过滤smb2协议
+搜索dcc01，能找到工作站请求NTLM认证。从这里开始进行中间人劫持哈希。</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528110555_2985580206487947923.png" alt="" width="1584" height="1009" loading="lazy">
+    
+  
+</p>
+<p>答案是2024-06-24 11:18:30（ 注意是 UTC-0）</p>
+<h2 id="task5">Task5 <a href="#task5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>受害者在访问文件共享时输入了哪个拼写错误导致其凭据泄露？</p></blockquote>
+<p>task1可以看到请求了很多次dcc01
+DCC01</p>
+<h2 id="task6">Task6 <a href="#task6" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>要获取受害用户的实际凭据，我们需要将 NTLM 协商数据包中的多个值拼接起来。NTLM 服务器质询值是多少？</p></blockquote>
+<p>查看这个包，9291，他进行了第一次ntml challenge，是攻击者转发的流量</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528111930_8043432229838299440.png" alt="" width="1699" height="43" loading="lazy">
+    
+  
+</p>
+<p>找到答案</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528112031_9763723682165619949.png" alt="" width="559" height="133" loading="lazy">
+    
+  
+</p>
+<p>答案：601019d191f054f1</p>
+<h2 id="task7">Task7 <a href="#task7" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>现在执行类似操作，找到 NTProofStr 的值。</p></blockquote>
+<p>下一个客户端回复包就有</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528112507_2486979190731366848.png" alt="" width="787" height="90" loading="lazy">
+    
+  
+</p>
+<p>答案：c0cc803a6d9fb5a9082253a04dbd4cd4</p>
+<h2 id="task8">Task8 <a href="#task8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>要测试密码复杂度，可尝试从数据包捕获的信息中恢复密码。这是关键步骤，通过这种方式我们能发现攻击者是否成功破解密码以及破解速度。</p></blockquote>
+<p>组建一个html哈希需要以下几个要素</p>
+<ul>
+<li>用户名：john.deacon</li>
+<li>域名：FORELA</li>
+<li>server challenge：601019d191f054f1</li>
+<li>NTproofstring：c0cc803a6d9fb5a9082253a04dbd4cd4</li>
+<li>NTLMv2回复：去掉NTproofstring</li>
+</ul>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="93cfe59" class="language-ntml ">
+  <code>john.deacon::FORELA:601019d191f054f1:c0cc803a6d9fb5a9082253a04dbd4cd4:010100000000000080e4d59406c6da01cc3dcfc0de9b5f2600000000020008004e0042004600590001001e00570049004e002d00360036004100530035004c003100470052005700540004003400570049004e002d00360036004100530035004c00310047005200570054002e004e004200460059002e004c004f00430041004c00030014004e004200460059002e004c004f00430041004c00050014004e004200460059002e004c004f00430041004c000700080080e4d59406c6da0106000400020000000800300030000000000000000000000000200000eb2ecbc5200a40b89ad5831abf821f4f20a2c7f352283a35600377e1f294f1c90a001000000000000000000000000000000000000900140063006900660073002f00440043004300300031000000000000000000</code>
+  </pre>
+  </div>
+<p>然后使用hashcat破解</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="c4b6fe2" class="language-bash ">
+  <code>hashcat 2 /usr/share/wordlists/rockyou.txt -m 5600 --force</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528113840_2036367808732021311.png" alt="" width="337" height="93" loading="lazy">
+    
+  
+</p>
+<p>得到答案：<code>NotMyPassword0k?</code></p>
+<h2 id="task9">Task9 <a href="#task9" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><blockquote>
+<p>为了更全面地了解事件背景，受害者当时试图访问的具体文件共享是什么？</p></blockquote>
+<p>第一个访问的共享文件夹</p>
+<p>
+
+
+
+
+
+  
+
+
+
+  
+    
+      <img src="/Pasted%20image%2020250528112926_5917755603425682803.png" alt="" width="1399" height="97" loading="lazy">
+    
+  
+</p>
+<p><code>\\DC01\DC-Confidential</code></p>
+<p>参考文章：<a href="https://0xdf.gitlab.io/2024/09/04/htb-sherlock-noxious.html" rel="external" target="_blank">0xdf/HTB Sherlock: Noxious<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
+
     </div>
 
+    
+
+    
                                             </div>
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
+
+	<div class="row flex-xl-nowrap ">
+	<div class="col-sm-6 pt-2 doc-next">
+		<a href="/docs/htb/sherlock/meerkat/">
+			<div class="card h-100 my-1">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Meerkat</p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	<div class="col-sm-6 pt-2 doc-prev">
+		<a class="ms-auto" href="/docs/htb/sherlock/unit42/">
+			<div class="card h-100 my-1 text-end">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">Unit42 <i class="material-icons align-middle">navigate_next</i></p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	</div>
 </div></div>
                                         </div>
                                     </div>
