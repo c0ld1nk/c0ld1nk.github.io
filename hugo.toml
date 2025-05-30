@@ -31,3 +31,7 @@ title = '遥乡书屋'
 #     url = "https://github.com/colinwilson/lotusdocs/discussions"
 #     identifier = "community"
 #     weight = 30
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

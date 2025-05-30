@@ -20,7 +20,7 @@ hero:
   subtitle: "愿您找到想要的书"
 
   image:
-    path: "pic" # path to image under configured assets directory. default 'images'
+    path: "images" # path to image under configured assets directory. default 'images'
     filename: "backgroud-pic1.jpg" # filename of your hero image (including file extension)
     alt: "Lotus Docs Screenshot" # Optional but recommended
     boxShadow: true # default 'false' (excludes .svg images)

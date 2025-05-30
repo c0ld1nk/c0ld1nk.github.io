@@ -2,68 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/docs/ctf/</loc>
+    <loc>https://c0ld1nk.github.io/docs/ctf/</loc>
     <lastmod>2025-05-30T09:45:01+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/htb/</loc>
+    <loc>https://c0ld1nk.github.io/docs/htb/</loc>
     <lastmod>2025-05-30T09:47:45+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/%E6%98%A5%E7%A7%8B%E4%BA%91%E9%95%9C/</loc>
+    <loc>https://c0ld1nk.github.io/docs/%E6%98%A5%E7%A7%8B%E4%BA%91%E9%95%9C/</loc>
     <lastmod>2025-05-30T09:48:05+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/thm/</loc>
+    <loc>https://c0ld1nk.github.io/docs/thm/</loc>
     <lastmod>2025-05-30T09:47:53+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/%E5%85%B6%E4%BD%99%E9%9D%B6%E5%9C%BA/</loc>
+    <loc>https://c0ld1nk.github.io/docs/%E5%85%B6%E4%BD%99%E9%9D%B6%E5%9C%BA/</loc>
     <lastmod>2025-05-30T09:48:21+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/%E5%85%B6%E4%BB%96/</loc>
+    <loc>https://c0ld1nk.github.io/docs/%E5%85%B6%E4%BB%96/</loc>
     <lastmod>2025-05-30T09:48:26+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/bumblebee/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+    <loc>https://c0ld1nk.github.io/docs/htb/sherlock/origins/</loc>
+    <lastmod>2025-05-30T20:22:29+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/campfire-1/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/meerkat/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/noxious/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/unit42/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/</loc>
+    <loc>https://c0ld1nk.github.io/docs/htb/sherlock/</loc>
     <lastmod>2025-05-30T10:59:27+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/htb/sherlock/brutus/</loc>
+    <loc>https://c0ld1nk.github.io/docs/htb/sherlock/brutus/</loc>
     <lastmod>2025-05-30T10:51:07+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/rce/</loc>
+    <loc>https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/rce/</loc>
     <lastmod>2025-05-30T10:12:11+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/</loc>
+    <loc>https://c0ld1nk.github.io/docs/%E5%B7%A5%E5%85%B7%E7%AE%B1/</loc>
     <lastmod>2025-05-30T09:48:13+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>https://c0ld1nk.github.io/docs/</loc>
     <lastmod>2025-05-30T09:46:29+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    <loc>https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
     <lastmod>2025-05-30T09:41:09+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <loc>https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2025-05-29T16:42:05+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/</loc>
+    <loc>https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/</loc>
     <lastmod>2025-05-29T16:38:45+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-30T15:10:35+08:00</lastmod>
+    <loc>https://c0ld1nk.github.io/</loc>
+    <lastmod>2025-05-30T20:22:29+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://c0ld1nk.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://c0ld1nk.github.io/tags/</loc>
   </url>
 </urlset>

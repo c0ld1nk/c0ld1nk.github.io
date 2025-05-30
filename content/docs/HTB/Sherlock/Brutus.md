@@ -18,7 +18,7 @@ toc: true
 >65.2.161.68
 
 
-![](https://m1st0rybucket.oss-cn-beijing.aliyuncs.com/pic/Pasted%20image%2020250423141308.png)
+![](https://gitee.com/inklong/blog-pic/raw/master/images/20250530222308030.png)
 
 # Task2
 >识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。

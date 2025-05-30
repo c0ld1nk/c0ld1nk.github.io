@@ -1,0 +1,38 @@
+{{ $dest := .Destination }}
+{{ $text := .PlainText }}
+{{ $url := urls.Parse $dest }}
+
+{{ if .Title }}
+  <figure>
+    {{ if $url.Scheme }}
+      <!-- 远程图片直接使用原始URL -->
+      <img src="{{ $dest | safeURL }}" alt="{{ $text }}" loading="lazy">
+    {{ else }}
+      <!-- 本地图片使用资源处理 -->
+      {{ with resources.Get $dest }}
+        {{ if eq .MediaType.SubType "svg" }}
+          {{ .Content | safeHTML }}
+        {{ else }}
+          <img src="{{ .RelPermalink | safeURL }}" alt="{{ $text }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+        {{ end }}
+      {{ else }}
+        <img src="{{ $dest | safeURL }}" alt="{{ $text }}" loading="lazy">
+      {{ end }}
+    {{ end }}
+    <figcaption>{{ .Title | markdownify }}</figcaption>
+  </figure>
+{{ else }}
+  {{ if $url.Scheme }}
+    <img src="{{ $dest | safeURL }}" alt="{{ $text }}" loading="lazy">
+  {{ else }}
+    {{ with resources.Get $dest }}
+      {{ if eq .MediaType.SubType "svg" }}
+        {{ .Content | safeHTML }}
+      {{ else }}
+        <img src="{{ .RelPermalink | safeURL }}" alt="{{ $text }}" width="{{ .Width }}" height="{{ .Height }}" loading="lazy">
+      {{ end }}
+    {{ else }}
+      <img src="{{ $dest | safeURL }}" alt="{{ $text }}" loading="lazy">
+    {{ end }}
+  {{ end }}
+{{ end }}

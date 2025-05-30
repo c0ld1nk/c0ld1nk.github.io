@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>其他 on 遥乡书屋</title>
-    <link>http://localhost:1313/docs/%E5%85%B6%E4%BB%96/</link>
+    <link>https://c0ld1nk.github.io/docs/%E5%85%B6%E4%BB%96/</link>
     <description>Recent content in 其他 on 遥乡书屋</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/docs/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://c0ld1nk.github.io/docs/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
