@@ -50,14 +50,14 @@ featureGrid:
       description: 收录ctf比赛的wp与整理的知识点 # 5
       ctaLink: # 6
         text: learn more
-        url: /docs/CTF
+        url: /docs/ctf
 
     - title: HTB
       icon: inbox
       description: 收录HTB的wp
       ctaLink:
         text: learn more
-        url: /docs/HTB
+        url: /docs/htb
     
     - title: 春秋云镜
       icon: cloud
