@@ -6,8 +6,15 @@
     <description>Recent content in Sherlock on 遥乡书屋</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 30 May 2025 20:22:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jun 2025 16:22:12 +0800</lastBuildDate>
     <atom:link href="https://c0ld1nk.github.io/docs/htb/sherlock/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BFT</title>
+      <link>https://c0ld1nk.github.io/docs/htb/sherlock/bft/</link>
+      <pubDate>Sun, 01 Jun 2025 16:22:12 +0800</pubDate>
+      <guid>https://c0ld1nk.github.io/docs/htb/sherlock/bft/</guid>
+      <description>&lt;p&gt;解压密码为hacktheblue&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;MFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;NTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;MFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)&lt;/p&gt;&#xA;&lt;h1 id=&#34;task1&#34;&gt;Task1 &lt;a href=&#34;#task1&#34; class=&#34;anchor&#34; aria-hidden=&#34;true&#34;&gt;&lt;i class=&#34;material-icons align-middle&#34;&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;blockquote&gt;&#xA;&lt;p&gt;西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？&lt;/p&gt;&#xA;&lt;p&gt;Stage-20240213T093324Z-001.zip&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;下载工具&lt;a href=&#34;https://ericzimmerman.github.io/#!index.md&#34; rel=&#34;external&#34; target=&#34;_blank&#34;&gt;MftCmd&lt;svg width=&#34;16&#34; height=&#34;16&#34; viewBox=&#34;0 0 24 24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;path fill=&#34;currentColor&#34; d=&#34;M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z&#34;/&gt;&lt;/svg&gt;&lt;/a&gt;来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Origins</title>
       <link>https://c0ld1nk.github.io/docs/htb/sherlock/origins/</link>

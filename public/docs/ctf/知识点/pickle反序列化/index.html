@@ -320,6 +320,11 @@ b&#39;\x80\x03c__main__\nStudent\n)\x81}(Vname\nVrxz\nVgrade\nVG2\nub.&#39;"/>
                                                         
                                                             
                                                             
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/bft/">BFT</a></li>
+                                                            
+                                                        
+                                                            
+                                                            
                                                                 <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/origins/">Origins</a></li>
                                                             
                                                         
@@ -1766,6 +1771,13 @@ o.
     
     
     
+    
+    
+    
+    
+    
+    
+    
 
 
     
@@ -1829,6 +1841,15 @@ o.
     index.add(
             {
                 id:  6 ,
+                href: "\/docs\/htb\/sherlock\/bft\/",
+                title: "BFT",
+                description: "解压密码为hacktheblue\n在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。\nMFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。\nNTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。\nMFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)\nTask1 link 西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？\nStage-20240213T093324Z-001.zip\n下载工具MftCmd来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)\n",
+                content: "解压密码为hacktheblue\n在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。\nMFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。\nNTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。\nMFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)\nTask1 link 西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？\nStage-20240213T093324Z-001.zip\n下载工具MftCmd来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)\n西蒙用户下载目录下有两个zip文件\n第二个的命名有213，那就是第二个\n或者使用mftcmd转成csv文件再用Time Line Explore搜索zip文件\nTask2 link 检查最初下载的 ZIP 文件的区域标识符内容。该字段显示了文件下载来源的 HostUrl，这是我们调查/分析中重要的入侵指标(IOC)。这个 ZIP 文件的完整下载主机 URL 是什么？\nhttps://storage.googleapis.com/drive-bulk-export-anonymous/20240213T093324.039Z/4133399871716478688/a40aecd0-1cf3-4f88-b55a-e188d5c1c04f/1/c277a8b4-afa9-4d34-b8ca-e1eb5e5f983c?authuser\n什么是区域标识符：下载文件的时候会产生一个数据流Zone.Indentifier，里面包含了文件的来源\n上一题搜索得到的结果下一条就是\nTask3 link 执行恶意代码并连接到 C2 服务器的恶意文件的完整路径和名称是什么？\nC:\\Users\\simon.stark\\Downloads\\Stage-20240213T093324Z-001\\Stage\\invoice\\invoices\\invoice.bat\n可以直接R-Studio找到第一题压缩包解压出来的bat文件\n或者csv接着翻也能看见\n接着搜invoice，得到答案\nTask4 link 分析先前识别文件中$Created0x30 时间戳。该文件是何时被创建在磁盘上的？\n2024-02-13 16:38:39\n这次只能看csv了，bat文件的时间戳\nTask5 link 在许多调查场景中，找到 MFT 记录的十六进制偏移量非常有用。请找出问题 3 中所述暂存器文件的十六进制偏移量。\n16E3000\n条目编号乘1024即可，R-Studio也能看，右键get-info看MFT-number\n23436 * 1024 = 0x16E3000\nTask6 link 每个 MFT 记录的大小为 1024 字节。如果磁盘上的文件小于 1024 字节，它们可以直接存储在 MFT 文件本身中。这些被称为 MFT 常驻文件。在 Windows 文件系统调查期间，查找可能驻留在 MFT 中的任何恶意/可疑文件至关重要。通过这种方式，我们可以找到恶意文件/脚本的内容。请找出问题 3 中识别的恶意暂存器的内容，并以 C2 IP 和端口作为答案。\n43.204.110.203:6666\nR-Studio能直接还原bat文件然后查看\n正常来说是找到偏移地址16E3000之后使用winhex打开源文件，然后跳转到目标偏移就能看见内容了\n"
+            }
+        );
+    index.add(
+            {
+                id:  7 ,
                 href: "\/docs\/htb\/%E9%9D%B6%E5%9C%BA\/boardlight\/",
                 title: "BoardLight",
                 description: "信息搜集 linkip：10.10.11.11 nmap：\nnmap -T4 -A -v ip 访问80端口 除了一个邮箱域名没有别的发现\n将ip和域名添加到hosts文件里，爆破一下子域名\ngobuster vhost -u http://board.htb --append-domain -w C:\\Users\\Administrator\\Desktop\\Dictionary-Of-Pentesting-master\\Subdomain\\wydomain_top3000.txt 将这个也添加到hosts文件 访问发现是登录界面，尝试弱口令\nadmin:admin\n搜索dolibarr 17.0.0的漏洞，找到CVE-2023-30253 https://github.com/dollarboysushil/Dolibarr-17.0.0-Exploit-CVE-2023-30253\n",
@@ -1837,7 +1858,7 @@ o.
         );
     index.add(
             {
-                id:  7 ,
+                id:  8 ,
                 href: "\/docs\/htb\/%E9%9D%B6%E5%9C%BA\/",
                 title: "靶场",
                 description: "",
@@ -1846,7 +1867,7 @@ o.
         );
     index.add(
             {
-                id:  8 ,
+                id:  9 ,
                 href: "\/docs\/htb\/sherlock\/origins\/",
                 title: "Origins",
                 description: "解压密码为hacktheblue\nForela 公司近期发生了一起重大安全事件。攻击者从其内部 S3 存储桶中窃取了约 20GB 数据，并正对该公司实施勒索。在根源分析过程中，一台 FTP 服务器被怀疑是攻击源头。调查发现该服务器同样遭到入侵，部分数据被窃取，进而导致整个网络环境遭受进一步渗透。现提供一份最小化的 PCAP 数据包文件，您的任务是寻找暴力破解和数据外泄的证据。\nTask1 link 攻击者的 IP 地址是什么？ 15.206.185.207\n先过滤ftp协议\n发现就两个ip，一个内网一个公网，答案就是公网的ip\nTask2 link 获取更多关于攻击者的信息至关重要，即使准确性不高。利用攻击者所用 IP 地址的地理定位数据，他们来自哪个城市？ Mumbai\n查询上一题的ip\nTask3 link 备份服务器使用了哪种 FTP 应用程序？请输入完整名称及版本号。（格式：名称 版本） vsFTPd 3.0.5\n前几个数据包就能看见\nTask4 link 攻击者已对服务器发起暴力破解攻击。这次攻击是何时开始的？ 2024-05-03 04:12:54\n很明显的爆破行为，前几个都是一个时间，点卡查看时间转化为UTC即可\nTask5 link 攻击者用于获取访问权限的正确凭证是什么？（格式：用户名:密码） forela-ftp:ftprocks69$\n一直翻数据包，找到有Login successful的 追踪这个数据包就能找到\nTask6 link 攻击者从服务器窃取了文件。用于下载远程文件的 FTP 命令是什么？ RETR\n462号数据包开始\n以二进制模式开始传输数据，下面的FTPdata就是传输的文件\nTask7 link 攻击者成功获取了备份 SSH 服务器的凭证。该 SSH 服务器的密码是什么？ **B@ckup2024!**\n",
@@ -1855,7 +1876,7 @@ o.
         );
     index.add(
             {
-                id:  9 ,
+                id:  10 ,
                 href: "\/docs\/htb\/sherlock\/bumblebee\/",
                 title: "Bumblebee",
                 description: "asdasda",
@@ -1864,7 +1885,7 @@ o.
         );
     index.add(
             {
-                id:  10 ,
+                id:  11 ,
                 href: "\/docs\/htb\/sherlock\/campfire-1\/",
                 title: "Campfire-1",
                 description: "解压密码为hacktheblue\nTask1 link 分析域控制器安全日志，您能否确认发生 Kerberoasting 攻击的具体日期和时间？\n2024-05-21 3:18:09\n这种攻击方式的流程为：\n发现SPN服务 使用工具向 SPN 请求 TGS 票据 转储 .kirbi 或 ccache 或服务 HASH 的 TGS 票据 将 .kirbi 或 ccache 文件转换为可破解格式 使用hashcat等工具配合字典进行暴力破解 也就是要请求tgs票据，id为4769的日志记录此事件 翻找发现mysql服务，别的都是域控服务，大概率就是这个\n转化为utc+0时间\nTask2 link 被攻击的服务名称是什么？\nMSSQLService\n见上一题\nTask3 link 识别发生此活动的工作站至关重要。该工作站的 IP 地址是什么？\n172.17.79.129\n见上一题，日志里有客户端地址\nTask4 link 既然我们已经定位到该工作站，现为您提供包括 PowerShell 日志和预取文件在内的诊断数据，以便深入分析，从而了解该端点上的活动是如何发生的。用于枚举 Active Directory 对象并可能在网络中查找可 Kerberoast 账户的文件名称是什么？\npowerview.ps1\n打开powershell日志，4104为执行命令，依次翻找，找到绕过限制执行ps文件\n那下一条应该就是具体的文件位置\n找到文件路径\nTask5 link 该脚本是何时执行的？\n",
@@ -1873,7 +1894,7 @@ o.
         );
     index.add(
             {
-                id:  11 ,
+                id:  12 ,
                 href: "\/docs\/htb\/sherlock\/meerkat\/",
                 title: "Meerkat",
                 description: "解压密码为hacktheblue\n作为一家快速发展的初创公司，Forela 一直在使用业务管理平台。遗憾的是，我们的文档匮乏，且管理员的安全意识较为薄弱。作为新任安全服务提供商，我们希望您能查看我们导出的部分 PCAP 和日志数据，以确认我们是否遭受（或未遭受）入侵。\nTask1 link 我们怀疑业务管理平台服务器可能已遭入侵。请确认当前运行的应用程序名称？\nBonitasoft\nwireshark-统计-端点-TCP-按照流量包大小排序\n能看见一个外部地址发包最多，其次是内网地址的三个端口，猜测第一个为攻击者ip，8080为服务端口，过滤此端口\nip.dst==172.31.6.44 \u0026\u0026 tcp.port==8080 找到访问记录；\n搜索得知软件名称\nTask2 link 我们相信攻击者可能使用了暴力破解攻击类别的一个子集——所进行的攻击名称是什么？\nCredential Stuffing\n按照info和time排序，找到爆破行为：\n查看\n不像是暴力，更像是撞库\nTask3 link 被利用的漏洞是否分配有 CVE 编号？如果有，是哪一个？\nCVE-2022-25237\n能看见访问了这个路由\n搜索得到编号，CVE-2022-25237\n",
@@ -1882,7 +1903,7 @@ o.
         );
     index.add(
             {
-                id:  12 ,
+                id:  13 ,
                 href: "\/docs\/htb\/sherlock\/noxious\/",
                 title: "Noxious",
                 description: "解压密码为hacktheblue\n入侵检测系统（IDS）设备发出警报，提示内部 Active Directory 网络中可能存在恶意设备。该系统还监测到异常的 LLMNR 协议流量，怀疑发生了 LLMNR 投毒攻击。异常流量指向 IP 地址为 172.17.79.136 的 Forela-WKstn002 工作站。作为网络取证专家，您已获得事发时段的部分数据包捕获文件。鉴于事件发生在 Active Directory 虚拟局域网内，建议结合 AD 攻击向量开展网络威胁狩猎，重点关注 LLMNR 投毒攻击。\nTask1 link 安全团队怀疑 Forela 内网中存在运行 Responder 工具的恶意设备实施 LLMNR 投毒攻击。请定位该恶意设备的 IP 地址。\n172.17.79.135\nLLMNR协议在UDP 5355，所以过滤udp.port==5355\n能看到172.17.79.135对工作站172.17.79.136的LLMNR查询进行了回应，冒充了dc 答案就是172.17.79.135\nTask2 link 被入侵机器的主机名是什么？\nkali\n过滤此ip，ip.addr==172.17.79.135，有一个dhcp请求分配动态ip，里面有主机名称\n答案是kali\nTask3 link 现在我们需要确认攻击者是否获取了用户哈希值且该哈希可被破解！！被捕获哈希的用户名是什么？\njohn.deacon\n还是过滤上面的ip，有一条登录cookie数据包，说明攻击者成功破解密码并破解\n答案是john.deacon\nTask4 link 在 NTLM 流量中可以看到受害者的凭证被多次中继到攻击者的机器上。这些哈希值首次是在何时被捕获的？\n2024-06-24 11:18:30\nntml协议通常使用HTTP、SMB、SMTP，查看协议占比可知smb2占比最多\n过滤smb2协议 搜索dcc01，能找到工作站请求NTLM认证。从这里开始进行中间人劫持哈希。\n答案是2024-06-24 11:18:30（ 注意是 UTC+0）\n",
@@ -1891,7 +1912,7 @@ o.
         );
     index.add(
             {
-                id:  13 ,
+                id:  14 ,
                 href: "\/docs\/htb\/sherlock\/unit42\/",
                 title: "Unit42",
                 description: "解压密码为hacktheblue\n附件是一个evtx文件，windows事件查看器能直接打开 附上sysmon事件id表\nTask1 link 事件 ID 为 11 的日志记录共有多少条？\n56\n筛选就能知道\nTask2 link 每当在内存中创建一个进程时，都会记录一个事件 ID 为 1 的事件，其中包含命令行、哈希值、进程路径、父进程路径等详细信息。这些信息对分析师非常有用，因为它允许我们查看系统上执行的所有程序，这意味着我们可以发现任何正在执行的恶意进程。受害者系统感染的恶意进程是什么？\nC:\\Users\\CyberJunkie\\Downloads\\Preventivo24.02.14.exe.exe\n过滤id位1的事件，第二个的程序不正常\nTask3 link 哪种云盘被用来分发恶意软件？\ndropbox\n查表，22是dns查询，翻id为22的事件，找到一个特殊域名\n确认是云盘\nTask4 link 对于许多写入磁盘的文件，初始恶意文件采用了一种名为“时间戳伪造”的防御规避技术，即更改文件创建日期使其显得更旧，从而与其他文件混为一体。PDF 文件的时间戳被修改为何时？\n2024-01-14 08:10:06.029\n过滤事件id=2，搜索pdf\n日志是2-14号的，做旧就是1-14了\nTask5 link 恶意文件在磁盘上释放了几个文件。“once.cmd\"是在磁盘的哪个位置创建的？请提供包含文件名的完整路径作为答案。\nC:\\Users\\CyberJunkielAppData\\Roaming\\Photo and fax Vn\\Photo and vn 1.1.2\\install\\F97891C\\WindowsVolumel\\Games\\once.cmd\n过滤事件id=11，搜索once.cmd\nTask6 link 该恶意文件尝试连接一个虚拟域名，很可能是为了检测网络连接状态。它试图连接的域名是什么？\nwww.example.com\n",
@@ -1900,7 +1921,7 @@ o.
         );
     index.add(
             {
-                id:  14 ,
+                id:  15 ,
                 href: "\/docs\/htb\/sherlock\/",
                 title: "Sherlock",
                 description: "",
@@ -1909,7 +1930,7 @@ o.
         );
     index.add(
             {
-                id:  15 ,
+                id:  16 ,
                 href: "\/docs\/htb\/sherlock\/brutus\/",
                 title: "Brutus",
                 description: "解压密码为hacktheblue\n在这个非常简单的 Sherlock 任务中，您将熟悉 Unix 系统的 auth.log 和 wtmp 日志。我们将探讨一个 Confluence 服务器通过 SSH 服务遭受暴力破解的场景。攻击者获取服务器访问权限后，还进行了其他活动，这些都可以通过 auth.log 追踪。尽管 auth.log 主要用于暴力破解分析，但在本次调查中，我们将深入挖掘这一日志的全部潜力，包括权限提升、持久化攻击的迹象，甚至部分命令执行的可见性。\nTask1 link 分析 auth.log 日志。攻击者用于实施暴力破解攻击的 IP 地址是什么？\n65.2.161.68\nTask2 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。\nroot\nTask3 link 识别攻击者手动登录服务器以执行其目标的时间戳。登录时间将与认证时间不同，可在 wtmp 记录中找到。\n2024-03-06 06:32:45\n分析wtmp文件即可\nTask4 link SSH 登录会话在登录时会被跟踪并分配一个会话编号。攻击者针对问题 2 中用户账户的会话被分配了哪个会话编号？\n37\nTask5 link 攻击者在服务器上添加了一个新用户作为其持久化策略的一部分，并赋予该新用户账户更高的权限。这个账户的名称是什么？\ncyberjunkie\nTask6 link 用于通过创建新账户实现持久化的 MITRE ATT\u0026CK 子技术 ID 是什么？\n",
@@ -1918,7 +1939,7 @@ o.
         );
     index.add(
             {
-                id:  16 ,
+                id:  17 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/rce\/",
                 title: "RCE",
                 description: "PHP link基本函数 link1.eval()可以将传入的字符串当作php代码执行 解题时常用的指令：phpinfo()查看是否有回显 system()指令用于执行系统命令，如\nsystem('ls'); system('cat'); //记得在每一条指令后面加； 其它函数：\n//具体函数内容查看手册 exec shell_exec passthru popen proc_popen Assert(mixed $assertion,string $description = ?) //会检查assertion，如果是字符串，会被当成php代码执行 Call_user_func(callable $callback …..) //callback是被调用的回调函数 Call_user_func_array(callable $callback) //同上 Creat_function(args,code) //如 \u003c?php error_reporting(0); $new_func = create_function('$a,$b','return \"$a \".\"$b\";');//new_func为函数名，$a $b为参数，后面代码 echo $new_func('hello','hack').\"\\n\"; ?\u003e 连接两个命令\n| || \u0026 \u0026\u0026 ; 绕过 link 简单绕过关键词过滤a=eval($_GET['A'])\u0026A=system 内联执行：cat `ls`，echo $(ls) 使用’‘包裹一组指令 ('ls /') 绕过内置过滤函数\n$url=escapeshellarg($url); $url=escapeshellcmd($url); /* 连用会产生单引号逃逸，传入1' xxx 返回'1'\\\\''XXX\\' \\被转义，还多出来一个' */ 绕过文件名限制\n",
@@ -1927,7 +1948,7 @@ o.
         );
     index.add(
             {
-                id:  17 ,
+                id:  18 ,
                 href: "\/docs\/%E5%B7%A5%E5%85%B7%E7%AE%B1\/",
                 title: "工具箱",
                 description: "",
@@ -1936,7 +1957,7 @@ o.
         );
     index.add(
             {
-                id:  18 ,
+                id:  19 ,
                 href: "\/docs\/",
                 title: "Docs",
                 description: "",
@@ -1945,7 +1966,7 @@ o.
         );
     index.add(
             {
-                id:  19 ,
+                id:  20 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96\/",
                 title: "Pickle反序列化",
                 description: "可被序列化的目标： link None，True，False 整数，浮点数，复数 str，byte，bytearray 只包含可序列化对象的集合：tuple，list，set，dict 定义在模块最外层的函数，指使用def定义的函数，而不是lambda 定义在模块最外层的内置函数 定义在模块最外层的类 __dict__ 属性值或者__getstate__()函数返回值可以被序列化的类 反序列化过程 linkpickle反序列化依靠PVM（Pickle Virtual Machine）进行。 其涉及三个部分：\n解析引擎 存放到栈 存储到内存 解析引擎：从流中读取opcode和参数，对其进行解释处理，直到遇到.停止，最后留在栈顶的值就是反序列化对象。 栈：由list实现，存储临时对象，参数以及对象 内存memo：由dict实现，为PVM的生命周期提供存储，即将反序列化完成的数据以key-value的形式存在memo中以供后面使用。 opcode linkpickle在由不同的实现版本，在py2和3得到的opcode不相同，但各个版本可以向下兼容。目前有六个版本：\nimport pickle a={'1': 1, '2': 2} print(f'# 原变量：{a!r}') for i in range(4): print(f'pickle版本{i}',pickle.dumps(a,protocol=i)) # 原变量：{'1': 1, '2': 2} pickle版本0 b'(dp0\\nV1\\np1\\nI1\\nsV2\\np2\\nI2\\ns.' pickle版本1 b'}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本2 b'\\x80\\x02}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本3 b'\\x80\\x03}q\\x00(X\\x01\\x00\\x00\\x001q\\x01K\\x01X\\x01\\x00\\x00\\x002q\\x02K\\x02u.' pickle版本4 b'\\x80\\x04\\x95\\x11\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94(\\x8c\\x011\\x94K\\x01\\x8c\\x012\\x94K\\x02u.' pickle3版本opcode示例： 原数据：abcd b'\\x80\\x03X\\x04\\x00\\x00\\x00abcdq\\x00.'\n\\x80：协议头声明，读取此字符串后，会再读取一个字节 \\x03：协议版本 \\x04\\x00\\x00\\x00：数据长度：4 abcd数据 q存储在栈顶的字符串长度 \\x00栈顶位置，一个字节 .数据截止 b'\\x80\\x03c__main__\\nStudent\\n)\\x81}(Vname\\nVrxz\\nVgrade\\nVG2\\nub.'\n",
@@ -1954,7 +1975,7 @@ o.
         );
     index.add(
             {
-                id:  20 ,
+                id:  21 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/",
                 title: "知识点",
                 description: "CTF知识点 link如有错误请联系https://github.com/c0ld1nk/\n",
@@ -1963,7 +1984,7 @@ o.
         );
     index.add(
             {
-                id:  21 ,
+                id:  22 ,
                 href: "\/docs\/ctf\/%E7%9F%A5%E8%AF%86%E7%82%B9\/nodejs\/",
                 title: "NodeJs",
                 description: "命令执行 link require('child_process').exec('ls'); //返回值是child_process，不能转字符串 require('child_process').execSync('ls').toString(); //返回值是字符串 require('child_process').spawnSync('ls').stdout.toString();// 返回object，toString转成字符串 //绕过简单的限制 require('child_process')['exe'+'cSync']('ls').toString() 不用child_process读取文件\n__filename //获取当前文件的绝对路径 __dirname //获取当前文件解析过后的文件夹的绝对路径 require('fs').readFileSync(__filename,'utf-8'); //读取当前文件 require('fs').readdirSync('.') //读取当前目录下所有文件 md5 link if(a \u0026\u0026 b \u0026\u0026 a.length===b.length \u0026\u0026 a!==b \u0026\u0026 md5(a+flag)===md5(b+flag)) 传入a[]=1\u0026b[]=2 得到的是[‘1’]和[‘2’] 而nodejs中数组和字符串的拼接如下：\nconsole.log(5+[6,6]); //56,6 console.log(\"5\"+6); //56 console.log(\"5\"+[6,6]); //56,6 console.log(\"5\"+[\"6\",\"6\"]); //56,6 则[‘a’]+flag== ‘a’+flag\n如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:'1'}\nlet a={ x:'1' } console.log(a+\"flag{123}\") //返回的是： [object Object]flag{123} 所以传入a[x]=1\u0026b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。\n原型链污染 link //定义一个类 function Foo() { this.bar = 1 } new Foo() //类内的方法 function Foo() { this.bar = 1 this.show = function() { console.log(this.bar) this.bar=this.bar+1 } } (new Foo()).show() //输出1 //但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上 //使用原型prototype创建类时，就会只创建一次show方法。 function Foo() { this.bar = 1 } Foo.prototype.show = function show() { console.log(this.bar) } let foo = new Foo() foo.show() //输出1 //原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。 //foo对象天生就有show方法 //通过proto属性可以访问类的原型，即： foo.__proto__==Foo.prototype 总结： prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法\n",

